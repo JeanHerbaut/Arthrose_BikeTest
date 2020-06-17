@@ -19,3 +19,5 @@ Route::get('/', function () {
 
 //Robin a modifié ça
 //ça aussi
+
+//Une nouvelle route ouaiiis
