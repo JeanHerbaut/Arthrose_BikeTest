@@ -17,12 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Robin a modifié ça
-//blablabla
-
-//ça aussi
-//Jean a modifié ça
-
-// un changement
-//changement à Jean
-// un changement de merde
+//Du code propre
