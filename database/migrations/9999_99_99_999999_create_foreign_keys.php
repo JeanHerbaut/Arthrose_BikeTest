@@ -30,7 +30,7 @@ class CreateForeignKeys extends Migration
             $table->foreign('city_id')->references('id')->on('cities')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
-            $table->foreign('company')->references('id')->on('companies')
+            $table->foreign('company_id')->references('id')->on('companies')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
         });
@@ -39,7 +39,7 @@ class CreateForeignKeys extends Migration
             $table->foreign('test_schedule_id')->references('id')->on('test_schedules')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
-            $table->foreign('user_id')->references('id')->on('users')
+            $table->foreign('user_id')->references('person_id')->on('users')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
         });
@@ -48,7 +48,7 @@ class CreateForeignKeys extends Migration
             $table->foreign('edition_id')->references('id')->on('editions')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
-            $table->foreign('staff_id')->references('id')->on('staffs')
+            $table->foreign('staff_id')->references('person_id')->on('staffs')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
         });
@@ -57,7 +57,7 @@ class CreateForeignKeys extends Migration
             $table->foreign('product_id')->references('id')->on('products')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
-            $table->foreign('user_id')->references('id')->on('users')
+            $table->foreign('user_id')->references('person_id')->on('users')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
         });
