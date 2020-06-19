@@ -80,6 +80,15 @@ class CreateForeignKeys extends Migration
                 ->onUpdate('restrict');
         });
 
+        Schema::table('group_user', function ($table) {
+            $table->foreign('group_id')->references('id')->on('groups')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
+            $table->foreign('user_id')->references('person_id')->on('users')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
+        });
+
         Schema::table('editions', function($table) {
             $table->foreign('event_id')->references('id')->on('events')->onDelete('restrict')->onUpdate('restrict');
         });
@@ -173,7 +182,10 @@ class CreateForeignKeys extends Migration
 
         Schema::table('products', function(Blueprint $table) {
             $table->dropForeign(['user_id', 'product_id', 'test_schedule_id']);
-            });   
+            });
+        Schema::table('group_user', function(Blueprint $table) {
+            $table->dropForeign(['group_id', 'user_id']);
+            }); 
             
     }
 }
