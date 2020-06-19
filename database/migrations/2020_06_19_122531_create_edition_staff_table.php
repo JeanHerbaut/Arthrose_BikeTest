@@ -17,7 +17,8 @@ class CreateEditionStaffTable extends Migration
             $table->id();
             $table->bigInteger('edition_id')->unsigned();
             $table->bigInteger('staff_id')->unsigned();
-            $table->unique(['edition_id', 'staff_id']);
+            $table->string('jobTitle');
+            $table->unique(['edition_id', 'staff_id', 'jobTitle']);
         });
     }
 
