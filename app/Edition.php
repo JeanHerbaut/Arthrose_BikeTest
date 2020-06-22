@@ -10,13 +10,24 @@ class Edition extends Model
         'place', 'startDate', 'endDate'
     ];
 
-    //belongs to
     public function event() {
         return $this->belongsTo(Event::class);
     }
 
-    //has many
     public function testSchedules() {
         return $this->hasMany(TestSchedule::class);
     }
+
+    public function products() {
+        return $this->belongsToMany(Product::class);
+    }
+
+    public function companies() {
+        return $this->belongsToMany(Company::class);
+    }
+
+    public function staffs() {
+        return $this->belongsToMany(Staff::class)->withPivot('jobTitle');
+    }
+
 }
