@@ -9,6 +9,6 @@ class Functionality extends Model
     protected $fillable = ['name'];
 
     public function groups() {
-        return $this->belongsToMany(Groups::class);
+        return $this->belongsToMany(Group::class);
     }
 }

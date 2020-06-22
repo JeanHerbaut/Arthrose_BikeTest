@@ -37,7 +37,7 @@ class User extends Authenticatable
     }
 
     public function testSchedules() {
-        return $this->belongsToMany(testSchedule::class);
+        return $this->belongsToMany(TestSchedule::class);
     }
 
     public function tests() {

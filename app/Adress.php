@@ -12,7 +12,7 @@ class Adress extends Model
         return $this->hasMany(Person::class);
     }
 
-    public function cities() {
+    public function city() {
         return $this->belongsTo(City::class);
     }
 }
