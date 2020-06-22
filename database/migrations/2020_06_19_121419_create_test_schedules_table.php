@@ -18,6 +18,7 @@ class CreateTestSchedulesTable extends Migration
             $table->dateTime('startTime');
             $table->dateTime('endTime');
             $table->bigInteger('edition_id')->unsigned();
+            $table->unique(['startTime', 'endTime', 'edition_id']);
         });
     }
 

@@ -19,6 +19,7 @@ class CreateEditionsTable extends Migration
             $table->date('startDate');
             $table->date('endDate');
             $table->bigInteger('event_id')->unsigned();
+            $table->unique(['event_id', 'startDate', 'endDate']);
         });
     }
 
