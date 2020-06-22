@@ -8,12 +8,12 @@ class Product extends Model
 {
     protected $fillable = [
         'modelNumber', 
-        'modelName', 
+        'shortDesc',
+        'longDesc',
         'image', 
         'price', 
         'brand_id', 
-        'stock',
-        'available'
+        'stock'
     ];
 
     public function editions() {

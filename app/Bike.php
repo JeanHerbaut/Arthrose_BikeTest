@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Bike extends Model
 {
     protected $fillable = [
-        'size',
+        'product_id', 'size',
         //à compléter après sondage
     ];
 

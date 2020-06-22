@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Ebike extends Model
 {
     protected $fillable = [
+        'bike_id',
         //à compléter
     ];
     

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Vtt extends Model
 {
     protected $fillable = [
+        'bike_id',
         //à compléter
     ];
     
