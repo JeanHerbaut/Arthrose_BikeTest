@@ -8,6 +8,11 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+<<<<<<< HEAD
+=======
+    public $timestamps = false;
+    
+>>>>>>> parent of 398e569... updated User
     use Notifiable;
 
     /**
