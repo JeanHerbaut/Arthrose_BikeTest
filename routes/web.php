@@ -21,4 +21,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/billeterie', 'BilleterieController@rendPage');
+Route::get('/billeterie', 'BilleterieController@displayForm');

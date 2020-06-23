@@ -11,11 +11,11 @@ class User extends Authenticatable
 {
     public $timestamps = false;
     public $incrementing = false;
-    
+
     use Notifiable;
 
     protected $fillable = [
-        'person_id', 'username', 'password', 'company_id', 'email', 'email_verified_at',
+        'id', 'username', 'password', 'company_id', 'email', 'email_verified_at',
     ];
     protected $hidden = [
         'password', 'remember_token',

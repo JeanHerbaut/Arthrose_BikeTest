@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class BilleterieController extends Controller
 {
-    public function rendPage() {
+    public function displayForm() {
         return view('billeterie');
     }
 }
