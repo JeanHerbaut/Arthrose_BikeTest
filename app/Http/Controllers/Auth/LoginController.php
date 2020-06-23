@@ -20,6 +20,11 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
+    
+    //protected $email = $this->person()->email;
+    public function username() {
+        return $this->person()->email;
+    }
 
     /**
      * Where to redirect users after login.

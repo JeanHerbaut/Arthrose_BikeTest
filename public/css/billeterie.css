@@ -1,0 +1,37 @@
+body {
+    max-width: 500px;
+    margin: auto;
+    width: 95%;
+}
+
+div.opt-plage {
+    margin: auto;
+    width: 80%;
+}
+
+button {
+    margin: auto;
+}
+.button {
+margin: auto;
+    width: 80%;
+}
+
+h3 {
+    margin-left: 10%;
+}
+
+input {
+    visibility:hidden;
+}
+
+label {
+    cursor: pointer;
+    border: 1px solid#E3E2E2;
+    padding: 6px;
+    border-radius: 30px;
+}   
+
+input:checked + label {
+    background: #E3E2E2;
+}
