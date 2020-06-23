@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Person extends Model
 {
+    public $timestamps = false;
+
     protected $fillable = ['name', 'firstname', 'phoneNumber', 'email', 'comment', 'adresse_id'];
 
     public function user() {

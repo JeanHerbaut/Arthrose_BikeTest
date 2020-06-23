@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ebike extends Model
 {
+    public $timestamps = false;
+    
     protected $fillable = [
         'bike_id',
         //à compléter
