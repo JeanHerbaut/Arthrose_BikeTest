@@ -23,6 +23,8 @@ class CreateUsersTable extends Migration
             $table->primary('person_id');
 
             $table->string('username')->unique();
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->bigInteger('company_id')->unsigned()->nullable();
