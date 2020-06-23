@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Functionality extends Model
 {
+    public $timestamps = false;
+    
     protected $fillable = ['name'];
 
     public function groups() {

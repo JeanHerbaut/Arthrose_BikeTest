@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bike extends Model
 {
+    public $timestamps = false;
+    
     protected $fillable = ['product_id', 'size'];
 
     public function product() {
