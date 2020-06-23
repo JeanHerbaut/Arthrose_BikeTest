@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class TestSchedule extends Model
 {
+    public $timestamps = false;
+    
     protected $fillable = [
         'startTime',
         'endTime', 

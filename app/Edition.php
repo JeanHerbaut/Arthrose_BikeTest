@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Edition extends Model
 {
+    public $timestamps = false;
+    
     protected $fillable = [
         'place', 'startDate', 'endDate', 'event_id',
     ];

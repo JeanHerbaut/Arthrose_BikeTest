@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Staff extends Model
 {
+    public $timestamps = false;
+    
     protected $fillable = ['person_id'];
 
     public function person() {
