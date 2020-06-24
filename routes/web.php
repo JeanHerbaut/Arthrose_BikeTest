@@ -20,5 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/admin/consultation', 'AdminController@getData');
+/* Admin routes */
+Route::get('/admin/consultation', 'UserController@index');
+Route::get('/admin/modify-user', 'UserController@edit');
+/* Billeterie - Enregistremet user */
 Route::get('/billeterie', 'BilleterieController@displayForm');
