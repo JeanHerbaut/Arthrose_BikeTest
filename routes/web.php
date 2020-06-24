@@ -19,6 +19,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::post('createUserWithTicket', 'UserController@createWithTicket');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/billeterie', 'BilleterieController@displayForm');
