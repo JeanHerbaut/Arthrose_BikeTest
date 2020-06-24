@@ -1,31 +1,40 @@
+/* General */
 body {
     max-width: 500px;
     margin: auto;
     width: 95%;
 }
 
+h3 {
+    margin-left: 10%;
+}
+
+/* buttons */
+.button {
+    display: inline;
+    margin: 20%;
+    padding: 6px;
+    border-radius: 30px;
+    border: 1px solid#E3E2E2;
+    background-color: darkgray;
+}
+
+.nav {
+    margin: auto;
+    padding: 20px;
+    width: 80%;
+}
+/* Schedule select */
 div.opt-plage {
     margin: auto;
     width: 80%;
 }
 
-button {
-    margin: auto;
-}
-.button {
-margin: auto;
-    width: 80%;
-}
-
-h3 {
-    margin-left: 10%;
-}
-
-input {
+div.opt-plage>input {
     visibility:hidden;
 }
 
-label {
+div.opt-plage>label {
     cursor: pointer;
     border: 1px solid#E3E2E2;
     padding: 6px;
@@ -35,3 +44,28 @@ label {
 input:checked + label {
     background: #E3E2E2;
 }
+
+/* identity */
+section#identity>input {
+    display: block;
+}
+  input.form-control {
+    outline: none;
+    border: none;
+    display:block;
+    line-height: 1.2em;
+    font-size: 14pt;
+    border-radius: 25px;
+  }
+  label.form-control-label {
+    display: block;
+    font-size: 12px;
+    padding-left: 10px;
+  }
+
+  .full-input {
+    padding: 3px;
+    border-radius: 25px;
+    border: 2px solid #E3E2E2;
+    margin-top: 10px;
+  }
