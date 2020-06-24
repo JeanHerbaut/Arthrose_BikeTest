@@ -39,7 +39,7 @@ class CreateForeignKeys extends Migration
             $table->foreign('test_schedule_id')->references('id')->on('test_schedules')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
-            $table->foreign('user_id')->references('person_id')->on('users')
+            $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
         });
@@ -57,7 +57,7 @@ class CreateForeignKeys extends Migration
             $table->foreign('product_id')->references('id')->on('products')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
-            $table->foreign('user_id')->references('person_id')->on('users')
+            $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
         });
@@ -84,7 +84,7 @@ class CreateForeignKeys extends Migration
             $table->foreign('group_id')->references('id')->on('groups')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
-            $table->foreign('user_id')->references('person_id')->on('users')
+            $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
         });
@@ -106,7 +106,7 @@ class CreateForeignKeys extends Migration
         });
 
         Schema::table('tests', function($table) {
-            $table->foreign('user_id')->references('person_id')->on('users')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict')->onUpdate('restrict');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('restrict')->onUpdate('restrict');
             $table->foreign('test_schedule_id')->references('id')->on('test_schedules')->onDelete('restrict')->onUpdate('restrict');
         });
@@ -133,7 +133,7 @@ class CreateForeignKeys extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign(['person_id']);
+            $table->dropForeign(['id']);
         });
         Schema::table('company_person', function (Blueprint $table) {
             $table->dropForeign(['company_id']);
