@@ -16,6 +16,6 @@ class EditionSeeder extends Seeder
                 'place' => 'Gryon',
                 'startDate' => '2020-10-02',
                 'endDate' => '2020-10-04',
-                'event_id' => 1]);
+                'event_id' => 2]);
     }
 }
