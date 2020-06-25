@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('vignette');
 });
 
 Auth::routes();
@@ -27,3 +27,12 @@ Route::get('/admin/modify-user', 'UserController@edit');
 Route::get('/billeterie', 'BilleterieController@displayForm');
 
 Route::get('/exposant/catalogue', 'ExposantController@displayCatalogue');
+Auth::routes();
+
+Route::get('/nav', function () {
+    return view('layouts.template');
+});
+
+Route::get('/gestion', function () {
+    return view('gestionTest');
+});
