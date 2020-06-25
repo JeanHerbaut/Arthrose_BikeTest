@@ -81,7 +81,7 @@ class CreateForeignKeys extends Migration
         });
 
         Schema::table('group_user', function ($table) {
-            $table->foreign('group_id')->references('id')->on('groups')
+            $table->foreign('group_name')->references('name')->on('groups')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
             $table->foreign('user_id')->references('id')->on('users')
@@ -184,7 +184,7 @@ class CreateForeignKeys extends Migration
             $table->dropForeign(['user_id', 'product_id', 'test_schedule_id']);
             });
         Schema::table('group_user', function(Blueprint $table) {
-            $table->dropForeign(['group_id', 'user_id']);
+            $table->dropForeign(['group_name', 'user_id']);
             }); 
             
     }

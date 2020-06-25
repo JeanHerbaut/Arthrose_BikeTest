@@ -19,6 +19,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::post('createUserWithTicket', 'UserController@createWithTicket');
+
 Route::get('/home', 'HomeController@index')->name('home');
 /* Admin routes */
 Route::get('/admin/consultation', 'UserController@index');
@@ -27,12 +29,10 @@ Route::get('/admin/modify-user', 'UserController@edit');
 Route::get('/billeterie', 'BilleterieController@displayForm');
 
 Route::get('/exposant/catalogue', 'ExposantController@displayCatalogue');
-Auth::routes();
-
-Route::get('/nav', function () {
-    return view('layouts.template');
-});
 
 Route::get('/gestion', function () {
-    return view('gestionTest');
+    return view('gestionTest');});
+
+Route::get('/', function () {
+    return view('home');
 });

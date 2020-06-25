@@ -2,19 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\UserWithTicketRequest;
+use Illuminate\Support\Facades\Auth;
+
 use App\User;
+use App\Person;
 use App\Company;
 use App\TestSchedule;
-use App\Http\Controllers\CompanyController;
 
 class UserController extends Controller
 {
-    public function index() {
-        $users = User::with('company','testSchedules')
-        ->orderBy('users.username')
-        ->paginate(20);
-        $testSchedules=TestSchedule::all();
+    public function index()
+    {
+        $users = User::with('company', 'testSchedules')
+            ->orderBy('users.username')
+            ->paginate(20);
+        $testSchedules = TestSchedule::all();
         foreach ($users as $user) {
             $user->{'name'} = $user->person->name;
             $user->{'firstname'} = $user->person->firstname;
@@ -26,23 +29,43 @@ class UserController extends Controller
                 array_push($billets, array('schedule' => $day . " - " . $startTime . " : " . $endTime, 'id' => $testSchedule->id));
             }
             $user->{'schedules'} = $billets;
-    
         }
-        
+
         foreach ($testSchedules as $testSchedule) {
             $testSchedule['day'] = date('d/m/Y', strtotime($testSchedule['startTime']));
             $testSchedule['endTime'] = date('H:i', strtotime($testSchedule['endTime']));
             $testSchedule['startTime'] = date('H:i', strtotime($testSchedule['startTime']));
-            
         }
-        return view('adminConsultation', compact('users', 'testSchedules' ));
+        return view('adminConsultation', compact('users', 'testSchedules'));
     }
 
     public function edit()
     {
-    $id = htmlspecialchars($_GET["user_id"]);
-    $user=User::findOrFail($id);
-    $companies=Company::all();
-    return view('adminModifyUser', compact('user', 'companies'));
+        $id = htmlspecialchars($_GET["user_id"]);
+        $user = User::findOrFail($id);
+        $companies = Company::all();
+        return view('adminModifyUser', compact('user', 'companies'));
+    }
+
+    public function createWithTicket(UserWithTicketRequest $request)
+    {
+        $person = Person::create([
+            'name' => $request['name'],
+            'firstname' => $request['firstname'],
+        ]);
+
+        $user = User::create([
+            'id' => $person->id,
+            'username' => $request['username'],
+            'email' => $request['email'],
+            'password' => $request['password'],
+        ]);
+
+        $user->testSchedules()->attach($request['plage']);
+
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt($credentials)) {
+            return redirect()->intended('home');
+        }
     }
 }

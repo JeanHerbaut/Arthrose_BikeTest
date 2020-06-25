@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Group extends Model
 {
     public $timestamps = false;
-    
+    protected $primaryKey = 'name';
     protected $fillable = ['name'];
 
     public function functionalities() {
