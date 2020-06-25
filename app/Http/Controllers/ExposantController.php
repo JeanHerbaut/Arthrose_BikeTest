@@ -30,12 +30,4 @@ class ExposantController extends Controller
         }        
         return view('gestionCatalogue')->with('products', $products);
     }
-
-    public function addProduct() {
-        return "plop";
-    }
-
-    public function displayFormAddProduct() {
-        return view('addProduct.blade.php');
-    }
 }

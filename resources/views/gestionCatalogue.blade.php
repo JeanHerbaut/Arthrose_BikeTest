@@ -12,7 +12,7 @@
         <div id="gestion">
             <input type="text">
             <button id="search-bike">Search</button>
-            <button><a href="{{ url('/exposant/ajouter-un-produit/') }}"></a></button>
+            <button a href="{{route('products.create')}}"></button>
         </div>
         <div id="catalogue">
         @foreach ($products as $product)

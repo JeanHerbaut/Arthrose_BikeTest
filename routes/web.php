@@ -33,8 +33,7 @@ Route::get('/exposant/catalogue', 'ExposantController@displayCatalogue');
 /* Exposants */
 Route::get('/gestion', function () {
     return view('gestionTest');});
-
-Route::get('exposant/ajouter-un-produit','ExposantController@displayFormAddProduct');
+Route::resource('exposant/products', 'ProductController');
 
 Route::get('/', function () {
     return view('home');
