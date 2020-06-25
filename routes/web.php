@@ -25,6 +25,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/gestion', function () {
     return view('gestionTest');
+});
+
 Route::get('/billeterie', 'BilleterieController@displayForm');
 
 Route::get('/', function () {
