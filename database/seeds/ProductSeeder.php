@@ -15,9 +15,9 @@ class ProductSeeder extends Seeder
         for ($i=0; $i < 10; $i++) { 
             DB::table('products')->insert([
                 'modelNumber'=>'1234567' . $i,
-                'shortDesc'=>'Une petite description',
+                'shortDesc'=>'Un vélo' . $i,
                 'longDesc'=>'UNNNNNNNNNNNEE GRAAAAAAAAAAAAAAANDE DESCRRRRRRRRRRRRRRRIPTION',
-                'image'=>'/public/img/bike.png',
+                'image'=>'/img/bike.png',
                 'price'=> rand(1, 3),
                 'brand_id' => '2',
                 'category_id' => rand(1, 2)
@@ -27,9 +27,9 @@ class ProductSeeder extends Seeder
         for ($i=0; $i < 10; $i++) { 
             DB::table('products')->insert([
                 'modelNumber'=>'7654321' . $i,
-                'shortDesc'=>'Une petite description',
+                'shortDesc'=>'Un autre vélo' . $i,
                 'longDesc'=>'UNNNNNNNNNNNEE GRAAAAAAAAAAAAAAANDE DESCRRRRRRRRRRRRRRRIPTION',
-                'image'=>'/public/img/bike.png',
+                'image'=>'/img/bike.png',
                 'price'=> rand(1, 3),
                 'brand_id' => '1',
                 'category_id' => rand(1, 2)

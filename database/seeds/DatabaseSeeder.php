@@ -21,10 +21,12 @@ class DatabaseSeeder extends Seeder
         $this->call(TestScheduleUserSeeder::class);
         $this->call(BrandSeeder::class);
         $this->call(ProductSeeder::class);
-        $this->call(GroupSeeder::class);
+        $this->call(BikeSeeder::class);
+        $this->call(RoleSeeder::class);
         $this->call(FunctionalitySeeder::class);
-        $this->call(Functionality_Group_Seeder::class);
-        $this->call(Group_User_Seeder::class);
+        $this->call(Functionality_Role_Seeder::class);
+        $this->call(Role_User_Seeder::class);
+        $this->call(TestSeeder::class);
 
     }
 }

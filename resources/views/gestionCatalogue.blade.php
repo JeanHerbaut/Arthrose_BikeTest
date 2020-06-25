@@ -10,11 +10,25 @@
     <h1>Gestion catalgue</h1>
     <main>
         <div id="gestion">
-            
+            form>input
         </div>
         <div id="catalogue">
         @foreach ($products as $product)
-        <img src="asset{{$product->image}}">
+        <img src="{{asset($product->image)}}" alt="">
+        {{-- besoin qu'on regarde ensemble cette partie pour l'input de recherche --}}
+        <p data-desc="{{$product->shortDesc}}"><p>
+        <p>{{$product->category}}</p>
+        <p>{{$product->brand->name}}</p>
+        <p>{{$product->rating}}</p>
+        <p>{{$product->nbr_rating}}</p>
+        {{-- prix du produit --}}
+        @if ($product->price == 1) 
+        <p>$</p>
+        @elseif($product->price == 2)
+        <p>$$</p>
+        @else
+        <p>$$$</p>
+        @endif
         @endforeach
         </div>
     </main>
