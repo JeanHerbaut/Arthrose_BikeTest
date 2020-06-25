@@ -20,13 +20,18 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
+    
+    //protected $email = $this->person()->email;
+    public function username() {
+        return 'email';
+    }
 
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = "/";
 
     /**
      * Create a new controller instance.

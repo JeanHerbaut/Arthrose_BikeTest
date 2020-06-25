@@ -18,7 +18,7 @@ class CreatePeopleTable extends Migration
             $table->string('name', 64);
             $table->string('firstname', 64);
             $table->string('phoneNumber', 16)->nullable();
-            $table->string('email', 64)->nullable();
+            $table->string('contact_email', 64)->nullable();
             $table->string('comment')->nullable();
             $table->bigInteger('adress_id')->unsigned()->nullable();
             $table->foreign('adress_id')
