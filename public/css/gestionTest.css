@@ -1,0 +1,56 @@
+.container-test{
+  height: 40vh;
+  width: 80%;
+  margin: 3rem auto;
+  border: 1px solid black;
+  border-radius: 20px;
+  background: rgb(244, 244, 244);
+  overflow: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  position: relative;
+  font-weight: bold;
+}
+
+.wrapper{
+  width: 100%;
+}
+
+.vignette{
+  max-width: min(25%,15rem);
+  background: white;
+  height: 12rem;
+  margin: 1rem 2rem;
+  flex: 1 1 15rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items:center;
+  flex-direction: column;
+
+}
+
+.vignette a{
+  padding: 0.5rem 1rem;
+  background: rgb(128, 195, 130);
+  color: white;
+  font-size: 1rem;
+  margin: 1rem;
+  border-radius: 12px;
+}
+
+div.vignette-end a{
+
+  background: rgb(255, 135, 135);
+
+}
+
+.header-test{
+  padding: 0.5rem 1.5rem;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: gray;
+  color: white;
+}

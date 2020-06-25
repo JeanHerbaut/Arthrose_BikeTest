@@ -107,12 +107,8 @@ a {
 
 section{
   min-height: 100vh;
-  background-color: blue;
 }
 
-section:first-child{
-  background-color: yellow;
-}
 
 .profile-nav {
   position: absolute;
