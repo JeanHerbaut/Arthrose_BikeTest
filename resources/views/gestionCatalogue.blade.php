@@ -12,8 +12,10 @@
         <div id="gestion">
             
         </div>
-        <div id="catalogue">¨
-        
+        <div id="catalogue">
+        @foreach ($brands as $brand)
+        <h2>{{$brand}}</h2>
+        @endforeach
         </div>
     </main>
 </body>

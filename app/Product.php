@@ -15,7 +15,7 @@ class Product extends Model
         'image', 
         'price', 
         'brand_id', 
-        'stock'
+        'category_id'
     ];
 
     public function editions() {
