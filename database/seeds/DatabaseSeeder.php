@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
         /* $this->call(EventSeeder::class); */
         /* $this->call(EditionSeeder::class); */
         /* $this->call(TestScheduleSeeder::class); */
-        $this->call(TestScheduleUserSeeder::class);
+        /* $this->call(TestScheduleUserSeeder::class); */
+        $this->call(BrandSeeder::class);
 
     }
 }

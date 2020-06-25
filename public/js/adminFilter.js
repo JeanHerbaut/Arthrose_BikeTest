@@ -8,7 +8,7 @@ const resetfilter = () => {
   document.getElementById('schedule-select').value = ""
   for (var i = 0, row; row = table.rows[i]; i++) {
     let row = table.getElementsByTagName("tr")[i]
-    row.classList.remove("toggle")
+    row.classList.remove("hide")
   }
 }
 
@@ -19,7 +19,8 @@ const username = () => {
     for (var i = 0, row; row = table.rows[i]; i++) {
       let row = table.getElementsByTagName("tr")[i]
       let user = row.getAttribute('data-username').toUpperCase();
-      if (user != input) { row.classList.toggle("toggle") }
+      if (user != input) row.classList.add("hide") 
+      else row.classList.remove("hide")
     }
   }
 }
@@ -31,7 +32,7 @@ const role = () => {
     for (var i = 0, row; row = table.rows[i]; i++) {
       let row = table.getElementsByTagName("tr")[i]
       let role = row.getAttribute('data-role');
-      if (role != input) { row.classList.toggle("toggle") }
+      if (role != input) { row.classList.toggle("hide") }
     }
   }
 }
@@ -46,27 +47,31 @@ const schedule = () => {
       let username = row.getAttribute('data-username').toUpperCase();
       let billet = row.getAttribute('data-schedule-id')
       if (username != input || billet != schedule) {
-        row.classList.add("toggle")
+        row.classList.add("hide")
       }
     }
   } else if (input.length === 0 && schedule.length > 0) {
-        for (var i = 0, row; row = table.rows[i]; i++) {
-          let row = table.getElementsByTagName("tr")[i]
-          let billet = row.getAttribute('data-schedule-id')
-          if (billet != schedule) {
-            row.classList.add("toggle")
-          }
-        }
+    for (var i = 0, row; row = table.rows[i]; i++) {
+      let row = table.getElementsByTagName("tr")[i]
+      let billet = row.getAttribute('data-schedule-id')
+      if (billet != schedule) {
+        row.classList.add("hide")
+      }
+    }
   }
 }
-  //set filter
-  searchBtn.addEventListener("click", evt => {
-    username()
-    role()
-    schedule()
-  })
+//set filter
+searchBtn.addEventListener("click", evt => {
+  for (var i = 0, row; row = table.rows[i]; i++) {
+    let row = table.getElementsByTagName("tr")[i] 
+    row.classList.remove("hide");
+  }
+  username()
+  role()
+  schedule()
+})
 
-  //reset filters
-  reset.addEventListener("click", evt => {
-    resetfilter()
-  })
+//reset filters
+reset.addEventListener("click", evt => {
+  resetfilter()
+})
