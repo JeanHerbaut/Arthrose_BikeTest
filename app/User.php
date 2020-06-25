@@ -29,8 +29,8 @@ class User extends Authenticatable
         $this->attributes['password'] = Hash::make($password);
     }
 
-    public function groups() {
-        return $this->belongsToMany(Group::class, 'group_user', 'user_id','group_name');
+    public function roles() {
+        return $this->belongsToMany(Role::class, 'role_user', 'user_id','role_name');
     }
 
     public function testSchedules() {

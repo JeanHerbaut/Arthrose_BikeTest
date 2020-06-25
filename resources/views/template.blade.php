@@ -25,7 +25,7 @@
         <li><a href="/billeterie">Billeterie</a> </li>
       </ul>
       @if(Auth::check())
-      <div>Connected as {{Auth::user()->name}}</div>
+      <div>Connected as {{Auth::user()->groups->first()->name}}</div>
       <div class="user-icon online">
         <a href="#"><img src="{{ asset('img/user-icon.svg') }}" alt=""></a>
       </div>
