@@ -48,12 +48,18 @@ const schedule = () => {
       let row = table.getElementsByTagName("tr")[i]
       let username = row.getAttribute('data-username').toUpperCase();
       let billet = row.getAttribute('data-schedule-id')
-      console.log(username, input)
       if (username != input || billet != schedule) {
-        row.classList.toggle("toggle")
-      } else {
+        row.classList.add("toggle")
       }
     }
+  } else if (input.length === 0 && schedule.length > 0) {
+        for (var i = 0, row; row = table.rows[i]; i++) {
+          let row = table.getElementsByTagName("tr")[i]
+          let billet = row.getAttribute('data-schedule-id')
+          if (billet != schedule) {
+            row.classList.add("toggle")
+          }
+        }
   }
 }
   //set filter

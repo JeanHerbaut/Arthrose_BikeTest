@@ -23,9 +23,9 @@
         @foreach ($users as $user)
         @foreach ($user->schedules as $schedule)
         @if ($user->company_id == null)
-        <tr data-role="visiteur" data-username="{{$user->username}}" data-schedule-id="{{$schedule['id']}}">
+        <tr data-role="visiteur" data-username="{{$user->username}}" data-schedule-id="{{$schedule['id']}}" class="row">
             @else
-        <tr data-role="exposant" data-username="{{$user->username}}" data-schedule-id="{{$schedule['id']}}">
+        <tr data-role="exposant" data-username="{{$user->username}}" data-schedule-id="{{$schedule['id']}}" class="row">
             @endif
             <td>{{$user->username}}</td>
             <td>{{$user->firstname}}</td>
