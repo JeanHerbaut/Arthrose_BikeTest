@@ -30,8 +30,11 @@ Route::get('/billeterie', 'BilleterieController@displayForm');
 
 Route::get('/exposant/catalogue', 'ExposantController@displayCatalogue');
 
+/* Exposants */
 Route::get('/gestion', function () {
     return view('gestionTest');});
+
+Route::get('exposant/ajouter-un-produit','ExposantController@displayFormAddProduct');
 
 Route::get('/', function () {
     return view('home');

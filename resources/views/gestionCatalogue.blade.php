@@ -10,13 +10,15 @@
     <h1>Gestion catalgue</h1>
     <main>
         <div id="gestion">
-            form>input
+            <input type="text">
+            <button id="search-bike">Search</button>
+            <button><a href="{{ url('/exposant/ajouter-un-produit/') }}"></a></button>
         </div>
         <div id="catalogue">
         @foreach ($products as $product)
         <img src="{{asset($product->image)}}" alt="">
         {{-- besoin qu'on regarde ensemble cette partie pour l'input de recherche --}}
-        <p data-desc="{{$product->shortDesc}}"><p>
+        <p data-desc="{{$product->shortDesc}}">{{$product->shortDesc}}<p>
         <p>{{$product->category}}</p>
         <p>{{$product->brand->name}}</p>
         <p>{{$product->rating}}</p>
