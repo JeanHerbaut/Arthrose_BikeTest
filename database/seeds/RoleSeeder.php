@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class GroupSeeder extends Seeder
+class RoleSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,17 +11,17 @@ class GroupSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('groups')->delete();
-        DB::table('groups')->insert([
+        DB::table('roles')->delete();
+        DB::table('roles')->insert([
             'name' => 'visitor'
         ]);
-        DB::table('groups')->insert([
+        DB::table('roles')->insert([
             'name' => 'receptionist'
         ]);
-        DB::table('groups')->insert([
+        DB::table('roles')->insert([
             'name' => 'exhibitor'
         ]);
-        DB::table('groups')->insert([
+        DB::table('roles')->insert([
             'name' => 'admin'
         ]);
     }
