@@ -1,13 +1,13 @@
-@extends('templateBilleterie')
+@extends('template')
 
-@section('main')
+@section('content')
 <div class="step">
     <h2>Plage horaire</h2>
     <p>Suivant: Informations</p>
 </div>
 <form method="post" action="/createUserWithTicket" id="schedule">
     @csrf
-    <section id="choix-plage">
+    <div id="choix-plage">
         <div class="description">
             <p>Veuillez sélectionner une seule plage horaire pour l’édition 2020</p>
             <p>Attention : vous ne pouvez sélectionner qu’une seule plage horaire.</p>
@@ -32,9 +32,9 @@
             <div class="button"><span>Retour</span></div>
             <div class="button">Suivant<span></span></div>
         </div>
-    </section>
+    </div>
 
-    <section id="identity">
+    <div id="identity">
         <div class="description">
             <p>Veuillez remplir vos informations personnelles</p>
         </div>
@@ -74,9 +74,9 @@
             <strong>{{ $message }}</strong>
         </span>
         @enderror
-    </section>
+    </div>
 
-    <section id="user-register">
+    <div id="user-register">
         <div class="description">
             <p>Veuillez choisir un nom d’utilisateur ainsi qu’un mot de passe</p>
             <p>Attention : vous aurez besoin de ces informations pendant l’événement </p>
@@ -103,7 +103,7 @@
             <label for="password-confirm" class="form-control-label">Confirmez le mot de passe</label>
             <input type="password" name="password_confirmation" id="password-confirm" class="form-control">
         </div>
-    </section>
+    </div>
     <input type="submit" value="Envoyer">
 </form>
 @endsection

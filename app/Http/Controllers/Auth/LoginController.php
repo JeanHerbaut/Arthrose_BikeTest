@@ -23,7 +23,7 @@ class LoginController extends Controller
     
     //protected $email = $this->person()->email;
     public function username() {
-        return $this->person()->email;
+        return 'email';
     }
 
     /**
