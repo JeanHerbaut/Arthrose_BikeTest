@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UserWithTicketRequest;
 use App\Person;
 use App\User;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -20,11 +20,14 @@ class UserController extends Controller
             'id' => $person->id,
             'username' => $request['username'],
             'email' => $request['email'],
-            'password' => Hash::make($request['password']),
+            'password' => $request['password'],
         ]);
 
         $user->testSchedules()->attach($request['plage']);
         
-        return view('userAdded');
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt($credentials)) {
+            return redirect()->intended('home');
+        }
     }
 }
