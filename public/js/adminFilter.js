@@ -3,18 +3,15 @@ const table = document.getElementById("list-user")
 const searchBtn = document.getElementById("search-username")
 
 const resetfilter = () => {
+  document.getElementById('search').value = ""
+  document.getElementById('person-select').value = ""
+  document.getElementById('schedule-select').value = ""
   for (var i = 0, row; row = table.rows[i]; i++) {
     let row = table.getElementsByTagName("tr")[i]
     row.classList.remove("toggle")
   }
 }
 
-const setBlankClass = () => {
-  for (var i = 0, row; row = table.rows[i]; i++) {
-    let row = table.getElementsByTagName("tr")[i]
-    row.classList.toggle("row")
-  }
-}
 //search username
 const username = () => {
   let input = document.getElementById('search').value.toUpperCase()
