@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form method="post" action="{{route('products.store')}}" >
+    <form method="post" action="{{route('catalogue.store')}}" >
         @csrf
         <select name="categories" id="categories">
             <option value="">Catégorie</option>

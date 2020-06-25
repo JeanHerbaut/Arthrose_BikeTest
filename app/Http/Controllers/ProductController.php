@@ -19,7 +19,24 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $company_id = Auth::user()->company->id;
+        $brand = Brand::findOrFail($company_id);
+        $tests = Test::all();
+        $products = $brand->products;
+        foreach ($products as $product) {
+            $moyenne_rating = 0;
+            $nbr_votes = 0;
+            $product->{'category'} = Category::findOrFail($product->category_id)->name;
+            foreach ($tests as $test) {
+                if ($test->product_id == $product->id) {
+                    $moyenne_rating = $moyenne_rating + $test->rating;
+                    $nbr_votes = $nbr_votes + 1;
+                }
+            }
+            $product->{'nbr_rating'} = $nbr_votes;
+            $product->{'rating'} = $moyenne_rating/2;
+        }        
+        return view('exhibitor/gestionCatalogue')->with('products', $products);
     }
 
     /**
@@ -43,6 +60,7 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
+        /* $image = $request->file($request->image); */
         $product= [
             'modelNumber'=>$request['modelNumber'],
             'shortDesc'=> $request['shortDesc'],
@@ -62,29 +80,10 @@ class ProductController extends Controller
             'distinctive_sign' => $request->distinctive_sign
         ];
         Bike::create($bike);
-        return  $this->displayCatalogue(); 
+        /* dd($image); */
+        return  $this->index(); 
     }
 
-    public function displayCatalogue() {
-        $company_id = Auth::user()->company->id;
-        $brand = Brand::findOrFail($company_id);
-        $tests = Test::all();
-        $products = $brand->products;
-        foreach ($products as $product) {
-            $moyenne_rating = 0;
-            $nbr_votes = 0;
-            $product->{'category'} = Category::findOrFail($product->category_id)->name;
-            foreach ($tests as $test) {
-                if ($test->product_id == $product->id) {
-                    $moyenne_rating = $moyenne_rating + $test->rating;
-                    $nbr_votes = $nbr_votes + 1;
-                }
-            }
-            $product->{'nbr_rating'} = $nbr_votes;
-            $product->{'rating'} = $moyenne_rating/2;
-        }        
-        return view('exhibitor/gestionCatalogue')->with('products', $products);
-    }
 
     /**
      * Display the specified resource.

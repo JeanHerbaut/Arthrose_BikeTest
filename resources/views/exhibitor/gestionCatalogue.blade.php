@@ -12,7 +12,7 @@
         <div id="gestion">
             <input type="text">
             <button id="search-bike">Search</button>
-            <form action="{{route('products.create')}}">
+            <form action="{{route('catalogue.create')}}">
             <button type="submit">Ajouter un vélo</button>
             </form>
         </div>

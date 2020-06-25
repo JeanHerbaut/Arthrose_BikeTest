@@ -32,8 +32,7 @@ Route::get('/billeterie', 'BilleterieController@displayForm');
 /* Exposants */
 Route::get('/gestion', function () {
     return view('gestionTest');});
-Route::resource('exposant/products', 'ProductController');
-Route::get('/exposant/catalogue', ' ProductController@displayCatalogue');
+Route::resource('exposant/catalogue', 'ProductController');
 
 Route::get('/', function () {
     return view('home');
