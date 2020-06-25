@@ -73,6 +73,16 @@
                 "translations",
                 "validations"
             ],
+            "funding": [
+                {
+                    "url": "https://money.yandex.ru/to/410012115955701",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://paypal.me/helldar",
+                    "type": "custom"
+                }
+            ],
             "time": "2020-06-02T07:25:24+00:00"
         },
         {
@@ -191,6 +201,16 @@
                 "symfony",
                 "yii",
                 "yii2"
+            ],
+            "funding": [
+                {
+                    "url": "https://money.yandex.ru/to/410012115955701",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://paypal.me/helldar",
+                    "type": "custom"
+                }
             ],
             "time": "2020-04-23T05:12:45+00:00"
         },

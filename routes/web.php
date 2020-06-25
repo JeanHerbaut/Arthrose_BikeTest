@@ -22,12 +22,17 @@ Auth::routes();
 Route::post('createUserWithTicket', 'UserController@createWithTicket');
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/gestion', function () {
-    return view('gestionTest');
-});
-
+/* Admin routes */
+Route::get('/admin/consultation', 'UserController@index');
+Route::get('/admin/modify-user', 'UserController@edit');
+/* Billeterie - Enregistremet user */
 Route::get('/billeterie', 'BilleterieController@displayForm');
+
+
+/* Exposants */
+Route::get('/gestion', function () {
+    return view('gestionTest');});
+Route::resource('exposant/catalogue', 'ProductController');
 
 Route::get('/', function () {
     return view('home');

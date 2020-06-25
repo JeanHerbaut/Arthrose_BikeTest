@@ -8,7 +8,7 @@ class Bike extends Model
 {
     public $timestamps = false;
     
-    protected $fillable = ['product_id', 'size'];
+    protected $fillable = ['product_id', 'size', 'distinctive_sign'];
 
     public function product() {
         return $this->hasOne(Product::class);
