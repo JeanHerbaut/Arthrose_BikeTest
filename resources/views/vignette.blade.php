@@ -7,7 +7,7 @@
       <div class="container">
 
 <div class="svg-container">
-  <img src="{{ asset('img/bike.png') }}" alt="">
+  <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="">
   <p>e-bike</p>
   <p>$$</p>
   <p>TITANIUM-370X</p>

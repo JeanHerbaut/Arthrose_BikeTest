@@ -10,7 +10,7 @@ body{
 
 .svg-container svg{
   filter: drop-shadow( 0 0 15px rgba(0, 0, 0, .7));
-  
+
 }
 
 .svg-container{
@@ -24,7 +24,7 @@ body{
   padding: 10% 10%;
 }
 
-.svg-container img{
+.svg-container .velo-img{
   z-index: 2;
   position: absolute;
   width: 70%;

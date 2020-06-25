@@ -93,15 +93,12 @@
             </nav>
         @show
 
-        <div class="container">
-            <section>
-
-            </section>
-            <section>
-
-            </section>
-        </div>
+        
         <script src="{{ asset('js/nav.js')}}" type="text/javascript" defer></script>
-@stop
+
+
+<div class="wrapper">
+          @yield('content')
+      </div>
     </body>
 </html>

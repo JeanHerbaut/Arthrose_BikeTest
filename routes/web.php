@@ -26,5 +26,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/nav', function () {
-    return view('template');
+    return view('layouts.template');
+});
+
+Route::get('/gestion', function () {
+    return view('gestionTest');
 });
