@@ -12,7 +12,9 @@
         <div id="gestion">
             <input type="text">
             <button id="search-bike">Search</button>
-            <button a href="{{route('products.create')}}"></button>
+            <form action="{{route('products.create')}}">
+            <button type="submit">Ajouter un vélo</button>
+            </form>
         </div>
         <div id="catalogue">
         @foreach ($products as $product)

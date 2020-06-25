@@ -9,31 +9,35 @@
 </head>
 
 <body>
-    <form action="{{route('products.store')}}" method="post">
+    <form method="post" action="{{route('products.store')}}" >
         @csrf
-        <label for="categories">Catégorie</label>
         <select name="categories" id="categories">
-            {{--         @foreach ($collection as $item)
-            
-        @endforeach --}}
+            <option value="">Catégorie</option>
+        @foreach ($categories as $category)
+            <option value="{{$category->id}}">{{$category->name}}</option>
+        @endforeach
         </select>
         <label for="image">Image</label>
         <input type="file" name="image" id="image">
         <label for="shortDesc">Modèle</label>
         <input type="text" id="shortDesc" name="shortDesc">
         <label for="brand">Marque</label>
-        <input type="text" id="brand" name="brand">
+        <input type="text" id="brand" name="brand" value="{{$brand->id}}">
         <label for="sizes">Taille(s)</label>
         <select name="sizes" id="sizes">
-            <option value="S / 46-47">S / 46-47</option>
-            <option value="M / 48-50">M / 48-50</option>
-            <option value="L / 48-53">L / 48-53</option>
-            <option value="XL / 58-60">XL / 58-60</option>
+            <option value="S">S / 46-47</option>
+            <option value="M">M / 48-50</option>
+            <option value="L">L / 48-53</option>
+            <option value="XL">XL / 58-60</option>
         </select>
         <label for="price">Prix</label>
         <input type="number" id="price" name="price">
         <label for="modelNumber">Numéro de produit</label>
         <input type="number" id="modelNumber" name="modelNumber">
+        <label for="distinctive_sign">Signe distinctif</label>
+        <input type="text" name="distinctive_sign" id="distinctive_sign">
+        <label for="longDesc">Description</label>
+        <textarea name="longDesc" id="longDesc" cols="30" rows="5"></textarea>
         <button type="submit">Ajouter</button>
     </form>
 </body>

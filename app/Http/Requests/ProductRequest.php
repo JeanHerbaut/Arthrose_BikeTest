@@ -23,6 +23,15 @@ class ProductRequest extends FormRequest
      */
     public function rules()
     {
-
+        return [
+            'categories' => 'required',
+            'shortDesc'=> 'required',
+            'longDesc' => 'required', 
+            'price' => 'required',
+            'brand' => 'required',
+            'modelNumber' => ['required', 'unique:products'],
+            'sizes' => 'required',
+            'distinctive_sign' => 'required'
+        ];
     }
 }
