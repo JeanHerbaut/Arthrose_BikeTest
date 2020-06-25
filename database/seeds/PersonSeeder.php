@@ -12,8 +12,21 @@ class PersonSeeder extends Seeder
     public function run()
     {
         DB::table('people')->delete();
-            DB::table('people')->insert([
-                'name' => 'Smith',
-                'firstname' => 'John']);
+        DB::table('people')->insert([
+            'name' => 'Visiteur',
+            'firstname' => 'Jean'
+        ]);
+        DB::table('people')->insert([
+            'name' => 'Admin',
+            'firstname' => 'Jean'
+        ]);
+        DB::table('people')->insert([
+            'name' => 'Exposant',
+            'firstname' => 'Jean'
+        ]);
+        DB::table('people')->insert([
+            'name' => 'Réceptioniste',
+            'firstname' => 'Jean'
+        ]);
     }
 }

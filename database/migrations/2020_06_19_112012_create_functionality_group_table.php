@@ -15,13 +15,13 @@ class CreateFunctionalityGroupTable extends Migration
     {
         Schema::create('functionality_group', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('functionality_id')->unsigned();
-            $table->bigInteger('group_id')->unsigned();
-            $table->unique(['functionality_id', 'group_id']);
-            $table->foreign('functionality_id')->references('id')->on('functionalities')
+            $table->string('functionality_name');
+            $table->string('group_name');
+            $table->unique(['functionality_name', 'group_name']);
+            $table->foreign('functionality_name')->references('name')->on('functionalities')
                     ->onDelete('restrict')
                     ->onUpdate('restrict');
-            $table->foreign('group_id')->references('id')->on('groups')
+            $table->foreign('group_name')->references('name')->on('groups')
                     ->onDelete('restrict')
                     ->onUpdate('restrict');
         });
