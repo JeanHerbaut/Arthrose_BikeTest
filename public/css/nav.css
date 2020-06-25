@@ -58,20 +58,36 @@ a {
 }
 
 /* END GLOBAL STYLES */
-nav {
+
+.desktop {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 3rem;
     box-shadow: 0 0 15px gray;
+    position: relative;
 }
+
+
 
 #logo-container img {
     width: 10rem;
 }
 
-#user-icon img {
+.user-icon img {
     width: 3rem;
+}
+
+.mobile .menu{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.mobile .menu p{
+  font-size: 1.2rem;
 }
 
 #menu {
@@ -82,4 +98,116 @@ nav {
 
 #menu a {
     font-size: var(--menu);
+}
+
+
+.mobile {
+  display: none;
+}
+
+section{
+  min-height: 100vh;
+  background-color: blue;
+}
+
+section:first-child{
+  background-color: yellow;
+}
+
+.profile-nav {
+  position: absolute;
+  top: 100%;
+  right: 0%;
+  background: #464655;
+  clip-path: circle(0px at top right);
+  transition: clip-path ease-in-out 700ms;
+/*   display: none; */
+}
+
+.profile-nav--open {
+  clip-path: circle(250% at top right);
+/*   display: block; */
+}
+
+.profile-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.profile-nav li {
+  border-bottom: 1px solid #575766;
+}
+
+.profile-nav li:last-child {
+  border-bottom: none;
+}
+
+.profile-nav a {
+  color: #EBEBD3;
+  display: block;
+  padding: 1em 2em 1em 0.8em;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+.profile-nav a:hover,
+.profile-nav a:focus {
+  background: #f3f3f3;
+  color: #464655;
+}
+
+.user-icon {
+  cursor: pointer;
+}
+
+
+
+@media (max-width: 700px){
+
+  nav{
+    z-index: 2;
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 0 15px gray;
+  }
+
+  #logo-container{
+    display: none;
+  }
+
+  .desktop{
+    display: none;
+  }
+
+  .mobile{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+  }
+
+  .mobile img{
+    width: 4rem;
+  }
+
+  .mobile .menu {
+    flex:1;
+    border-right: 0.3px solid gray;
+  }
+  .mobile .menu:last-child{
+    border: none;
+  }
+
+  .profile-nav {
+    position: absolute;
+    bottom: 100%;
+    right: 0%;
+  /*   display: none; */
+  }
+
+
+
 }
