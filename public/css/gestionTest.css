@@ -27,7 +27,8 @@
   justify-content: flex-end;
   align-items:center;
   flex-direction: column;
-
+  border-radius: 12px;
+  filter: drop-shadow( 0 0 15px rgba(0, 0, 0, .3));
 }
 
 .vignette a{
@@ -40,9 +41,7 @@
 }
 
 div.vignette-end a{
-
   background: rgb(255, 135, 135);
-
 }
 
 .header-test{
@@ -53,4 +52,103 @@ div.vignette-end a{
   width: 100%;
   background: gray;
   color: white;
+  z-index: 1;
+}
+
+/* POPUP */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 3; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #f4f4f4;
+  margin: 5% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 70rem; /* Could be more or less, depending on screen size */
+  height: 75%;
+  border-radius: 10rem;
+  display: flex;
+  position: relative;
+}
+
+.wrapper-left{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.wrapper-left img{
+  width: 10rem;
+}
+
+.wrapper-left p:nth-of-type(2){
+  font-size: 1.2rem;
+}
+.wrapper-left p:nth-of-type(3){
+  font-size: 1.2rem;
+}
+
+.wrapper-left p span{
+  font-size: 2rem;
+}
+
+.wrapper-right{
+  flex: 1;
+}
+
+.close {
+  color: #aaa;
+  font-size: 4rem;
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-content span, .modal-content > p{
+  margin-right: 4rem;
+  margin-left: 2.8rem;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.vignette-test{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: white;
+  max-height: 15rem;
+  margin: 1rem 2rem;
+  flex: 1 1 15rem;
+  border-radius: 12px;
+  filter: drop-shadow( 0 0 15px rgba(0, 0, 0, .3));
+  padding: 1rem;
+}
+
+.vignette-test img{
+  align-self: center;
+}
+
+.vignette-test p{
+  font-size: 1.3rem;
+  text-align: left;
 }

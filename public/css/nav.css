@@ -66,6 +66,7 @@ a {
     padding: 1rem 3rem;
     box-shadow: 0 0 15px gray;
     position: relative;
+    min-height: 8vh;
 }
 
 
@@ -106,7 +107,7 @@ a {
 }
 
 section{
-  min-height: 100vh;
+  min-height: 88vh;
 }
 
 
@@ -118,6 +119,7 @@ section{
   clip-path: circle(0px at top right);
   transition: clip-path ease-in-out 700ms;
 /*   display: none; */
+  z-index: 3;
 }
 
 .profile-nav--open {
