@@ -1,0 +1,33 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background: yellow;
+}
+
+.svg-container svg{
+  filter: drop-shadow( 0 0 15px rgba(0, 0, 0, .7));
+  
+}
+
+.svg-container{
+  position: relative;
+  padding: 20px 30px 0 0;
+  width: min(50%, 15rem);
+  background: blue;
+}
+
+.container{
+  padding: 10% 10%;
+}
+
+.svg-container img{
+  z-index: 2;
+  position: absolute;
+  width: 70%;
+  top: 0;
+  right: 0;
+}

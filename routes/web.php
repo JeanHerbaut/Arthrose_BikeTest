@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('vignette');
 });
 
 Auth::routes();
@@ -24,3 +24,7 @@ Route::post('createUserWithTicket', 'UserController@createWithTicket');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/billeterie', 'BilleterieController@displayForm');
+
+Route::get('/', function () {
+    return view('home');
+});
