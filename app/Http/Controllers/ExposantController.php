@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class ExposantController extends Controller
 {
     public function displayCatalogue() {
-        $brands = Auth::user()->id;
+        $brands = Auth::user()->company->brands;
         dd($brands);
 /*         $users = User::with('products', 'company', 'brands')
         ->orderBy('brands.name')
