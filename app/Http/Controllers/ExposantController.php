@@ -1,8 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\User;
-use App\Products;
+use App\Brand;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
@@ -10,11 +9,9 @@ use Illuminate\Support\Facades\Auth;
 class ExposantController extends Controller
 {
     public function displayCatalogue() {
-        $brands = Auth::user()->company->brands;
-        dd($brands);
-/*         $users = User::with('products', 'company', 'brands')
-        ->orderBy('brands.name')
-        ->paginate(20);;
-        return view('gestionCatalogue')->with('brands', $users); */
+        $company_id = Auth::user()->company->id;
+        $brand = Brand::findOrFail($company_id);
+        $products = $brand->products;
+        return view('gestionCatalogue')->with('products', $products);
     }
 }

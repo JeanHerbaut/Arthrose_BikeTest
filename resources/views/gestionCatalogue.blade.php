@@ -13,8 +13,8 @@
             
         </div>
         <div id="catalogue">
-        @foreach ($brands as $brand)
-        <h2>{{$brand}}</h2>
+        @foreach ($products as $product)
+        <img src="asset{{$product->image}}">
         @endforeach
         </div>
     </main>
