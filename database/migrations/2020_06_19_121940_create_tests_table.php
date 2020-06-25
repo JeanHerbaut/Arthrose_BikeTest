@@ -23,6 +23,7 @@ class CreateTestsTable extends Migration
             $table->bigInteger('test_schedule_id')->unsigned();
             $table->bigInteger('product_id')->unsigned();
             $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('bike_id')->unsigned();
             $table->unique(['user_id', 'product_id', 'startTime']);
         });
     }

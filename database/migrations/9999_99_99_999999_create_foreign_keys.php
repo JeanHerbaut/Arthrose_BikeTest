@@ -103,12 +103,14 @@ class CreateForeignKeys extends Migration
 
         Schema::table('products', function($table) {
             $table->foreign('brand_id')->references('id')->on('brands')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('restrict')->onUpdate('restrict');
         });
 
         Schema::table('tests', function($table) {
             $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict')->onUpdate('restrict');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('restrict')->onUpdate('restrict');
             $table->foreign('test_schedule_id')->references('id')->on('test_schedules')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('bike_id')->references('id')->on('bikes')->onDelete('restrict')->onUpdate('restrict');
         });
 
         Schema::table('bikes', function($table) {
