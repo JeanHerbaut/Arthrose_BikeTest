@@ -10,7 +10,7 @@ class Functionality extends Model
     
     protected $fillable = ['name'];
 
-    public function groups() {
-        return $this->belongsToMany(Group::class);
+    public function roles() {
+        return $this->belongsToMany(Role::class);
     }
 }

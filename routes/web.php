@@ -19,16 +19,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
+Route::post('createUserWithTicket', 'UserController@createWithTicket');
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/nav', function () {
-    return view('layouts.template');
-});
 
 Route::get('/gestion', function () {
     return view('gestionTest');
+Route::get('/billeterie', 'BilleterieController@displayForm');
+
+Route::get('/', function () {
+    return view('home');
 });
