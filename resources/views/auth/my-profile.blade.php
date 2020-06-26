@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.template')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Bike Test - Gryon</title>
-</head>
-
-<body>
+@section('content')
     <form action="/profil" method="post">
         @csrf
         <label for="username">Nom d'utlisateur</label>
@@ -48,7 +40,6 @@
     </form>
     <button id="cancel" hidden>Annuler</button>
     <button id="modify">Modifier mes infos</button>
-</body>
 <script>
     const btn_modify = document.getElementById('modify')
     const btn_cancel = document.getElementById('cancel')   
@@ -78,4 +69,4 @@
     )
 </script>
 
-</html>
+@endsection

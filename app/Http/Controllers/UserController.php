@@ -67,6 +67,7 @@ class UserController extends Controller
         $user->username = $request['username'];
         $person->save();
         $user->save();
+        return redirect('/profil');
     }
  
     public function createWithTicket(UserWithTicketRequest $request) {

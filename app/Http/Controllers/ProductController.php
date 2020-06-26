@@ -20,7 +20,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $this->authorize('manageProducts', Product::class);
+        $this->authorize('manage', Product::class);
         $company_id = Auth::user()->company->id;
         $brand = Brand::findOrFail($company_id);
         $brandName = $brand->name;
@@ -51,7 +51,7 @@ class ProductController extends Controller
                         'brand' => $brandName,
                         'deleted_at' => $bike->deleted_at,
                         'size' => $bike->size,
-                        'dinstictive_sign' => $bike->distinctive_sign,
+                        'distinctive_sign' => $bike->distinctive_sign,
                         'rating' => $moyenne_rating/2,
                         'nbr_rating' => $nbr_votes
                     ]);

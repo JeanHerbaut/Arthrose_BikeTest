@@ -22,9 +22,8 @@ class BikeController extends Controller
                 'price'=>$request['price'],
                 'brand_id' => Brand::where('name', $request['brand'])->first()['id'],
                 'category_name' => $request['categories'],
-                'image' => $path
+                'image' => '/storage/img/'.'img'.$request['nModel']. '.'. $extension
             ];
-            dd($path);
             $product = Product::create($product);
         }
 
