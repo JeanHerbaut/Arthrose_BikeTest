@@ -128,9 +128,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($id) {
+        $product = Bike::findOrFail($id)->delete();
+        return redirect()->back();
     }
 
     public function fullCatalogue() {
