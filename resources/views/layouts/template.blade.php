@@ -68,6 +68,13 @@
             </a>
           </li>
           @endcan
+          @can('manage', App\Product::class)
+          <li>
+            <a href="/exposant/catalogue">
+              Gestion du catalogue
+            </a>
+          </li>
+          @endcan
           <li>
             <form method="post" action="/logout">
               @csrf

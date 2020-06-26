@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductRequest;
+use Illuminate\Http\Request;
 use App\Category;
 use App\Brand;
 use App\Product;
@@ -19,7 +20,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $this->authorize('manageProducts', Product::class);
+        $this->authorize('manage', Product::class);
         $company_id = Auth::user()->company->id;
         $brand = Brand::findOrFail($company_id);
         $brandName = $brand->name;
@@ -50,7 +51,7 @@ class ProductController extends Controller
                         'brand' => $brandName,
                         'deleted_at' => $bike->deleted_at,
                         'size' => $bike->size,
-                        'dinstictive_sign' => $bike->distinctive_sign,
+                        'distinctive_sign' => $bike->distinctive_sign,
                         'rating' => $moyenne_rating/2,
                         'nbr_rating' => $nbr_votes
                     ]);
@@ -68,6 +69,7 @@ class ProductController extends Controller
      */
     public function create()
     {
+        $this->authorize('manage', Product::class);
         $categories = Category::all();
         $company_id = Auth::user()->company->id;
         $brand = Brand::findOrFail($company_id);
@@ -82,41 +84,19 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        $extension = $request->file('image')->getClientOriginalExtension();
-        $image = $request->image->storeAs('img', 'img'.$request->modelNumber . '.'. $extension); 
-        $product= [
-            'modelNumber'=>$request['modelNumber'],
-            'shortDesc'=> $request['shortDesc'],
-            'longDesc'=>$request['longDesc'],
-            'price'=>$request['price'],
-            'brand_id' => $request['brand'],
-            'category_id' => $request['categories'],
-            'image' => 'storage/img/'.'img'.$request->modelNumber. '.'. $extension
-        ];
-        Product::create($product);
-        $products = Product::all();
-        foreach ($products as $product) {
-            if($product->modelNumber == $request['modelNumber']) $product_id = $product->id;
-        }
-        $bike = [
-            'product_id' => $product_id,
-            'size' => $request->sizes,
-            'distinctive_sign' => $request->distinctive_sign
-        ];
-        Bike::create($bike);
-        return  $this->index(); 
+        
     }
 
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
+    }
+
+    public function postModelNumber(Request $request)
+    {
+        $product = Product::where('modelNumber', $request->modelnumber)->first();
+        return (response()->json(['product'=>$product ]));
+        
     }
 
     /**
