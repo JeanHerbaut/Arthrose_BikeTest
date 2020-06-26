@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
+    use SoftDeletes;
     public $timestamps = false;
     
     protected $fillable = [
@@ -15,7 +17,8 @@ class Product extends Model
         'image', 
         'price', 
         'brand_id', 
-        'stock'
+        'category_id',
+        'deleted_at',
     ];
 
     public function editions() {

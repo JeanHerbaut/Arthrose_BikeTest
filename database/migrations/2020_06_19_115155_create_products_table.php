@@ -20,8 +20,9 @@ class CreateProductsTable extends Migration
             $table->text('longDesc');
             $table->string('image')->nullable();
             $table->string('price', 128);
-            $table->integer('stock');
+            $table->bigInteger('category_id')->unsigned();
             $table->bigInteger('brand_id')->unsigned();
+            $table->softDeletes();
         });
     }
 

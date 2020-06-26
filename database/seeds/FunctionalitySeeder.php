@@ -19,7 +19,7 @@ class FunctionalitySeeder extends Seeder
             'name' => 'viewMyProfile'
         ]);
         DB::table('functionalities')->insert([
-            'name' => 'viewMyBikes'
+            'name' => 'viewMyProducts'
         ]);
         DB::table('functionalities')->insert([
             'name' => 'viewUsers'
@@ -34,7 +34,7 @@ class FunctionalitySeeder extends Seeder
             'name' => 'manageTests'
         ]);
         DB::table('functionalities')->insert([
-            'name' => 'manageBikes'
+            'name' => 'manageProducts'
         ]);
     }
 }
