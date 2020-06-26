@@ -27,6 +27,9 @@ Route::get('/admin/consultation', 'UserController@index');
 Route::get('/admin/modify-user', 'UserController@edit');
 /* Billeterie - Enregistremet user */
 Route::get('/billeterie', 'BilleterieController@displayForm');
+/* User profile */
+Route::get('/profil', 'UserController@show');
+Route::post('/profil', 'UserController@updateProfile');
 
 
 /* Exposants */

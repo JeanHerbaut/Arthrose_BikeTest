@@ -22,22 +22,42 @@ class ProductController extends Controller
         $this->authorize('manageProducts', Product::class);
         $company_id = Auth::user()->company->id;
         $brand = Brand::findOrFail($company_id);
+        $brandName = $brand->name;
         $tests = Test::all();
         $products = $brand->products;
+        $bikes = Bike::aLL();
+        $productBikes = [];
         foreach ($products as $product) {
             $moyenne_rating = 0;
             $nbr_votes = 0;
-            $product->{'category'} = Category::findOrFail($product->category_id)->name;
             foreach ($tests as $test) {
                 if ($test->product_id == $product->id) {
                     $moyenne_rating = $moyenne_rating + $test->rating;
                     $nbr_votes = $nbr_votes + 1;
                 }
             }
-            $product->{'nbr_rating'} = $nbr_votes;
-            $product->{'rating'} = $moyenne_rating/2;
+            foreach ($bikes as $bike) {
+                if ($bike->product_id == $product->id) {
+                    array_push($productBikes, [
+                        'id' => $bike->id,
+                        'product_id' => $product->id,
+                        'shortDesc' => $product->shortDesc,
+                        'longDesc' => $product->longDesc,
+                        'image' => $product->image,
+                        'price' => $product->price,
+                        'category' => $product->category_name,
+                        'brand_id' => $product->brand_id, 
+                        'brand' => $brandName,
+                        'deleted_at' => $bike->deleted_at,
+                        'size' => $bike->size,
+                        'dinstictive_sign' => $bike->distinctive_sign,
+                        'rating' => $moyenne_rating/2,
+                        'nbr_rating' => $nbr_votes
+                    ]);
+                }
+            }
         }        
-        return view('exhibitor/gestionCatalogue')->with('products', $products);
+        return view('exhibitor/gestionCatalogue')->with('bikes', $productBikes);
     
     }
 

@@ -37,7 +37,7 @@
             @else
             <td>{{$user->company->name}}</td>
             @endif
-            <td><a href="http://127.0.0.1:8000/admin/modify-user?user_id={{$user->id}}"><button>Modifier</button></a>
+            <td><a href="{{url('/admin/modify-user?user_id='.$user->id)}}"><button>Modifier</button></a>
             </td>
             <td><button>Supprimer</button></td>
         </tr>

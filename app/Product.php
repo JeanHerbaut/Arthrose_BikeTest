@@ -29,8 +29,8 @@ class Product extends Model
         return $this->hasMany(Test::class);
     }
 
-    public function bike() {
-        return $this->hasOne(Bike::class);
+    public function bikes() {
+        return $this->hasMany(Bike::class);
     }
 
     public function brand() {
@@ -39,5 +39,9 @@ class Product extends Model
 
     public function isFavouriteOf() {
         return $this->belongsToMany(User::class);
+    }
+
+    public function category() {
+        return $this->belongsTo(Category::class);
     }
 }
