@@ -62,14 +62,16 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        /* $image = $request->file($request->image); */
+        $extension = $request->file('image')->getClientOriginalExtension();
+        $image = $request->image->storeAs('img', 'img'.$request->modelNumber . '.'. $extension); 
         $product= [
             'modelNumber'=>$request['modelNumber'],
             'shortDesc'=> $request['shortDesc'],
             'longDesc'=>$request['longDesc'],
             'price'=>$request['price'],
             'brand_id' => $request['brand'],
-            'category_id' => $request['categories']
+            'category_id' => $request['categories'],
+            'image' => 'storage/img/'.'img'.$request->modelNumber. '.'. $extension
         ];
         Product::create($product);
         $products = Product::all();
@@ -82,7 +84,6 @@ class ProductController extends Controller
             'distinctive_sign' => $request->distinctive_sign
         ];
         Bike::create($bike);
-        /* dd($image); */
         return  $this->index(); 
     }
 
@@ -130,5 +131,9 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function fullCatalogue() {
+
     }
 }
