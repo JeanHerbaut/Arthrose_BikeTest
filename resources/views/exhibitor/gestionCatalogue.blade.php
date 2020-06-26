@@ -33,6 +33,11 @@
         @else
         <p>$$$</p>
         @endif
+        <form method="POST" action="{{route('catalogue.destroy', [$product->id])}}" accept-charset="UTF-8">
+            @csrf
+            @method('DELETE')
+            <input onclick="return confirm('Vraiment supprimer ce produit ?')" type="submit" value="Supprimer ce produit">
+        </form>
         @endforeach
         </div>
     </main>
