@@ -43,7 +43,7 @@
 
         <ul class="dropdown-menu">
           <li>
-          <a href="{{url('/mon-profil')}}">
+          <a href="/profil">
               Mon profil
             </a>
           </li>
