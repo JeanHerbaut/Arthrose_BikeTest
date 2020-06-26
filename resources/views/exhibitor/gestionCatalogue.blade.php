@@ -17,23 +17,23 @@
             </form>
         </div>
         <div id="catalogue">
-        @foreach ($products as $product)
-        <img src="{{asset($product->image)}}" alt="">
+        @foreach ($bikes as $bike)
+        <img src="{{asset($bike['image'])}}" alt="">
         {{-- besoin qu'on regarde ensemble cette partie pour l'input de recherche --}}
-        <p data-desc="{{$product->shortDesc}}">{{$product->shortDesc}}<p>
-        <p>{{$product->category}}</p>
-        <p>{{$product->brand->name}}</p>
-        <p>{{$product->rating}}</p>
-        <p>{{$product->nbr_rating}}</p>
+        <p data-desc="{{$bike['shortDesc']}}">{{$bike['shortDesc']}}<p>
+        <p>{{$bike['category']}}</p>
+        <p>{{$bike['brand']}}</p>
+        <p>{{$bike['rating']}}</p>
+        <p>{{$bike['nbr_rating']}}</p>
         {{-- prix du produit --}}
-        @if ($product->price == 1) 
+        @if ($bike['price'] == 1) 
         <p>$</p>
-        @elseif($product->price == 2)
+        @elseif($bike['price'] == 2)
         <p>$$</p>
         @else
         <p>$$$</p>
         @endif
-        <form method="POST" action="{{route('catalogue.destroy', [$product->id])}}" accept-charset="UTF-8">
+        <form method="POST" action="{{route('catalogue.destroy', [$bike['id']])}}" accept-charset="UTF-8">
             @csrf
             @method('DELETE')
             <input onclick="return confirm('Vraiment supprimer ce produit ?')" type="submit" value="Supprimer ce produit">

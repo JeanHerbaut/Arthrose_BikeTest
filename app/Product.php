@@ -29,8 +29,8 @@ class Product extends Model
         return $this->hasMany(Test::class);
     }
 
-    public function bike() {
-        return $this->hasOne(Bike::class);
+    public function bikes() {
+        return $this->hasMany(Bike::class);
     }
 
     public function brand() {

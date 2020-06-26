@@ -48,6 +48,13 @@ class UserController extends Controller
         return view('adminModifyUser', compact('user', 'companies'));
     }
 
+    public function show() {
+        $id = Auth::user()->id;
+        $user = User::findOrFail($id);
+        return view('auth/myProfile')->with('user', $user);
+    }
+
+
     public function createWithTicket(UserWithTicketRequest $request) {
         $person = Person::create([
             'name' => $request['name'],
