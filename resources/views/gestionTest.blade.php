@@ -19,7 +19,7 @@
                     </div>
                     <p>Le test commence à: </br>
                         <span>14:36</span></p>
-                    <p>Le test commence à: </br>
+                    <p>Le test se termine à: </br>
                         <span>15:06</span></p>
                 </div>
                 <div class="wrapper-right">
