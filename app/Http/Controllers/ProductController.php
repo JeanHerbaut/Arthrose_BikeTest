@@ -19,7 +19,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        if(Auth::check()) {
+        $this->authorize('manageProducts', Product::class);
         $company_id = Auth::user()->company->id;
         $brand = Brand::findOrFail($company_id);
         $tests = Test::all();
@@ -38,7 +38,7 @@ class ProductController extends Controller
             $product->{'rating'} = $moyenne_rating/2;
         }        
         return view('exhibitor/gestionCatalogue')->with('products', $products);
-    }
+    
     }
 
     /**
