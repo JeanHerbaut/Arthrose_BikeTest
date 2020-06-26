@@ -34,6 +34,8 @@ Route::get('/gestion', function () {
     return view('gestionTest');});
 Route::resource('exposant/catalogue', 'ProductController');
 
+Route::get('/gestion-utilisateurs', 'UserController@index');
+
 Route::get('/', function () {
     return view('home');
 });

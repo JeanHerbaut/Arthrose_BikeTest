@@ -8,6 +8,7 @@ class Role extends Model
 {
     public $timestamps = false;
     protected $primaryKey = 'name';
+    public $incrementing = false;
     protected $fillable = ['name'];
 
     public function functionalities() {
