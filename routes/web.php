@@ -29,6 +29,8 @@ Route::get('/gestion', function () {
 
 Route::get('/billeterie', 'BilleterieController@displayForm');
 
+Route::get('/gestion-utilisateurs', 'UserController@index');
+
 Route::get('/', function () {
     return view('home');
 });

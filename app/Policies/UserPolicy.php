@@ -9,6 +9,10 @@ class UserPolicy
 {
     use HandlesAuthorization;
 
+    public function viewMyTicket(User $user){
+        return in_array('viewMyTicket', $user->roles->first()->functionalities->pluck('name')->toArray());
+    }
+
     public function manage(User $user){
         return in_array('manageUsers', $user->roles->first()->functionalities->pluck('name')->toArray());
     }

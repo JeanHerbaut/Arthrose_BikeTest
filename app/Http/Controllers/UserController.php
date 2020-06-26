@@ -4,12 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\UserWithTicketRequest;
-use App\Person;
 use App\User;
+use App\Person;
 use Illuminate\Support\Facades\Auth;
+use App\Policies\UserPolicy;
 
 class UserController extends Controller
 {
+    public function index(User $user) {
+        $this->authorize('manage', User::class);
+        return "liste des users";
+    }
+
     public function createWithTicket(UserWithTicketRequest $request) {
         $person = Person::create([
             'name' => $request['name'],
@@ -24,6 +30,7 @@ class UserController extends Controller
         ]);
 
         $user->testSchedules()->attach($request['plage']);
+        $user->roles()->attach('visitor');
         
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
