@@ -35,7 +35,7 @@ class Functionality_Role_Seeder extends Seeder
 
 
         DB::table('functionality_role')->insert([
-            'functionality_name' => 'manageBikes',
+            'functionality_name' => 'manageProducts',
             'role_name' => 'exhibitor'
         ]);
         DB::table('functionality_role')->insert([
