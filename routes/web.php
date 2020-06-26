@@ -39,3 +39,7 @@ Route::get('/gestion-utilisateurs', 'UserController@index');
 Route::get('/', function () {
     return view('home');
 });
+
+Route::post('/product/postModelNumber', 'ProductController@postModelNumber');
+
+Route::post('createBike', 'BikeController@createBike');
