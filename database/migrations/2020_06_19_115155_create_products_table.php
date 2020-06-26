@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->string('price', 128);
             $table->string('category_name');
             $table->bigInteger('brand_id')->unsigned();
+            $table->softDeletes();
         });
     }
 

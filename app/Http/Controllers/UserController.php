@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserWithTicketRequest;
+use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Policies\UserPolicy;
 use App\User;
@@ -48,6 +49,26 @@ class UserController extends Controller
         return view('adminModifyUser', compact('user', 'companies'));
     }
 
+    public function show() {
+        $id = Auth::user()->id;
+        $user = User::find($id);
+        $person = Person::find($user->id);
+        $user->{'firstname'} = $person->firstname;
+        $user->{'name'} = $person->name;
+        return view('auth/my-profile')->with('user', $user);
+    }
+
+    public function updateProfile(UpdateUserRequest $request) {
+        $user = User::find($request['id']);
+        $person = Person::find($request['id']);
+        $person->name = $request['name'];
+        $person->firstname = $request['firstname'];
+        $user->password = $request['password'];
+        $user->username = $request['username'];
+        $person->save();
+        $user->save();
+    }
+ 
     public function createWithTicket(UserWithTicketRequest $request) {
         $person = Person::create([
             'name' => $request['name'],

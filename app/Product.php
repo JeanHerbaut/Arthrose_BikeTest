@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
+    use SoftDeletes;
     public $timestamps = false;
     
     protected $fillable = [
@@ -26,8 +28,8 @@ class Product extends Model
         return $this->hasMany(Test::class);
     }
 
-    public function bike() {
-        return $this->hasOne(Bike::class);
+    public function bikes() {
+        return $this->hasMany(Bike::class);
     }
 
     public function brand() {

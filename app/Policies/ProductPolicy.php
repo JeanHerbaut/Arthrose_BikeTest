@@ -9,9 +9,10 @@ class ProductPolicy
 {
     use HandlesAuthorization;
 
-    public function __construct(){}
+    public function __construct()
+    {}
 
-    public function manage(User $user){
+    public function manageProducts(User $user){
         return in_array('manageProducts', $user->roles->first()->functionalities->pluck('name')->toArray());
     }
 }

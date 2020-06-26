@@ -18,6 +18,7 @@ class CreateBikesTable extends Migration
             $table->bigInteger('product_id')->unsigned();
             $table->string('size', 8);
             $table->string('distinctive_sign', 128);
+            $table->softDeletes();
         });
     }
 

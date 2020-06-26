@@ -21,6 +21,28 @@
 <div class="liste-user">
     <table id="list-user">
         @foreach ($users as $user)
+        @if (sizeOf($user->schedules) == 0) 
+        @if ($user->company_id == null)
+        <tr data-role="visiteur" data-username="{{$user->username}}" data-schedule-id="{{$schedule['id']}}" class="row">
+            @else
+        <tr data-role="exposant" data-username="{{$user->username}}" data-schedule-id="{{$schedule['id']}}" class="row">
+            @endif
+            <td>{{$user->username}}</td>
+            <td>{{$user->firstname}}</td>
+            <td>{{$user->name}}</td>
+            <td>{{$user->email}}</td>
+            <td>-</td>
+            @if ($user->company_id == null)
+            <td>-</td>
+            @else
+            <td>{{$user->company->name}}</td>
+            @endif
+            <td><a href="{{url('/admin/modify-user?user_id='.$user->id)}}"><button>Modifier</button></a>
+            </td>
+            <td><button>Supprimer</button></td>
+        </tr>
+            
+        @endif
         @foreach ($user->schedules as $schedule)
         @if ($user->company_id == null)
         <tr data-role="visiteur" data-username="{{$user->username}}" data-schedule-id="{{$schedule['id']}}" class="row">
