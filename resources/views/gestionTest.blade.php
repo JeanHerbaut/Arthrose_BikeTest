@@ -1,6 +1,7 @@
 @extends('layouts.template')
 @section('content')
 <link defer rel="stylesheet" type="text/css" href="{{ asset('css/gestionTest.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="container">
     <section>
         <!-- The Modal -->
@@ -9,7 +10,7 @@
             <!-- Modal content -->
             <div class="modal-content">
                 <div class="wrapper-left">
-                    <span class="close">&times;</span>
+
                     <p>Création test</p>
                     <div class="vignette-test">
                         <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="">
@@ -22,9 +23,36 @@
                         <span>15:06</span></p>
                 </div>
                 <div class="wrapper-right">
-                    <div class="">
-                        <p></p>
+                    <span class="close">&times;</span>
+                    <form class="recherche-form" action="">
+                        <input type="text" placeholder="Search.." name="search" class="recherche">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                    <div class="container-list">
+                      <ul>
+                        <li>Nom complet - Nom utilisateur</li>
+                      </ul>
+                        <form action="" class="form-utilisateurs">
+
+
+                            <select name="color3" size="3">
+                                <option value="1">Jean Michel Sardou - Jeanmichdu69</option>
+                                <option value="2">Jean Michel Sardou - Jeanmichdu69</option>
+                                <option value="3">Jean Michel Sardou - Jeanmichdu69</option>
+                                <option value="4">Jean Michel Sardou - Jeanmichdu69</option>
+                                <option value="5">Jean Michel Sardou - Jeanmichdu69</option>
+                                <option value="5">Jean Michel Sardou - Jeanmichdu69</option>
+                                <option value="5">Jean Michel Sardou - Jeanmichdu69</option>
+                                <option value="5">Jean Michel Sardou - Jeanmichdu69</option>
+                                <option value="5">Jean Michel Sardou - Jeanmichdu69</option>
+                            </select>
+
+
+                        </form>
+
+
                     </div>
+                    <a class="myBtn" href="#">Commencer</a>
                 </div>
             </div>
 
@@ -35,7 +63,7 @@
             </div>
             <div class="vignette vignette-start">
                 <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="">
-                <a href="#" class="myBtn">Commencer</a>
+                <a href="#" class="popup">Commencer</a>
             </div>
             <div class="vignette vignette-start">
                 <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="">

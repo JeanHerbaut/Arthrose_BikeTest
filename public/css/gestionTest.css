@@ -2,7 +2,6 @@
   height: 40vh;
   width: 80%;
   margin: 3rem auto;
-  border: 1px solid black;
   border-radius: 20px;
   background: rgb(244, 244, 244);
   overflow: scroll;
@@ -11,6 +10,8 @@
   align-items: flex-start;
   position: relative;
   font-weight: bold;
+  box-shadow: inset 0 0 15px rgba(144, 144, 144, 0.63);
+  
 }
 
 .wrapper{
@@ -28,7 +29,7 @@
   align-items:center;
   flex-direction: column;
   border-radius: 12px;
-  filter: drop-shadow( 0 0 15px rgba(0, 0, 0, .3));
+  filter: drop-shadow( 0 0 15px rgba(0, 0, 0, .1));
 }
 
 .vignette a{
@@ -45,7 +46,7 @@ div.vignette-end a{
 }
 
 .header-test{
-  padding: 0.5rem 1.5rem;
+  padding: 1rem 1.5rem;
   position: sticky;
   top: 0;
   left: 0;
@@ -76,20 +77,28 @@ div.vignette-end a{
   border: 1px solid #888;
   width: 70rem; /* Could be more or less, depending on screen size */
   height: 75%;
-  border-radius: 10rem;
+  border-radius: 25px;
   display: flex;
   position: relative;
 }
 
 .wrapper-left{
+  flex: 2;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+
+  padding: 6rem 2rem 5rem 2rem;
 }
 
 .wrapper-left img{
   width: 10rem;
+}
+
+.wrapper-left > p{
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .wrapper-left p:nth-of-type(2){
@@ -100,11 +109,100 @@ div.vignette-end a{
 }
 
 .wrapper-left p span{
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 .wrapper-right{
-  flex: 1;
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.recherche{
+  border-radius: 8px;
+}
+
+a.mybtn{
+  align-self: flex-start;
+}
+
+.container-list{
+  height: 50%;
+  width: 90%;
+  margin-right: auto;
+  margin-top: 2rem;
+  background: rgb(255, 255, 255);
+  overflow: scroll;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: inset 0 0 15px rgba(144, 144, 144, 0.63);
+  z-index: 2;
+}
+
+.container-list ul:first-child li{
+  font-weight: bold;
+  color: white;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  padding-left: 1rem;
+}
+.container-list ul:first-child{
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgb(154, 154, 154);
+  padding: 0.5rem 0;
+}
+
+.form-utilisateurs select option{
+  padding: 1rem;
+  font-size: 1.3rem;
+}
+.form-utilisateurs select option:hover, .form-utilisateurs select option:focus{
+background: rgba(93, 217, 109, 1);
+}
+
+.form-utilisateurs select{
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: transparent;
+}
+
+.recherche-form{
+  align-self: flex-start;
+}
+
+.recherche-form input{
+  text-decoration: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 25px;
+}
+
+.recherche-form button{
+  padding: 0.8rem;
+  border-radius: 50%;
+  background: white;
+  border: none;
+  cursor: pointer;
+}
+
+.mybtn{
+  padding: 1rem 2rem;
+  background: rgba(93, 217, 109, 1);
+  color: white;
+  margin-top: 3rem;
+  border-radius: 25px;
+}
+
+
+.section {
+  border-top: 1rem solid transparent;
 }
 
 .close {
@@ -124,11 +222,15 @@ div.vignette-end a{
 }
 
 .modal-content span, .modal-content > p{
-  margin-right: 4rem;
   margin-left: 2.8rem;
   margin-top: 1rem;
   font-weight: bold;
 }
+.modal-content span{
+  margin-right: 4rem;
+  margin-top: 4rem;
+}
+
 
 .vignette-test{
   display: flex;
@@ -140,7 +242,7 @@ div.vignette-end a{
   margin: 1rem 2rem;
   flex: 1 1 15rem;
   border-radius: 12px;
-  filter: drop-shadow( 0 0 15px rgba(0, 0, 0, .3));
+  filter: drop-shadow( 0 0 15px rgba(0, 0, 0, .2));
   padding: 1rem;
 }
 
