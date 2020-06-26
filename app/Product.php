@@ -40,4 +40,8 @@ class Product extends Model
     public function isFavouriteOf() {
         return $this->belongsToMany(User::class);
     }
+
+    public function category() {
+        return $this->belongsTo(Category::class);
+    }
 }
