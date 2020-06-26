@@ -23,9 +23,12 @@
         <li><a href="#">Infos</a> </li>
         <li><a href="#">Catalogue</a> </li>
         <li><a href="#">Mes vélos</a> </li>
+        @guest
         <li><a href="/billeterie">Billeterie</a> </li>
+        @endguest
       </ul>
       @if(Auth::check())
+      Connected as {{Auth::user()->username}}
       <div class="user-icon online">
         <a href="#"><img src="{{ asset('img/user-icon.svg') }}" alt=""></a>
       </div>
@@ -44,11 +47,27 @@
               Mon profil
             </a>
           </li>
+          @can('viewMyTicket', App\User::class)
           <li>
             <a href="#">
               Mon billet
             </a>
           </li>
+          @endcan
+          @can('manage', App\User::class)
+          <li>
+            <a href="gestion-utilisateurs">
+              Gestion des utilisateurs
+            </a>
+          </li>
+          @endcan
+          @can('manage', App\Test::class)
+          <li>
+            <a href="#">
+              Gestion des tests
+            </a>
+          </li>
+          @endcan
           <li>
             <form method="post" action="/logout">
               @csrf

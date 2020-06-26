@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserWithTicketRequest;
 use Illuminate\Support\Facades\Auth;
-
+use App\Policies\UserPolicy;
 use App\User;
 use App\Person;
 use App\Company;
@@ -14,6 +14,7 @@ class UserController extends Controller
 {
     public function index()
     {
+        $this->authorize('manage', User::class);
         $users = User::with('company', 'testSchedules')
             ->orderBy('users.username')
             ->paginate(20);
@@ -47,8 +48,7 @@ class UserController extends Controller
         return view('adminModifyUser', compact('user', 'companies'));
     }
 
-    public function createWithTicket(UserWithTicketRequest $request)
-    {
+    public function createWithTicket(UserWithTicketRequest $request) {
         $person = Person::create([
             'name' => $request['name'],
             'firstname' => $request['firstname'],
@@ -62,10 +62,9 @@ class UserController extends Controller
         ]);
 
         $user->testSchedules()->attach($request['plage']);
-
+        $user->roles()->attach('visitor');
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('home');
         }
     }
 }
