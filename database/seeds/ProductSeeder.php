@@ -20,7 +20,7 @@ class ProductSeeder extends Seeder
                 'image'=>'/img/bike.png',
                 'price'=> rand(1, 3),
                 'brand_id' => '2',
-                'category_id' => rand(1, 2)
+                'category_name' => 'VTT'
               ]);
         }
 
@@ -32,7 +32,7 @@ class ProductSeeder extends Seeder
                 'image'=>'/img/bike.png',
                 'price'=> rand(1, 3),
                 'brand_id' => '1',
-                'category_id' => rand(1, 2)
+                'category_name' => 'eBike'
               ]);
         }
     }
