@@ -21,9 +21,9 @@
         <p>{{$bike['nbr_rating']}}</p>
         <p>{{$bike['distinctive_sign']}}</p>
         {{-- prix du produit --}}
-        @if ($bike['price'] == 1) 
+        @if ($bike['price'] < 1000) 
         <p>$</p>
-        @elseif($bike['price'] == 2)
+        @elseif($bike['price'] > 1000 && $bike['price'] < 3000)
         <p>$$</p>
         @else
         <p>$$$</p>
