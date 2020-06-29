@@ -53,5 +53,9 @@ class Functionality_Role_Seeder extends Seeder
             'functionality_name' => 'manageUsers',
             'role_name' => 'admin'
         ]);
+        DB::table('functionality_role')->insert([
+            'functionality_name' => 'manageExhibitor',
+            'role_name' => 'admin'
+        ]);
     }
 }
