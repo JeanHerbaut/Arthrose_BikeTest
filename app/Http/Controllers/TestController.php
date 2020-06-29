@@ -7,6 +7,7 @@ use App\Test;
 use App\Bike;
 use App\Product;
 use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class TestController extends Controller
 {
@@ -17,7 +18,14 @@ class TestController extends Controller
      */
     public function index()
     {
-        //
+        $this->authorize('manage', User::class);
+        $tests = Test::with('product', 'user')
+            ->get();
+        foreach ($tests as $test) {
+            $test->{'shortDesc'} = $test->product->shortDesc;
+            $test->{'username'} = $test->user->username;
+        }
+        return view('gestionTestHistorique')->with('tests', $tests);
     }
 
     /**
@@ -67,7 +75,7 @@ class TestController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
