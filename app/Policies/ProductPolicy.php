@@ -9,17 +9,10 @@ class ProductPolicy
 {
     use HandlesAuthorization;
 
-    /**
-     * Create a new policy instance.
-     *
-     * @return void
-     */
     public function __construct()
-    {
-        
-    }
+    {}
 
-    public function manageProducts(User $user){
+    public function manage(User $user){
         return in_array('manageProducts', $user->roles->first()->functionalities->pluck('name')->toArray());
     }
 }

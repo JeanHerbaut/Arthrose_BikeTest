@@ -30,6 +30,9 @@ Route::get('/gestionExposant', function () {
 });
 /* Billeterie - Enregistremet user */
 Route::get('/billeterie', 'BilleterieController@displayForm');
+/* User profile */
+Route::get('/profil', 'UserController@show');
+Route::post('/profil', 'UserController@updateProfile');
 
 
 /* Exposants */
@@ -44,3 +47,7 @@ Route::get('/gestion-utilisateurs', 'UserController@index');
 Route::get('/', function () {
     return view('home');
 });
+
+Route::post('/product/postModelNumber', 'ProductController@postModelNumber');
+
+Route::post('createBike', 'BikeController@createBike');

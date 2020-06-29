@@ -43,7 +43,7 @@
 
         <ul class="dropdown-menu">
           <li>
-            <a href="#">
+          <a href="/profil">
               Mon profil
             </a>
           </li>
@@ -65,6 +65,13 @@
           <li>
             <a href="#">
               Gestion des tests
+            </a>
+          </li>
+          @endcan
+          @can('manage', App\Product::class)
+          <li>
+            <a href="/exposant/catalogue">
+              Gestion du catalogue
             </a>
           </li>
           @endcan

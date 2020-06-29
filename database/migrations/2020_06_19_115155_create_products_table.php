@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->text('longDesc');
             $table->string('image')->nullable();
             $table->string('price', 128);
-            $table->bigInteger('category_id')->unsigned();
+            $table->string('category_name');
             $table->bigInteger('brand_id')->unsigned();
             $table->softDeletes();
         });
