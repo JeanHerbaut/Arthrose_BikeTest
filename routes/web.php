@@ -30,7 +30,7 @@ Route::get('/billeterie', 'BilleterieController@displayForm');
 /* User profile */
 Route::get('/profil', 'UserController@show');
 Route::post('/profil', 'UserController@updateProfile');
-
+Route::post('/admin/modify-user', 'UserController@updateUser');
 
 /* Exposants */
 Route::get('/gestion', function () {
