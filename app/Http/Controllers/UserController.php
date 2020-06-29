@@ -68,7 +68,9 @@ class UserController extends Controller
         $person = Person::find($request['id']);
         $person->name = $request['name'];
         $person->firstname = $request['firstname'];
-        $user->password = $request['password'];
+        if(strlen($request['password'] >= 8)) {
+            $user->password = $request['password'];
+        }
         $user->username = $request['username'];
         $person->save();
         $user->save();
@@ -80,11 +82,11 @@ class UserController extends Controller
         $person = Person::find($request['id']);
         $person->name = $request['name'];
         $person->firstname = $request['firstname'];
-        $user->password = $request['password'];
         $user->username = $request['username'];
         $user->email = $request['email'];
         if($request->exposant == null) {
             User::find($request['id'])->roles()->detach('exhibitor');
+            User::find($request['id'])->roles()->attach('visitor');
             $user->company_id = null;
         } else {
             $user->company_id = $request->company;

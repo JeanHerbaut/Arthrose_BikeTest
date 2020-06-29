@@ -33,7 +33,7 @@
         </span>
         @enderror
         <label for="password">Mot de passe</label>
-        <input type="password" id="password" name="password" value="{{$user->password}}" disabled>
+        <input type="password" id="password" name="password" value="" disabled>
         <button id="reset">Réinitaliser</button>
 
         <label for="exposant" class="switch">Exposant
