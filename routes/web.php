@@ -25,13 +25,18 @@ Route::get('/home', 'HomeController@index')->name('home');
 /* Admin routes */
 Route::get('/admin/consultation', 'UserController@index');
 Route::get('/admin/modify-user', 'UserController@edit');
+Route::get('/gestionExposant', function () {
+    return view('gestionExposant');
+});
 /* Billeterie - Enregistremet user */
 Route::get('/billeterie', 'BilleterieController@displayForm');
 
 
 /* Exposants */
-Route::get('/gestion', function () {
-    return view('gestionTest');});
+Route::get('/gestionTest', function () {
+    return view('gestionTest');
+});
+
 Route::resource('exposant/catalogue', 'ProductController', ['except'=>['fullCatalogue']]);
 
 Route::get('/gestion-utilisateurs', 'UserController@index');

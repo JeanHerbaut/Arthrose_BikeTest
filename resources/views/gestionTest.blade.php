@@ -11,7 +11,7 @@
             <div class="modal-content">
                 <div class="wrapper-left">
 
-                    <p>Création test</p>
+                    <h2>Création Test</h2>
                     <div class="vignette-test">
                         <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="">
                         <p><strong>Titanium 370-X</strong></p>
@@ -162,7 +162,7 @@
             </div>
             <div class="vignette vignette-end">
                 <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="">
-                <a href="#" class="myBtn">Terminer</a>
+                <a href="#" class="popup">Terminer</a>
             </div>
             <div class="vignette vignette-end">
                 <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="">
