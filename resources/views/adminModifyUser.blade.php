@@ -57,7 +57,7 @@
             "click", evt => {
                 let inputs = document.getElementsByTagName("input")
                 for (let index = 0; index < inputs.length; index++) {
-                    inputs[index].removeAttribute("disabled")
+                    if(inputs[index].name != 'password') inputs[index].removeAttribute("disabled")
                 }
                 btn_cancel.removeAttribute('hidden')
                 btn_modify.setAttribute('hidden', true)
