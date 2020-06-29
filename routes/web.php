@@ -38,7 +38,7 @@ Route::get('/gestion', function () {
 Route::resource('exposant/catalogue', 'ProductController', ['except'=>['fullCatalogue']]);
 
 Route::get('/gestion-utilisateurs', 'UserController@index');
-
+Route::get('/gestion-test-historique', 'UserController@index');
 Route::get('/', function () {
     return view('home');
 });
