@@ -36,13 +36,11 @@ Route::post('/profil', 'UserController@updateProfile');
 
 
 /* Exposants */
-Route::get('/gestionTest', function () {
-    return view('gestionTest');
-});
-
 Route::resource('exposant/catalogue', 'ProductController', ['except'=>['fullCatalogue']]);
 
 Route::get('/gestion-utilisateurs', 'UserController@index');
+
+Route::get('/gestionTest', 'TestController@create');
 
 Route::get('/', function () {
     return view('home');
@@ -51,6 +49,11 @@ Route::get('/', function () {
 Route::post('/product/postModelNumber', 'ProductController@postModelNumber');
 
 Route::post('createBike', 'BikeController@createBike');
+
+Route::post('/addTest', 'TestController@store');
+Route::post('/endTest', 'TestController@end');
+
+Route::post('searchUser', 'UserController@search');
 
 Route::get('/register', function () {
     return view('auth/register');});
