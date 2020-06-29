@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Policies\UserPolicy;
 use App\User;
+use App\Brand;
 use App\Person;
 use App\Company;
 use App\TestSchedule;
@@ -45,8 +46,12 @@ class UserController extends Controller
     {
         $id = htmlspecialchars($_GET["user_id"]);
         $user = User::findOrFail($id);
+        $person = Person::find($user->id);
         $companies = Company::all();
-        return view('adminModifyUser', compact('user', 'companies'));
+        $brands = Brand::all();
+        $user->{'firstname'} = $person->firstname;
+        $user->{'name'} = $person->name;
+        return view('adminModifyUser', compact('user', 'companies', 'brands'));
     }
 
     public function show() {
@@ -69,7 +74,19 @@ class UserController extends Controller
         $user->save();
         return redirect('/profil');
     }
- 
+
+    public function updateUser(UpdateUserRequest $request) {
+        $user = User::find($request['id']);
+        $person = Person::find($request['id']);
+        $person->name = $request['name'];
+        $person->firstname = $request['firstname'];
+        $user->password = $request['password'];
+        $user->username = $request['username'];
+        $user->email = $request['email'];
+        $person->save();
+        $user->save();
+        return redirect('/profil');
+    }
     public function createWithTicket(UserWithTicketRequest $request) {
         $person = Person::create([
             'name' => $request['name'],

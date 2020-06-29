@@ -34,7 +34,7 @@ Route::get('/billeterie', 'BilleterieController@displayForm');
 /* User profile */
 Route::get('/profil', 'UserController@show');
 Route::post('/profil', 'UserController@updateProfile');
-
+Route::post('/admin/modify-user', 'UserController@updateUser');
 
 /* Exposants */
 Route::get('/gestionTest', function () {
@@ -44,7 +44,7 @@ Route::get('/gestionTest', function () {
 Route::resource('exposant/catalogue', 'ProductController', ['except'=>['fullCatalogue']]);
 
 Route::get('/gestion-utilisateurs', 'UserController@index');
-
+Route::get('/gestion-test-historique', 'UserController@index');
 Route::get('/', function () {
     return view('home');
 });
@@ -52,3 +52,6 @@ Route::get('/', function () {
 Route::post('/product/postModelNumber', 'ProductController@postModelNumber');
 
 Route::post('createBike', 'BikeController@createBike');
+
+Route::get('/register', function () {
+    return view('auth/register');});
