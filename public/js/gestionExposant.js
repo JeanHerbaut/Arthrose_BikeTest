@@ -43,6 +43,7 @@ $('#company-select').on('change', evt => {
     success: function (data) {
       $('.wrapper-velos').empty()
       $('#company').empty()
+      $('.nothing').empty()
       $('.collaborateurs').empty()
       $('#company').append('<p>' + data.company[0].name + '</p>')
       if (data.bikes.length > 0) {
