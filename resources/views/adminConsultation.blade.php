@@ -1,5 +1,5 @@
-@extends('templateAdmin')
-@section('main')
+@extends('layouts.template')
+@section('content')
 <div class="filter">
     <label for="search">Recherche</label>
     <input type="text" name="search" id="search">

@@ -1,5 +1,5 @@
-@extends('templateAdmin')
+@extends('layouts.template')
 
-@section('main')
+@section('content')
 <h1>Formulaire de modification d'un user</h1>
 @endsection
