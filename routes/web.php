@@ -46,3 +46,6 @@ Route::get('/', function () {
 Route::post('/product/postModelNumber', 'ProductController@postModelNumber');
 
 Route::post('createBike', 'BikeController@createBike');
+
+Route::get('/register', function () {
+    return view('auth/register');});
