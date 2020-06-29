@@ -67,8 +67,5 @@
         @endforeach
     </table>
 </div>
-@endsection
-
-@section('script')
 <script src="{{ asset('js/adminFilter.js')}}" type="text/javascript" defer></script>
 @endsection

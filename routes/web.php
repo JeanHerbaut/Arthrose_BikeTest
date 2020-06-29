@@ -25,6 +25,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 /* Admin routes */
 Route::get('/admin/consultation', 'UserController@index');
 Route::get('/admin/modify-user', 'UserController@edit');
+Route::post('/admin/modify-user', 'UserController@updateUser');
 Route::get('/gestion-exposant', 'ExhibitorController@index');
 Route::post('/gestion-exposant', 'ExhibitorController@exhibitorDatas');
 Route::post('/gestion-exposant/create', 'ExhibitorController@store');
@@ -34,7 +35,6 @@ Route::get('/billeterie', 'BilleterieController@displayForm');
 /* User profile */
 Route::get('/profil', 'UserController@show');
 Route::post('/profil', 'UserController@updateProfile');
-Route::post('/admin/modify-user', 'UserController@updateUser');
 
 /* Exposants */
 Route::get('/gestionTest', function () {
