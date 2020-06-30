@@ -6,8 +6,9 @@ $.ajaxSetup({
 
 $("#checkNmodel").click(function (e) {
     e.preventDefault();
-    let modelnumber = $("#nModel").val();
+    let modelnumber = $("#modelNumber").val();
 
+    if(modelnumber == "") return
     $.ajax({
         type: 'POST',
         url: '/product/postModelNumber',
@@ -34,4 +35,8 @@ $("#checkNmodel").click(function (e) {
             }
         }
     });
+});
+
+$(document).ready(function() {
+    $("#checkNmodel").trigger('click')
 });
