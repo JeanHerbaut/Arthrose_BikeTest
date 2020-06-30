@@ -19,7 +19,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::post('createUserWithTicket', 'UserController@createWithTicket');
+Route::get('/mesvelos', function () {
+    return view('mesVelos');
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
 /* Admin routes */
@@ -40,7 +42,9 @@ Route::post('/profil', 'UserController@updateProfile');
 Route::resource('exposant/catalogue', 'ProductController', ['except'=>['fullCatalogue']]);
 
 Route::get('/gestion-utilisateurs', 'UserController@index');
-Route::get('/gestion-test-historique', 'UserController@index');
+
+Route::get('/gestion-test-historique', 'TestController@index');
+
 
 Route::get('/gestionTest', 'TestController@create');
 
