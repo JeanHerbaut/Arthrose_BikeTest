@@ -5,10 +5,10 @@
   <title>Bike Test - Gryon</title>
   <link defer rel="stylesheet" type="text/css" href="{{ asset('css/nav.css') }}">
   <!--   <link rel="stylesheet" type="text/css" href="{{ asset('css/billeterie.css') }}" > -->
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/admin.css') }}" >
   <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-</head>
+  </head>
 
 <body>
   @section('nav')
@@ -63,7 +63,7 @@
           @endcan
           @can('manage', App\Test::class)
           <li>
-            <a href="#">
+            <a href="/gestionTest">
               Gestion des tests
             </a>
           </li>
@@ -138,5 +138,7 @@
     @yield('content')
   </div>
 </body>
-
+@section('script')
+    
+@endsection
 </html>

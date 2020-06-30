@@ -19,34 +19,42 @@ Route::get('/', function () {
 
 Auth::routes();
 
+<<<<<<< HEAD
 Route::get('/catalogue', function () {
     return view('catalogue');
 });
 
 Route::post('createUserWithTicket', 'UserController@createWithTicket');
+=======
+Route::get('/mesvelos', function () {
+    return view('mesVelos');
+});
+>>>>>>> f6f2ffb406cd22ed997802875797bdbbea3a2edf
 
 Route::get('/home', 'HomeController@index')->name('home');
 /* Admin routes */
 Route::get('/admin/consultation', 'UserController@index');
 Route::get('/admin/modify-user', 'UserController@edit');
-Route::get('/gestionExposant', function () {
-    return view('gestionExposant');
-});
+Route::post('/admin/modify-user', 'UserController@updateUser');
+Route::get('/gestion-exposant', 'ExhibitorController@index');
+Route::post('/gestion-exposant', 'ExhibitorController@exhibitorDatas');
+Route::post('/gestion-exposant/create', 'ExhibitorController@store');
+
 /* Billeterie - Enregistremet user */
 Route::get('/billeterie', 'BilleterieController@displayForm');
 /* User profile */
 Route::get('/profil', 'UserController@show');
 Route::post('/profil', 'UserController@updateProfile');
 
-
 /* Exposants */
-Route::get('/gestionTest', function () {
-    return view('gestionTest');
-});
-
 Route::resource('exposant/catalogue', 'ProductController', ['except'=>['fullCatalogue']]);
 
 Route::get('/gestion-utilisateurs', 'UserController@index');
+
+Route::get('/gestion-test-historique', 'TestController@index');
+
+
+Route::get('/gestionTest', 'TestController@create');
 
 Route::get('/', function () {
     return view('home');
@@ -55,3 +63,11 @@ Route::get('/', function () {
 Route::post('/product/postModelNumber', 'ProductController@postModelNumber');
 
 Route::post('createBike', 'BikeController@createBike');
+
+Route::post('/addTest', 'TestController@store');
+Route::post('/endTest', 'TestController@end');
+
+Route::post('searchUser', 'UserController@search');
+
+Route::get('/register', function () {
+    return view('auth/register');});

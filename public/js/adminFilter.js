@@ -62,6 +62,7 @@ const schedule = () => {
 }
 //set filter
 searchBtn.addEventListener("click", evt => {
+
   for (var i = 0, row; row = table.rows[i]; i++) {
     let row = table.getElementsByTagName("tr")[i] 
     row.classList.remove("hide");

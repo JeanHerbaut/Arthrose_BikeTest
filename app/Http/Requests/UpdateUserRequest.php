@@ -30,7 +30,6 @@ class UpdateUserRequest extends FormRequest
             'name' => ['required', 'string', 'max:40'],
             'firstname' => ['required', 'string', 'max:40'],
             'username' => ['required', 'regex:/^[a-z0-9]+$/', 'min: 3', 'max:16', 'unique:users,username,'.$userid],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ];
     }
 }

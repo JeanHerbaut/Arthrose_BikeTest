@@ -1,5 +1,5 @@
-@extends('templateAdmin')
-@section('main')
+@extends('layouts.template')
+@section('content')
 <div class="filter">
     <label for="search">Recherche</label>
     <input type="text" name="search" id="search">
@@ -67,8 +67,5 @@
         @endforeach
     </table>
 </div>
-@endsection
-
-@section('script')
 <script src="{{ asset('js/adminFilter.js')}}" type="text/javascript" defer></script>
 @endsection

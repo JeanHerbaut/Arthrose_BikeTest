@@ -23,4 +23,8 @@ class Bike extends Model
     public function ebike() {
         return $this->hasOne(Ebike::class);
     }
+
+    public function tests() {
+        return $this->hasMany(Test::class);
+    }
 }
