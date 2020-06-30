@@ -14,10 +14,13 @@ class Test extends Model
         'rating', 
         'likes', 
         'comment', 
-        'testSchedule_id',
+        'test_schedule_id',
+        'bike_id',
         'product_id',
         'user_id'
     ];
+
+    protected $dates = ['startTime', 'endTime'];
 
     public function product() {
         return $this->belongsTo(Product::class);
@@ -29,6 +32,10 @@ class Test extends Model
 
     public function user() {
         return $this->belongsTo(User::class);
+    }
+
+    public function bike() {
+        return $this->belongsTo(Bike::class);
     }
 
 }

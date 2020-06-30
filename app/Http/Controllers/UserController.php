@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Http\Requests\UserWithTicketRequest;
 use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Support\Facades\Auth;
@@ -105,5 +106,10 @@ class UserController extends Controller
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
         }
+    }
+
+    public function search(Request $request){
+        $results = User::where('username', 'like', $request->username.'%')->with('person')->get();
+        return (response()->json(['results'=>$results ]));
     }
 }

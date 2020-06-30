@@ -1,26 +1,54 @@
-// Get the modal
-let modal = document.getElementById("myModal");
+//Open modal depending on the clicked data-id
+$('.container').on('click', '.popup.begin', evt => {
+  $(`.modal[data-id='${$(evt.currentTarget).data('id')}']`).removeClass('hidden');
+  
+  let d = new Date();
+  let h = d.getHours();
+  let m = (d.getMinutes()<10?'0':'') + d.getMinutes();
+  $('.startTime').html(h+':'+m);
+  h++;
+  $('.endTime').html(h+':'+m);
+});
 
-// Get the button that opens the modal
-let btn = document.getElementsByClassName("popup")[0];
+//Close the modal
+$('.container').on('click', '.close', evt => {
+  $('.modal').addClass('hidden');
+})
 
-// Get the <span> element that closes the modal
-let span = document.getElementsByClassName("close")[0];
+//Confirm modal
+$('.container').on('click', '.popup.end', evt => {
+  $('.confirm-modal #bike_id').attr('value', $(evt.currentTarget).data('id'));
+  $('.confirm-modal').removeClass('hidden');
+})
+$('.container').on('click', '.cancel', evt => {
+  $('.confirm-modal').addClass('hidden');
+})
 
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
   }
-}
-console.log('salut');
+});
+
+$('.container').on('submit', '.recherche-form', evt => {
+  evt.preventDefault();
+  let dataId = $(evt.currentTarget).data('id');
+  let username = $(`.recherche[data-id='${dataId}']`).val();
+
+  $.ajax({
+    type: 'POST',
+    url: '/searchUser',
+    data: { username: username },
+    success: function (data) {
+      console.log(data.results)
+      if(data.results.length > 0){
+        $(`.resultsList[data-id='${dataId}']`).empty()
+        data.results.forEach(user => {
+          $(`.resultsList[data-id='${dataId}']`).append(`<option value='${user.id}'>${user.person.firstname} ${user.person.name} - ${user.username}</option>`);
+        })
+      } else {
+        $(`.resultsList[data-id='${dataId}']`).html(`<option value='0'>Aucun résultat</option>`);
+      }
+    }
+  });
+});

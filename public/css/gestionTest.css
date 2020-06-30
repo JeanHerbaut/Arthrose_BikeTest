@@ -57,8 +57,11 @@ div.vignette-end a{
 }
 
 /* POPUP */
-.modal {
+.hidden {
   display: none; /* Hidden by default */
+}
+
+.modal {
   position: fixed; /* Stay in place */
   z-index: 3; /* Sit on top */
   left: 0;
