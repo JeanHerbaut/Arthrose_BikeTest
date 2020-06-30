@@ -26,14 +26,14 @@
         </span>
         @enderror
         <label for="password">Mot de passe</label>
-        <input type="password" id="password" name="password" value="{{$user->password}}" disabled>
+        <input type="password" id="password" name="password" value="" disabled>
         @error('password')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
         </span>
         @enderror
         <label for="password-confirm">Mot de passe</label>
-        <input type="password" id="password-confirm" name="password_confirmation" value="{{$user->password}}" required
+        <input type="password" id="password-confirm" name="password_confirmation" value=""
             autocomplete="new-password" disabled>
         <input type="number" name="id" id="id" value="{{$user->id}}" hidden>
         <input id="submit" type="submit" value="Confirmer" hidden>

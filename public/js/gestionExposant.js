@@ -1,3 +1,16 @@
+
+var slider = document.getElementById('slider');
+
+noUiSlider.create(slider, {
+    start: [20, 80],
+    connect: true,
+    range: {
+        'min': 1,
+        'max': 3
+    },
+     step: 1,
+});
+
 // Get the modal
 let modal = document.getElementById("myModal");
 
@@ -8,19 +21,64 @@ let btn = document.getElementsByClassName("popup")[0];
 let span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
-btn.onclick = function() {
+btn.onclick = function () {
   modal.style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
+span.onclick = function () {
   modal.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
 }
-console.log('salut');
+
+//requette ajax
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  }
+});
+
+$('#company-select').on('change', evt => {
+  evt.preventDefault()
+  let companyId = $("#company-select option:selected").val();
+
+
+  $.ajax({
+    type: 'POST',
+    url: '/gestion-exposant',
+    data: { companyId: companyId },
+    success: function (data) {
+      $('.wrapper-velos').empty()
+      $('#company').empty()
+      $('.nothing').empty()
+      $('.collaborateurs').empty()
+      $('#company').append('<p>' + data.company[0].name + '</p>')
+      if (data.bikes.length > 0) {
+        data.bikes.forEach(product => {
+          product.bikes.forEach(element => {
+            let html =
+              '<div class="vignette-test">'
+              + '<img class="velo-img" src="' + product.image + '" alt="">'
+              + '<p><strong>' + product.shortDesc + '</strong></p>'
+              + '<p>' + product.brand.name + '</p>';
+            $('.wrapper-velos').append(html);
+          });
+        });
+        data.users.forEach(user => {
+          let html = '<p>' + user.person.firstname + ' ' + user.person.name + '</p>'
+          $('.collaborateurs').append(html)
+        });
+      } else {
+        let html = "<p>Cet exposant n'a pas de produits à afficher</p>"
+        $('.nothing').append(html)
+      }
+    }
+  });
+})
+

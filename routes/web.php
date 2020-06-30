@@ -26,19 +26,25 @@ Route::get('/mesvelos/test', function () {
     return view('test1');
 });
 
+Route::get('/catalogue', function () {
+    return view('catalogue');
+});
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 /* Admin routes */
 Route::get('/admin/consultation', 'UserController@index');
 Route::get('/admin/modify-user', 'UserController@edit');
-Route::get('/gestionExposant', function () {
-    return view('gestionExposant');
-});
+Route::post('/admin/modify-user', 'UserController@updateUser');
+Route::get('/gestion-exposant', 'ExhibitorController@index');
+Route::post('/gestion-exposant', 'ExhibitorController@exhibitorDatas');
+Route::post('/gestion-exposant/create', 'ExhibitorController@store');
+
 /* Billeterie - Enregistremet user */
 Route::get('/billeterie', 'BilleterieController@displayForm');
 /* User profile */
 Route::get('/profil', 'UserController@show');
 Route::post('/profil', 'UserController@updateProfile');
-Route::post('/admin/modify-user', 'UserController@updateUser');
 
 /* Exposants */
 Route::resource('exposant/catalogue', 'ProductController', ['except'=>['fullCatalogue']]);
@@ -46,6 +52,7 @@ Route::resource('exposant/catalogue', 'ProductController', ['except'=>['fullCata
 Route::get('/gestion-utilisateurs', 'UserController@index');
 
 Route::get('/gestion-test-historique', 'TestController@index');
+
 
 Route::get('/gestionTest', 'TestController@create');
 
@@ -63,4 +70,5 @@ Route::post('/endTest', 'TestController@end');
 Route::post('searchUser', 'UserController@search');
 
 Route::get('/register', function () {
-    return view('auth/register');});
+    return view('auth/register');
+});

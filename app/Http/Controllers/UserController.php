@@ -49,10 +49,9 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $person = Person::find($user->id);
         $companies = Company::all();
-        $brands = Brand::all();
         $user->{'firstname'} = $person->firstname;
         $user->{'name'} = $person->name;
-        return view('adminModifyUser', compact('user', 'companies', 'brands'));
+        return view('adminModifyUser', compact('user', 'companies'));
     }
 
     public function show() {
@@ -69,24 +68,33 @@ class UserController extends Controller
         $person = Person::find($request['id']);
         $person->name = $request['name'];
         $person->firstname = $request['firstname'];
-        $user->password = $request['password'];
+        if(strlen($request['password'] >= 8)) {
+            $user->password = $request['password'];
+        }
         $user->username = $request['username'];
         $person->save();
         $user->save();
         return redirect('/profil');
     }
 
-    public function updateUser(UpdateUserRequest $request) {
+    public function updateUser(Request $request) {
         $user = User::find($request['id']);
         $person = Person::find($request['id']);
         $person->name = $request['name'];
         $person->firstname = $request['firstname'];
-        $user->password = $request['password'];
         $user->username = $request['username'];
         $user->email = $request['email'];
+        if($request->exposant == null) {
+            User::find($request['id'])->roles()->detach('exhibitor');
+            User::find($request['id'])->roles()->attach('visitor');
+            $user->company_id = null;
+        } else {
+            $user->company_id = $request->company;
+            User::find($request['id'])->roles()->attach('exhibitor');
+        }
         $person->save();
         $user->save();
-        return redirect('/profil');
+        return redirect('/gestion-utilisateurs');
     }
     public function createWithTicket(UserWithTicketRequest $request) {
         $person = Person::create([

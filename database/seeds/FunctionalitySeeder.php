@@ -34,6 +34,9 @@ class FunctionalitySeeder extends Seeder
             'name' => 'manageTests'
         ]);
         DB::table('functionalities')->insert([
+            'name' => 'manageExhibitor'
+        ]);
+        DB::table('functionalities')->insert([
             'name' => 'manageProducts'
         ]);
     }
