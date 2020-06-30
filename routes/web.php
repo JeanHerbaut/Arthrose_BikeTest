@@ -19,17 +19,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
-<<<<<<< HEAD
+Route::get('/mesvelos', function () {
+    return view('mesVelos');
+});
+
 Route::get('/catalogue', function () {
     return view('catalogue');
 });
 
-Route::post('createUserWithTicket', 'UserController@createWithTicket');
-=======
-Route::get('/mesvelos', function () {
-    return view('mesVelos');
-});
->>>>>>> f6f2ffb406cd22ed997802875797bdbbea3a2edf
 
 Route::get('/home', 'HomeController@index')->name('home');
 /* Admin routes */
@@ -70,4 +67,5 @@ Route::post('/endTest', 'TestController@end');
 Route::post('searchUser', 'UserController@search');
 
 Route::get('/register', function () {
-    return view('auth/register');});
+    return view('auth/register');
+});
