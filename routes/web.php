@@ -18,9 +18,12 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+/*mes velos*/
 Route::get('/mesvelos', function () {
     return view('mesVelos');
+});
+Route::get('/mesvelos/test', function () {
+    return view('test1');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
