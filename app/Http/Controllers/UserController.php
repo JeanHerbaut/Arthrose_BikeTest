@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserWithTicketRequest;
 use App\Http\Requests\UpdateUserRequest;
-use Symfony\Component\HttpFoundation\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Policies\UserPolicy;
 use App\User;
