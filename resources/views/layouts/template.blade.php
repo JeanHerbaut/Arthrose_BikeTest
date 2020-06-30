@@ -63,7 +63,7 @@
           @endcan
           @can('manage', App\Test::class)
           <li>
-            <a href="/gestionTest">
+            <a href="/gestion-test">
               Gestion des tests
             </a>
           </li>
