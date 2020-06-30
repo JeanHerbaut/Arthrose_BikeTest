@@ -42,11 +42,19 @@ class Functionality_Role_Seeder extends Seeder
             'functionality_name' => 'manageTests',
             'role_name' => 'exhibitor'
         ]);
+        DB::table('functionality_role')->insert([
+            'functionality_name' => 'viewTests',
+            'role_name' => 'exhibitor'
+        ]);
 
 
 
         DB::table('functionality_role')->insert([
             'functionality_name' => 'manageTests',
+            'role_name' => 'admin'
+        ]);
+        DB::table('functionality_role')->insert([
+            'functionality_name' => 'viewTests',
             'role_name' => 'admin'
         ]);
         DB::table('functionality_role')->insert([

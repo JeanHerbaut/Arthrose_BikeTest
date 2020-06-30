@@ -25,6 +25,9 @@ class FunctionalitySeeder extends Seeder
             'name' => 'viewUsers'
         ]);
         DB::table('functionalities')->insert([
+            'name' => 'viewTests'
+        ]);
+        DB::table('functionalities')->insert([
             'name' => 'manageUsers'
         ]);
         DB::table('functionalities')->insert([

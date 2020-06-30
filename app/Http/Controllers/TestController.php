@@ -19,7 +19,7 @@ class TestController extends Controller
      */
     public function index()
     {
-        $this->authorize('manage', User::class);
+        $this->authorize('view', Test::class);
         $tests = Test::with('product', 'user')
             ->get();
         foreach ($tests as $test) {
@@ -37,8 +37,12 @@ class TestController extends Controller
     public function create()
     {
         $this->authorize('manage', Test::class);
-        $brands_ids = Auth::user()->company->brands->pluck('id')->toArray();
-        $products = Product::whereIn('brand_id', $brands_ids)->get()->pluck('id')->toArray();
+        if(Auth::user()->roles->first()->name == "admin" ){
+            $products = Product::all()->pluck('id')->toArray();
+        }else {
+            $brands_ids = Auth::user()->company->brands->pluck('id')->toArray();
+            $products = Product::whereIn('brand_id', $brands_ids)->get()->pluck('id')->toArray();
+        }
         $availableBikes = Bike::whereIn('product_id', $products)
             ->with('product')
             ->with(['product.brand' => function($q) {

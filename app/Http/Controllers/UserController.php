@@ -47,21 +47,27 @@ class UserController extends Controller
     public function edit()
     {
         $id = htmlspecialchars($_GET["user_id"]);
-        $user = User::findOrFail($id);
-        $person = Person::find($user->id);
+        $user = User::where('id', '=', $id)->with('person', 'company', 'roles')->first();
+        $user->roles = $user->roles->pluck('name')->toArray();
         $companies = Company::all();
-        $user->{'firstname'} = $person->firstname;
-        $user->{'name'} = $person->name;
-        return view('adminModifyUser', compact('user', 'companies'));
+        $testSchedules = TestSchedule::all();
+        //dd($user->roles);
+        //dd($companies);
+        return view('adminModifyUser', compact('user', 'companies', 'testSchedules'));
     }
 
     public function show() {
-        $id = Auth::user()->id;
-        $user = User::find($id);
-        $person = Person::find($user->id);
-        $user->{'firstname'} = $person->firstname;
-        $user->{'name'} = $person->name;
-        return view('auth/my-profile')->with('user', $user);
+        if(Auth::user()){
+            $id = Auth::user()->id;
+            $user = User::find($id);
+            $person = Person::find($user->id);
+            $user->{'firstname'} = $person->firstname;
+            $user->{'name'} = $person->name;
+            return view('auth/my-profile')->with('user', $user);
+        } else {
+            return redirect('/login');
+        }
+        
     }
 
     public function updateProfile(UpdateUserRequest $request) {
@@ -85,18 +91,22 @@ class UserController extends Controller
         $person->firstname = $request['firstname'];
         $user->username = $request['username'];
         $user->email = $request['email'];
-        if($request->exposant == null) {
-            User::find($request['id'])->roles()->detach('exhibitor');
-            User::find($request['id'])->roles()->attach('visitor');
-            $user->company_id = null;
-        } else {
+
+        $user->roles()->detach();
+        $user->testSchedules()->detach();
+        $user->company_id = null;
+        
+        $user->roles()->attach($request->role);
+        if($request->role == "visitor") {
+            $user->testSchedules()->attach($request['testSchedule']);
+        } else if ($request->role == "exhibitor") {
             $user->company_id = $request->company;
-            User::find($request['id'])->roles()->attach('exhibitor');
         }
         $person->save();
         $user->save();
         return redirect('/gestion-utilisateurs');
     }
+
     public function createWithTicket(UserWithTicketRequest $request) {
         $person = Person::create([
             'name' => $request['name'],
