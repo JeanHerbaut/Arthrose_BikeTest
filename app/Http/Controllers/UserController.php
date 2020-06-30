@@ -18,11 +18,11 @@ class UserController extends Controller
     public function index()
     {
         $this->authorize('manage', User::class);
-        $users = User::with('company', 'testSchedules')
+        $users = User::with('company', 'testSchedules', 'roles', 'person')
             ->orderBy('users.username')
             ->paginate(20);
         $testSchedules = TestSchedule::all();
-        foreach ($users as $user) {
+        /* foreach ($users as $user) {
             $user->{'name'} = $user->person->name;
             $user->{'firstname'} = $user->person->firstname;
             $billets = [];
@@ -33,13 +33,14 @@ class UserController extends Controller
                 array_push($billets, array('schedule' => $day . " - " . $startTime . " : " . $endTime, 'id' => $testSchedule->id));
             }
             $user->{'schedules'} = $billets;
-        }
+        } */
 
-        foreach ($testSchedules as $testSchedule) {
+        /* foreach ($testSchedules as $testSchedule) {
             $testSchedule['day'] = date('d/m/Y', strtotime($testSchedule['startTime']));
             $testSchedule['endTime'] = date('H:i', strtotime($testSchedule['endTime']));
             $testSchedule['startTime'] = date('H:i', strtotime($testSchedule['startTime']));
-        }
+        } */
+        //dd($users);
         return view('adminConsultation', compact('users', 'testSchedules'));
     }
 

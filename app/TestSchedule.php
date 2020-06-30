@@ -14,6 +14,8 @@ class TestSchedule extends Model
         'edition_id'
     ];
 
+    protected $dates = ['startTime', 'endTime'];
+
     public function edition() {
         return $this->belongsTo(Edition::class);  
     }

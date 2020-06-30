@@ -5,14 +5,14 @@
     <input type="text" name="search" id="search">
     <select name="person" id="person-select">
         <option value="">Personne</option>
-        <option value="exposant">Exposants</option>
-        <option value="visiteur">Visiteurs</option>
+        <option value="exhibitor">Exposants</option>
+        <option value="visitor">Visiteurs</option>
     </select>
     <select name="schedule" id="schedule-select">
         <option value="">Billet</option>
         @foreach ($testSchedules as $testSchedule)
         <option value="{{$testSchedule->id}}">
-            {{$testSchedule->day . " - " . $testSchedule->startTime. " : " . $testSchedule->endTime}}</option>
+            {{$testSchedule->startTime->format('d.m H:i'). " : " . $testSchedule->endTime->format('d.m H:i')}}</option>
         @endforeach
     </select>
     <button id="search-username">Filtrer</button>
@@ -20,50 +20,41 @@
 </div>
 <div class="liste-user">
     <table id="list-user">
+        <tr>
+            <th>Nom d'utilisateur</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>Billet</th>
+            <th>Exposant</th>
+        </tr>
         @foreach ($users as $user)
-        @if (sizeOf($user->schedules) == 0) 
-        @if ($user->company_id == null)
-        <tr data-role="visiteur" data-username="{{$user->username}}" data-schedule-id="{{$schedule['id']}}" class="row">
+        @if(sizeOf($user->roles) > 0)
+
+            @if(sizeOf($user->testSchedules) > 0)
+                <tr data-role="{{$user->roles[0]->name}}" data-username="{{$user->username}}" data-schedule-id="{{$user->testSchedules[0]->id}}" class="row filterable">
             @else
-        <tr data-role="exposant" data-username="{{$user->username}}" data-schedule-id="{{$schedule['id']}}" class="row">
+                <tr data-role="{{$user->roles[0]->name}}" data-username="{{$user->username}}" data-schedule-id="" class="row filterable">
             @endif
             <td>{{$user->username}}</td>
-            <td>{{$user->firstname}}</td>
-            <td>{{$user->name}}</td>
+            <td>{{$user->person->name}}</td>
+            <td>{{$user->person->firstname}}</td>
             <td>{{$user->email}}</td>
-            <td>-</td>
-            @if ($user->company_id == null)
-            <td>-</td>
+            @if(sizeOf($user->testSchedules) > 0)
+                <td>{{$user->testSchedules[0]->startTime->format('d.m H:i')}} - {{$user->testSchedules[0]->endTime->format('d.m H:i')}}</td>
             @else
-            <td>{{$user->company->name}}</td>
+                <td> - </td>
             @endif
-            <td><a href="{{url('/admin/modify-user?user_id='.$user->id)}}"><button>Modifier</button></a>
-            </td>
+            @if($user->company)
+                <td>{{$user->company->name}}</td>
+            @else
+                <td> - </td>
+            @endif
+            <td><a href="http://127.0.0.1:8000/admin/modify-user?user_id={{$user->id}}"><button>Modifier</button></a></td>
             <td><button>Supprimer</button></td>
-        </tr>
-            
+            </tr>
+
         @endif
-        @foreach ($user->schedules as $schedule)
-        @if ($user->company_id == null)
-        <tr data-role="visiteur" data-username="{{$user->username}}" data-schedule-id="{{$schedule['id']}}" class="row">
-            @else
-        <tr data-role="exposant" data-username="{{$user->username}}" data-schedule-id="{{$schedule['id']}}" class="row">
-            @endif
-            <td>{{$user->username}}</td>
-            <td>{{$user->firstname}}</td>
-            <td>{{$user->name}}</td>
-            <td>{{$user->email}}</td>
-            <td>{{$schedule['schedule']}}</td>
-            @if ($user->company_id == null)
-            <td>-</td>
-            @else
-            <td>{{$user->company->name}}</td>
-            @endif
-            <td><a href="http://127.0.0.1:8000/admin/modify-user?user_id={{$user->id}}"><button>Modifier</button></a>
-            </td>
-            <td><button>Supprimer</button></td>
-        </tr>
-        @endforeach
         @endforeach
     </table>
 </div>
