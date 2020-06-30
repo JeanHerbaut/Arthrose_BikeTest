@@ -19,6 +19,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/catalogue', function () {
+    return view('catalogue');
+});
+
 Route::post('createUserWithTicket', 'UserController@createWithTicket');
 
 Route::get('/home', 'HomeController@index')->name('home');
