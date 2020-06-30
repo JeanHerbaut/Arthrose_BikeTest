@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Test;
 use App\Bike;
 use App\Product;
+use App\TestSchedule;
 use Illuminate\Support\Facades\Auth;
 
 class TestController extends Controller
@@ -39,13 +40,25 @@ class TestController extends Controller
                 return $query->whereNull('endTime');
             })
             ->get();
+
         $busyBikes = Bike::whereIn('product_id', $products)->with('product')->whereHas('product.tests', function($query) {
             return $query->whereNull('endTime');
         })->get();
 
+        $currentTests = Test::whereIn('product_id', $products)->whereNull('endTime')
+            ->with(['product' => function($q) {
+                return $q->select('id', 'shortDesc', 'image');
+            }])
+            ->with(['user' => function($q) {
+                return $q->select('id', 'username');
+            }])
+            ->with(['bike' => function($q) {
+                return $q->select('id');
+            }])->get();
+
 
         //dd($availableBikes);
-        return view('gestionTest')->with(compact('availableBikes', 'busyBikes'));
+        return view('gestionTest')->with(compact('availableBikes', 'currentTests'));
     }
 
     /**
@@ -56,7 +69,28 @@ class TestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->authorize('manage', Test::class);
+        //$datetime = date("Y-m-d H:i:s"); We can't use that for the tests because it will not correspond to a test schedule
+        $datetime = "2020-10-03 11:00:00";
+        $test_schedule_id = TestSchedule::where('startTime', '<=', $datetime)->where('endtime', '>=', $datetime)->first()->id;
+        //dd($test_schedule_id);
+        Test::create([
+            'startTime' => $datetime,
+            'test_schedule_id' => $test_schedule_id,
+            'product_id' => $request->product_id,
+            'user_id' => $request->user_id,
+            'bike_id' => $request->bike_id
+        ]);
+
+        return redirect("/gestionTest");
+    }
+
+    public function end(Request $request){
+        $test = Test::whereNull('endTime')->where('bike_id', '=', $request->bike_id)->first();
+        $datetime = "2020-10-03 12:00:00"; //En vrai on ferait date("Y-m-d H:i:s");
+        $test->endTime = $datetime;
+        $test->save();
+        return redirect("/gestionTest");
     }
 
     /**
