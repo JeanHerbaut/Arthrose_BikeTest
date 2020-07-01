@@ -61,7 +61,7 @@ Route::get('/gestion-utilisateurs', 'UserController@index');
 Route::get('/gestion-test-historique', 'TestController@index');
 
 
-Route::get('/gestionTest', 'TestController@create');
+Route::get('/gestion-test', 'TestController@create');
 
 Route::get('/', function () {
     return view('home');

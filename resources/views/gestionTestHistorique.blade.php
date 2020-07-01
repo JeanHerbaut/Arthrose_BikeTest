@@ -1,11 +1,7 @@
 @extends('layouts.template')
 
 @section('content')
-    <div class="filter">
-        <label for="search">Recherche</label>
-        <input type="text" name="search" id="search">
-        <p>{{$tests->count()}} Résultats</p>
-    </div>
+    <p>{{$tests->count()}} Résultats</p>
     <div class="list-test">
         <table id="list-test">
             <tr>
@@ -18,12 +14,12 @@
             </tr>
             @foreach ($tests as $test)
                 <tr>
-                    <td>{{date('d-m-Y', strtotime($test->startTime))}}</td>
+                    <td>{{date('d.m.Y', strtotime($test->startTime))}}</td>
                     <td>{{date('H:i', strtotime($test->startTime))}}</td>
-                    <td>{{date('H:i', strtotime($test->endTime))}}</td>
+                    <td>{{($test->endTime) ? $test->endTime->format('H:i') : "en cours"}}</td>
                     <td>{{$test->rating}}</td>
-                    <td>{{$test->shortDesc}}</td>
-                    <td>{{$test->username}}</td>
+                    <td>{{$test->product->shortDesc}}</td>
+                    <td>{{$test->user->username}}</td>
                 </tr>
             @endforeach
         </table>

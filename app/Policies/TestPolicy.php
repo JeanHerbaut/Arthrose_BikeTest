@@ -14,4 +14,8 @@ class TestPolicy
     public function manage(User $user){
         return in_array('manageTests', $user->roles->first()->functionalities->pluck('name')->toArray());
     }
+
+    public function view(User $user){
+        return in_array('viewTests', $user->roles->first()->functionalities->pluck('name')->toArray());
+    }
 }

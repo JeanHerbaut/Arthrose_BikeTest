@@ -28,5 +28,17 @@ class PersonSeeder extends Seeder
             'name' => 'Réceptioniste',
             'firstname' => 'Jean'
         ]);
+        DB::table('people')->insert([
+            'name' => 'Rien',
+            'firstname' => 'Jean'
+        ]);
+        DB::table('people')->insert([
+            'name' => 'Smith',
+            'firstname' => 'Albert'
+        ]);
+        DB::table('people')->insert([
+            'name' => 'Persone',
+            'firstname' => 'Juste'
+        ]);
     }
 }
