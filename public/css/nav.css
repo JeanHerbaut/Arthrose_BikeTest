@@ -101,7 +101,6 @@ a {
     font-size: var(--menu);
 }
 
-
 .mobile {
   display: none;
 }
@@ -110,20 +109,19 @@ section{
   min-height: 88vh;
 }
 
-
 .profile-nav {
   position: absolute;
   top: 100%;
-  right: 0%;
-  background: #464655;
+  right: 0;
+  background: rgb(235, 235, 235);
   clip-path: circle(0px at top right);
-  transition: clip-path ease-in-out 700ms;
+  transition: clip-path ease-in-out 300ms;
 /*   display: none; */
   z-index: 3;
 }
 
 .profile-nav--open {
-  clip-path: circle(250% at top right);
+  clip-path: circle(250% at bottom right);
 /*   display: block; */
 }
 
@@ -142,12 +140,13 @@ section{
 }
 
 .profile-nav a {
-  color: #EBEBD3;
+  color: #000000
+  ;
   display: block;
   padding: 1em 2em 1em 0.8em;
   text-transform: uppercase;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 1.3rem;
 }
 
 .profile-nav a:hover,
@@ -160,9 +159,7 @@ section{
   cursor: pointer;
 }
 
-
-
-@media (max-width: 700px){
+@media screen and (max-width: 700px){
 
   nav{
     z-index: 2;
@@ -200,12 +197,22 @@ section{
   }
 
   .profile-nav {
-    position: absolute;
-    bottom: 100%;
-    right: 0%;
-  /*   display: none; */
+  top : auto;
+  bottom: 100%;
+  clip-path: circle(0px at bottom right);
   }
 
+  .profile-nav--open {
+    clip-path: circle(250% at bottom right);
+  /*   display: block; */
+  }
 
-
+  .profile-nav a {
+    color: #000000;
+    display: block;
+    padding: 1.5em 2.5em 1.5em 1.3em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
 }

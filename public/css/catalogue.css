@@ -47,9 +47,6 @@
   cursor: pointer;
 }
 
-ul{
-  display: flex;
-}
 
 ul li{
   margin: 1rem;
