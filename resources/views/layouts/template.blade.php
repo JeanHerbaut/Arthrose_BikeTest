@@ -17,14 +17,14 @@
 
 
       <div id="logo-container">
-        <a href="/"><img src="{{ asset('img/logoBikeTest.png') }}" alt=""></a>
+        <a href="{{url('/')}}"><img src="{{ asset('img/logoBikeTest.png') }}" alt=""></a>
       </div>
       <ul id="menu">
         <li><a href="#">Infos</a> </li>
-        <li><a href="/catalogue">Catalogue</a> </li>
+        <li><a href="{{url('/catalogue')}}">Catalogue</a> </li>
         <li><a href="#">Mes vélos</a> </li>
         @guest
-        <li><a href="/billeterie">Billeterie</a> </li>
+        <li><a href="{{url('/billeterie')}}">Billeterie</a> </li>
         @endguest
       </ul>
       @if(Auth::check())
@@ -43,7 +43,7 @@
 
         <ul class="dropdown-menu">
           <li>
-          <a href="/profil">
+          <a href="{{url('/profil')}}">
               Mon profil
             </a>
           </li>
@@ -56,21 +56,21 @@
           @endcan
           @can('manage', App\User::class)
           <li>
-            <a href="gestion-utilisateurs">
+            <a href="{{url('/gestion-utilisateurs')}}">
               Gestion des utilisateurs
             </a>
           </li>
           @endcan
           @can('manage', App\Test::class)
           <li>
-            <a href="/gestion-test">
+            <a href="{{url('/gestion-test')}}">
               Gestion des tests
             </a>
           </li>
           @endcan
           @can('manage', App\Product::class)
           <li>
-            <a href="/exposant/catalogue">
+            <a href="{{url('/exposant/catalogue')}}">
               Gestion du catalogue
             </a>
           </li>

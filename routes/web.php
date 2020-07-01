@@ -47,6 +47,7 @@ Route::post('/gestion-exposant/create', 'ExhibitorController@store');
 
 /* Billeterie - Enregistremet user */
 Route::get('/billeterie', 'BilleterieController@displayForm');
+Route::post('/createUserWithTicket', 'UserController@createWithTicket');
 /* User profile */
 Route::get('/profil', 'UserController@show');
 Route::post('/profil', 'UserController@updateProfile');
