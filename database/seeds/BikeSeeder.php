@@ -18,7 +18,18 @@ class BikeSeeder extends Seeder
                 'size' => 'M',
                 'distinctive_sign' => 'signe'.$i
                 ]);
-        }
+
+            DB::table('bikes')->insert([
+                'product_id' => $i,
+                'size' => 'L',
+                'distinctive_sign' => 'Signe distinctif'.$i
+                ]);
+                DB::table('bikes')->insert([
+                'product_id' => $i,
+                'size' => 'XL',
+                'distinctive_sign' => 'Un signe'.$i
+                ]);
+            }
         
     }
 }
