@@ -1,7 +1,7 @@
 @extends('layouts.template')
 
 @section('content')
-    <form action="/profil" method="post">
+    <form action="{{url('/profil')}}" method="post">
         @csrf
         <label for="username">Nom d'utlisateur</label>
         <input type="text" id="username" name="username" value="{{$user->username}}" disabled>

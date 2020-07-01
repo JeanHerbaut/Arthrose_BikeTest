@@ -5,7 +5,7 @@
     <h2>Plage horaire</h2>
     <p>Suivant: Informations</p>
 </div>
-<form method="post" action="/createUserWithTicket" id="schedule">
+<form method="post" action="{{url('/createUserWithTicket')}}" id="schedule">
     @csrf
     <div id="choix-plage">
         <div class="description">

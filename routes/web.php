@@ -28,9 +28,7 @@ Route::get('/mesvelos/test', function () {
 });
 
 /*catalogue*/
-Route::get('/catalogue', function () {
-    return view('catalogue');
-});
+Route::get('/catalogue', 'ProductController@index');
 
 Route::get('/velo', function () {
     return view('velo');
@@ -49,12 +47,13 @@ Route::post('/gestion-exposant/create', 'ExhibitorController@store');
 
 /* Billeterie - Enregistremet user */
 Route::get('/billeterie', 'BilleterieController@displayForm');
+Route::post('/createUserWithTicket', 'UserController@createWithTicket');
 /* User profile */
 Route::get('/profil', 'UserController@show');
 Route::post('/profil', 'UserController@updateProfile');
 
 /* Exposants */
-Route::resource('exposant/catalogue', 'ProductController', ['except'=>['fullCatalogue']]);
+Route::resource('exposant/catalogue', 'BikeController', ['except'=>['fullCatalogue']]);
 
 Route::get('/gestion-utilisateurs', 'UserController@index');
 

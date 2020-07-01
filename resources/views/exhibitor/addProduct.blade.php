@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <form method="post" action="/createBike" enctype="multipart/form-data">
+    <form method="post" action="{{url('/createBike')}}" enctype="multipart/form-data">
         @csrf
         <label for="image">Image</label>
         <input type="file" name="image" id="image" disabled value="{{ old('image') }}"><br>

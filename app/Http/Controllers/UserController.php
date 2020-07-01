@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserWithTicketRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\UpdateProfileRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Policies\UserPolicy;
 use App\User;
@@ -22,25 +23,7 @@ class UserController extends Controller
             ->orderBy('users.username')
             ->paginate(20);
         $testSchedules = TestSchedule::all();
-        /* foreach ($users as $user) {
-            $user->{'name'} = $user->person->name;
-            $user->{'firstname'} = $user->person->firstname;
-            $billets = [];
-            foreach ($user->testSchedules as $key => $testSchedule) {
-                $day = date('d/m/Y', strtotime($testSchedule['startTime']));
-                $endTime = date('H:i', strtotime($testSchedule['endTime']));
-                $startTime = date('H:i', strtotime($testSchedule['startTime']));
-                array_push($billets, array('schedule' => $day . " - " . $startTime . " : " . $endTime, 'id' => $testSchedule->id));
-            }
-            $user->{'schedules'} = $billets;
-        } */
-
-        /* foreach ($testSchedules as $testSchedule) {
-            $testSchedule['day'] = date('d/m/Y', strtotime($testSchedule['startTime']));
-            $testSchedule['endTime'] = date('H:i', strtotime($testSchedule['endTime']));
-            $testSchedule['startTime'] = date('H:i', strtotime($testSchedule['startTime']));
-        } */
-        //dd($users);
+        
         return view('adminConsultation', compact('users', 'testSchedules'));
     }
 
@@ -52,7 +35,7 @@ class UserController extends Controller
         $companies = Company::all();
         $testSchedules = TestSchedule::all();
         //dd($user->roles);
-        //dd($companies);
+        
         return view('adminModifyUser', compact('user', 'companies', 'testSchedules'));
     }
 
@@ -70,7 +53,7 @@ class UserController extends Controller
         
     }
 
-    public function updateProfile(UpdateUserRequest $request) {
+    public function updateProfile(UpdateProfileRequest $request) {
         $user = User::find($request['id']);
         $person = Person::find($request['id']);
         $person->name = $request['name'];
@@ -84,7 +67,7 @@ class UserController extends Controller
         return redirect('/profil');
     }
 
-    public function updateUser(Request $request) {
+    public function updateUser(UpdateUserRequest $request) {
         $user = User::find($request['id']);
         $person = Person::find($request['id']);
         $person->name = $request['name'];
