@@ -13,29 +13,29 @@
     <h3>Favoris</h3>
     <div class="vignette-test">
         <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="" width="100px">
-        <p><strong>Titanium 370-X</strong></p>
+        <p><strong>Velo testé</strong></p>
         <p>SCOTT</p>
     </div>
     <div class="vignette-test">
         <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="" width="100px">
-        <p><strong>Titanium 370-X</strong></p>
+        <p><strong>Velo testé</strong></p>
         <p>SCOTT</p>
     </div>
     <div class="vignette-test">
         <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="" width="100px">
-        <p><strong>Titanium 370-X</strong></p>
+        <p><strong>Velo testé</strong></p>
         <p>SCOTT</p>
     </div>
     <div class="vignette-test">
         <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="" width="100px">
-        <p><strong>Titanium 370-X</strong></p>
+        <p><strong>Velo testé</strong></p>
         <p>SCOTT</p>
     </div>
 </div>
 
 <div id="test" class="tabcontent">
     <h3>Test</h3>
-    <div class="vignette-test">
+    <div class="vignette-test" onclick="location.href='/mesvelos/test';">
         <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="" width="100px">
         <p><strong>Titanium 370-X</strong></p>
         <p>SCOTT</p>
