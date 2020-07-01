@@ -1,10 +1,4 @@
 
-
-/* BASIC */
-
-
-
-
 section a {
   color: #1b9837;
   display:inline-block;
@@ -22,8 +16,6 @@ h2 {
   margin: 40px 8px 10px 8px;
   color: #cccccc;
 }
-
-
 
 /* STRUCTURE */
 
@@ -60,9 +52,6 @@ h2 {
   border-radius: 0 0 10px 10px;
 }
 
-
-/* FORM TYPOGRAPHY*/
-
 input[type=button], input[type=submit] {
   background-color: #1b9837;
   border: none;
@@ -97,7 +86,6 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   -o-transform: scale(0.95);
   -ms-transform: scale(0.95);
   transform: scale(0.95);
-
 }
 
 input[type=email], input[type=password] {
