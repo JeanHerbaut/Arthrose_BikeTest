@@ -109,64 +109,12 @@
         </div>
 
         <div class="wrapper-velos">
+
             <div class="vignette vignette-start">
                 <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="">
                 <a href="/velo">Commencer</a>
             </div>
-
-            <div class="vignette vignette-start">
-                <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="">
-                <a href="#">Commencer</a>
-            </div>
-
-            <div class="vignette vignette-start">
-                <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="">
-                <a href="#">Commencer</a>
-            </div>
-            <div class="vignette vignette-start">
-                <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="">
-                <a href="#">Commencer</a>
-            </div>
-            <div class="vignette vignette-start">
-                <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="">
-                <a href="#">Commencer</a>
-            </div>
-            <div class="vignette vignette-start">
-                <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="">
-                <a href="#">Commencer</a>
-            </div>
-            <div class="vignette vignette-start">
-                <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="">
-                <a href="#">Commencer</a>
-            </div>
-            <div class="vignette vignette-start">
-                <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="">
-                <a href="#">Commencer</a>
-            </div>
-            <div class="vignette vignette-start">
-                <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="">
-                <a href="#">Commencer</a>
-            </div>
-            <div class="vignette vignette-start">
-                <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="">
-                <a href="#">Commencer</a>
-            </div>
-            <div class="vignette vignette-start">
-                <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="">
-                <a href="#">Commencer</a>
-            </div>
-            <div class="vignette vignette-start">
-                <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="">
-                <a href="#">Commencer</a>
-            </div>
-            <div class="vignette vignette-start">
-                <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="">
-                <a href="#">Commencer</a>
-            </div>
-            <div class="vignette vignette-start">
-                <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="">
-                <a href="#">Commencer</a>
-            </div>
+            
         </div>
     </div>
 

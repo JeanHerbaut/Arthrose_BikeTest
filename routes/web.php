@@ -28,9 +28,7 @@ Route::get('/mesvelos/test', function () {
 });
 
 /*catalogue*/
-Route::get('/catalogue', function () {
-    return view('catalogue');
-});
+Route::get('/catalogue', 'BikeController@index');
 
 Route::get('/velo', function () {
     return view('velo');

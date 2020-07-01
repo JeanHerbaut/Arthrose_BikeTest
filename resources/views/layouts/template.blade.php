@@ -34,7 +34,7 @@
       </div>
       @else
       <div class="user-icon">
-        <a href="/login"><img src="{{ asset('img/user-icon.svg') }}" alt=""></a>
+        <a href="{{url('/login')}}"><img src="{{ asset('img/user-icon.svg') }}" alt=""></a>
       </div>
       @endif
 
