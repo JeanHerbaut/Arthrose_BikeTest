@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserWithTicketRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\UpdateProfileRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Policies\UserPolicy;
 use App\User;
@@ -34,7 +35,7 @@ class UserController extends Controller
         $companies = Company::all();
         $testSchedules = TestSchedule::all();
         //dd($user->roles);
-        //dd($companies);
+        
         return view('adminModifyUser', compact('user', 'companies', 'testSchedules'));
     }
 
@@ -52,7 +53,7 @@ class UserController extends Controller
         
     }
 
-    public function updateProfile(UpdateUserRequest $request) {
+    public function updateProfile(UpdateProfileRequest $request) {
         $user = User::find($request['id']);
         $person = Person::find($request['id']);
         $person->name = $request['name'];
@@ -66,7 +67,7 @@ class UserController extends Controller
         return redirect('/profil');
     }
 
-    public function updateUser(Request $request) {
+    public function updateUser(UpdateUserRequest $request) {
         $user = User::find($request['id']);
         $person = Person::find($request['id']);
         $person->name = $request['name'];
