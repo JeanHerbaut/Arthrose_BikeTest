@@ -1,6 +1,7 @@
 @extends('layouts.template')
 
 @section('content')
+    <link defer rel="stylesheet" type="text/css" href="{{ asset('css/testHistorique.css') }}">
     <p>{{$tests->count()}} Résultats</p>
     <div class="list-test">
         <table id="list-test">
