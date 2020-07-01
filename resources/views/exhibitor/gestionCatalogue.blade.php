@@ -70,9 +70,9 @@ let search = document.getElementById('search-bike')
 let reset = document.getElementById('reset')
 let elements = document.getElementsByClassName('svg-container')
     search.addEventListener('click', evt => {
-    let input = document.getElementById('input').value
+    let input = document.getElementById('input').value.toUpperCase()
     if(input.length > 0) {
-    for(var i=0; i<elements.length; i++) { if(elements[i].getAttribute('data-desc') !=input) {
+    for(var i=0; i<elements.length; i++) { if(elements[i].getAttribute('data-desc').toUpperCase() !=input) {
         elements[i].style.display="none" } 
         search
         } 
