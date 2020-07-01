@@ -52,7 +52,6 @@ class ExhibitorController extends Controller
                 'company_id' => $id[0]->id
             ]
             );
-            dd(Brand::all());
         return redirect()->back();
     }
 }
