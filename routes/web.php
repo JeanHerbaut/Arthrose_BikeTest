@@ -28,7 +28,7 @@ Route::get('/mesvelos/test', function () {
 });
 
 /*catalogue*/
-Route::get('/catalogue', 'BikeController@index');
+Route::get('/catalogue', 'ProductController@index');
 
 Route::get('/velo', function () {
     return view('velo');
@@ -53,7 +53,7 @@ Route::get('/profil', 'UserController@show');
 Route::post('/profil', 'UserController@updateProfile');
 
 /* Exposants */
-Route::resource('exposant/catalogue', 'ProductController', ['except'=>['fullCatalogue']]);
+Route::resource('exposant/catalogue', 'BikeController', ['except'=>['fullCatalogue']]);
 
 Route::get('/gestion-utilisateurs', 'UserController@index');
 
