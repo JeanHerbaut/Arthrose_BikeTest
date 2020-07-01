@@ -6,8 +6,8 @@ const resetfilter = () => {
   document.getElementById('search').value = ""
   document.getElementById('person-select').value = ""
   document.getElementById('schedule-select').value = ""
-  for (var i = 0, row; row = table.rows[i]; i++) {
-    let row = table.getElementsByTagName("tr")[i]
+  for (var i = 0, row; i<table.rows.length-1; i++) {
+    let row = table.getElementsByClassName("filterable")[i]
     row.classList.remove("hide")
   }
 }
@@ -16,10 +16,10 @@ const resetfilter = () => {
 const username = () => {
   let input = document.getElementById('search').value.toUpperCase()
   if (input.length > 0) {
-    for (var i = 0, row; row = table.rows[i]; i++) {
-      let row = table.getElementsByTagName("tr")[i]
+    for (var i = 0, row; i<table.rows.length-1; i++) {
+      let row = table.getElementsByClassName("filterable")[i]
       let user = row.getAttribute('data-username').toUpperCase();
-      if (user != input) row.classList.add("hide") 
+      if (user != input) row.classList.add("hide")
       else row.classList.remove("hide")
     }
   }
@@ -29,8 +29,8 @@ const username = () => {
 const role = () => {
   let input = document.getElementById('person-select').value
   if (input.length > 0) {
-    for (var i = 0, row; row = table.rows[i]; i++) {
-      let row = table.getElementsByTagName("tr")[i]
+    for (var i = 0, row; i<table.rows.length-1; i++) {
+      let row = table.getElementsByClassName("filterable")[i]
       let role = row.getAttribute('data-role');
       if (role != input) { row.classList.toggle("hide") }
     }
@@ -42,8 +42,8 @@ const schedule = () => {
   let input = document.getElementById('search').value.toUpperCase()
   let schedule = document.getElementById('schedule-select').value
   if (input.length > 0 && schedule.length > 0) {
-    for (var i = 0, row; row = table.rows[i]; i++) {
-      let row = table.getElementsByTagName("tr")[i]
+    for (var i = 0, row; i<table.rows.length-1; i++) {
+      let row = table.getElementsByClassName("filterable")[i]
       let username = row.getAttribute('data-username').toUpperCase();
       let billet = row.getAttribute('data-schedule-id')
       if (username != input || billet != schedule) {
@@ -51,8 +51,8 @@ const schedule = () => {
       }
     }
   } else if (input.length === 0 && schedule.length > 0) {
-    for (var i = 0, row; row = table.rows[i]; i++) {
-      let row = table.getElementsByTagName("tr")[i]
+    for (var i = 0, row; i<table.rows.length-1; i++) {
+      let row = table.getElementsByClassName("filterable")[i]
       let billet = row.getAttribute('data-schedule-id')
       if (billet != schedule) {
         row.classList.add("hide")
@@ -63,8 +63,8 @@ const schedule = () => {
 //set filter
 searchBtn.addEventListener("click", evt => {
 
-  for (var i = 0, row; row = table.rows[i]; i++) {
-    let row = table.getElementsByTagName("tr")[i] 
+  for (var i = 0, row; i<table.rows.length-1; i++) {
+    let row = table.getElementsByClassName("filterable")[i] 
     row.classList.remove("hide");
   }
   username()

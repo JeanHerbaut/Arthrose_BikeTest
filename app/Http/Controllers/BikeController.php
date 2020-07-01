@@ -7,22 +7,23 @@ use App\Bike;
 use App\Product;
 use App\Category;
 use App\Brand;
+use App\Http\Requests\BikeRequest;
 
 class BikeController extends Controller
 {
-    public function createBike(Request $request){
-        $product = Product::where('modelNumber', $request['nModel'])->first();
+    public function createBike(BikeRequest $request){
+        $product = Product::where('modelNumber', $request['modelNumber'])->first();
         if(!$product){
             $extension = $request->file('image')->getClientOriginalExtension();
-            $path = $request->image->storeAs('img', 'img'.$request['nModel']. '.'. $extension); 
+            $path = $request->image->storeAs('img', 'img'.$request['modelNumber']. '.'. $extension); 
             $product= [
-                'modelNumber'=>$request['nModel'],
+                'modelNumber'=>$request['modelNumber'],
                 'shortDesc'=> $request['shortDesc'],
                 'longDesc'=>$request['longDesc'],
                 'price'=>$request['price'],
                 'brand_id' => Brand::where('name', $request['brand'])->first()['id'],
                 'category_name' => $request['categories'],
-                'image' => '/storage/img/'.'img'.$request['nModel']. '.'. $extension
+                'image' => '/storage/img/'.'img'.$request['modelNumber']. '.'. $extension
             ];
             $product = Product::create($product);
         }
