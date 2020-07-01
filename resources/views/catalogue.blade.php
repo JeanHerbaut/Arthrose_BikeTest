@@ -173,4 +173,6 @@
 </section>
 
 <script src="{{ asset('js/gestionExposant.js')}}" type="text/javascript" defer></script>
+<script src="{{ asset('js/noUISlider.js')}}" type="text/javascript" defer></script>
+
 @endsection
