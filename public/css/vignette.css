@@ -4,30 +4,83 @@
   box-sizing: border-box;
 }
 
-body{
-  background: yellow;
-}
-
-.svg-container svg{
-  filter: drop-shadow( 0 0 15px rgba(0, 0, 0, .7));
-
-}
-
 .svg-container{
   position: relative;
-  padding: 20px 30px 0 0;
-  width: min(50%, 15rem);
-  background: blue;
+  width: min(50%, 16rem);
+  height: min(41vw,19rem);
+  display: flex;
+  margin: 2rem 0;
 }
+
+#layer_1{
+  filter: drop-shadow( 0 0 15px rgba(0, 0, 0, .2));
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+
+.content-vignette{
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 10px 10px 10px;
+}
+
+
+#type{
+  font-size: 1.3rem;
+}
+
+#dollar{
+  font-weight: bold;
+}
+#model{
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+#marque{
+  font-size: 1.3rem;
+}
+
+.velo-img{
+  position: absolute;
+  right: -10%;
+  width: 12rem;
+
+}
+
 
 .container{
   padding: 10% 10%;
 }
+#rating{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.star{
+  display: flex;
+  width: 40%;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+}
+.star p{
+  font-size: 1rem;
+}
+.star img{
+  width: 2rem;
+  margin-right: 5px;
+}
 
-.svg-container .velo-img{
-  z-index: 2;
-  position: absolute;
-  width: 70%;
-  top: 0;
-  right: 0;
+
+.heart svg{
+  width: 2.8rem;
 }

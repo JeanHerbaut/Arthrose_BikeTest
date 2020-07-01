@@ -120,13 +120,27 @@
         </ul>
 
       </div>
-
+      @if(Auth::check())
+      
       <div class="menu user-icon">
-        <img src="{{ asset('img/bicycle-02.png') }}" alt="">
+
+        <a href="">
+        <img src="{{ asset('img/bicycle-02.png') }}" alt="/login"></a>
 
         <p>Mon compte</p>
 
       </div>
+      @else
+      <div class="menu user-icon">
+
+        <a href="/login">
+        <img src="{{ asset('img/bicycle-02.png') }}" alt="/login"></a>
+
+        <p>Mon compte</p>
+
+      </div>
+      @endif
+
     </div>
   </nav>
   @show
@@ -139,6 +153,6 @@
   </div>
 </body>
 @section('script')
-    
+
 @endsection
 </html>
