@@ -103,7 +103,7 @@ class TestController extends Controller
         $datetime = "2020-10-03 12:00:00"; //En vrai on ferait date("Y-m-d H:i:s");
         $test->endTime = $datetime;
         $test->save();
-        return redirect("/gestionTest");
+        return redirect("/gestion-test");
     }
 
     /**
