@@ -10,38 +10,28 @@
         <div class="wrapper-info">
             <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="" width="300px">
             <div class="desc-wrapper">
-                <p><strong>Velo testé</strong></p>
-                <p>VTT</p>
+                <p><strong>{{$product->shortDesc}}</strong></p>
+                <p>{{$product->category->name}}</p>
             </div>
             <div class="desc-wrapper">
-                <p>SCOTT</p>
-                <p>$$</p>
+                <p>{{$product->brand->name}}</p>
+                <p>{{$product->price}}</p>
             </div>
             <div class="desc-wrapper longdesc">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum sapien vitae odio venenatis aliquam. Nam malesuada sapien ac faucibus tincidunt.</p>
+                <p>{{$product->longDesc}}</p>
             </div>
         </div>
         <hr>
         <div class="wrapper-rating">
             <div class="rating-prin">
-                <p><strong>★</strong>4.5 (45 avis)</p>
+                <p><strong>★</strong>{{$product->avgNote}} ({{$product->tests_count}} avis)</p>
             </div>
+            @foreach($criterias as $criteria => $note)
             <div class="rating-sec">
-                <label for="quality">Qualité/Prix</label>
-                <progress id="quality" value="78" max="100"></progress>
+                <label for="{{$criteria}}">{{$criteria}}</label>
+                <progress id="{{$criteria}}" value="{{$note}}" max="100"></progress>
             </div>
-            <div class="rating-sec">
-                <label for="weight">Poid</label>
-                <progress id="weight" value="90" max="100"></progress>
-            </div>
-            <div class="rating-sec">
-                <label for="confort">Comfort</label>
-                <progress id="confort" value="30" max="100"></progress>
-            </div>
-            <div class="rating-sec">
-                <label for="component">Composants</label>
-                <progress id="component" value="59" max="100"></progress>
-            </div>
+            @endforeach
         </div>
         <div class="wrapper-button">
             <input type="submit" value="VOIR LES 36 COMMENTAIRES">

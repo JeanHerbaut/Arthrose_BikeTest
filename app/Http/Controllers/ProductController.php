@@ -9,6 +9,7 @@ use App\Brand;
 use App\Product;
 use App\Bike;
 use App\Test;
+use App\Criteria_Test;
 use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
@@ -52,12 +53,24 @@ class ProductController extends Controller
 
     public function show($id)
     {
-        $product = Product::where('id', '=', $id)->with('brand')->withCount('tests')->get()
+        $product = Product::where('id', '=', $id)->with('brand')->with('tests.criterias')->withCount('tests')->get()
         ->map(function ($p) {
             $p['avgNote'] = $p->tests()->get()->pluck('rating')->avg();
             return $p;
         })->first();
-        return view('velo')->with(compact('product'));
+
+        $tests_ids = Test::where('product_id', '=', $id)->pluck('id')->toArray();
+
+        $criterias_list = Criteria_Test::distinct('criteria_name')->whereIn('test_id', $tests_ids)->pluck('criteria_name')->toArray();
+
+        $criterias = [];
+        foreach($criterias_list as $criteria){
+            $note = ceil(Criteria_Test::whereIn('test_id', $tests_ids)->where('criteria_name', '=', $criteria)->avg('note'));
+            $criterias[$criteria] = $note;
+        }
+
+        //dd($criterias);
+        return view('velo')->with(compact('product', 'criterias'));
     }
 
     public function postModelNumber(Request $request)

@@ -44,6 +44,24 @@ class CreateForeignKeys extends Migration
                 ->onUpdate('restrict');
         });
 
+        Schema::table('criteria_test', function ($table) {
+            $table->foreign('criteria_name')->references('name')->on('criterias')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
+            $table->foreign('test_id')->references('id')->on('tests')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
+        });
+
+        Schema::table('category_criteria', function ($table) {
+            $table->foreign('criteria_name')->references('name')->on('criterias')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
+            $table->foreign('category_name')->references('name')->on('categories')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
+        });
+
         Schema::table('edition_staff', function ($table) {
             $table->foreign('edition_id')->references('id')->on('editions')
                 ->onDelete('restrict')
@@ -160,6 +178,14 @@ class CreateForeignKeys extends Migration
         Schema::table('company_edition', function (Blueprint $table) {
             $table->dropForeign(['company_id']);
             $table->dropForeign(['edition_id']);
+        });
+        Schema::table('criteria_test', function (Blueprint $table) {
+            $table->dropForeign(['criteria_name']);
+            $table->dropForeign(['test_id']);
+        });
+        Schema::table('category_criteria', function (Blueprint $table) {
+            $table->dropForeign(['criteria_name']);
+            $table->dropForeign(['category_name']);
         });
         
         Schema::table('edition_product', function (Blueprint $table) {
