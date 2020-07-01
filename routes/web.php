@@ -18,10 +18,18 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+/*mes velos*/
 Route::get('/mesvelos', function () {
     return view('mesVelos');
 });
+Route::get('/mesvelos/test', function () {
+    return view('test1');
+});
+
+Route::get('/catalogue', function () {
+    return view('catalogue');
+});
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 /* Admin routes */
@@ -62,4 +70,5 @@ Route::post('/endTest', 'TestController@end');
 Route::post('searchUser', 'UserController@search');
 
 Route::get('/register', function () {
-    return view('auth/register');});
+    return view('auth/register');
+});
