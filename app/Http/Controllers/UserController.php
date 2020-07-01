@@ -22,25 +22,7 @@ class UserController extends Controller
             ->orderBy('users.username')
             ->paginate(20);
         $testSchedules = TestSchedule::all();
-        /* foreach ($users as $user) {
-            $user->{'name'} = $user->person->name;
-            $user->{'firstname'} = $user->person->firstname;
-            $billets = [];
-            foreach ($user->testSchedules as $key => $testSchedule) {
-                $day = date('d/m/Y', strtotime($testSchedule['startTime']));
-                $endTime = date('H:i', strtotime($testSchedule['endTime']));
-                $startTime = date('H:i', strtotime($testSchedule['startTime']));
-                array_push($billets, array('schedule' => $day . " - " . $startTime . " : " . $endTime, 'id' => $testSchedule->id));
-            }
-            $user->{'schedules'} = $billets;
-        } */
-
-        /* foreach ($testSchedules as $testSchedule) {
-            $testSchedule['day'] = date('d/m/Y', strtotime($testSchedule['startTime']));
-            $testSchedule['endTime'] = date('H:i', strtotime($testSchedule['endTime']));
-            $testSchedule['startTime'] = date('H:i', strtotime($testSchedule['startTime']));
-        } */
-        //dd($users);
+        
         return view('adminConsultation', compact('users', 'testSchedules'));
     }
 
