@@ -45,6 +45,14 @@ class ExhibitorController extends Controller
         Company::create(
             ['name' => $request->name]
         );
+        $id = Company::where('name', '=', $request->name)->get();
+        Brand::create(
+            [
+                'name' => $request->name,
+                'company_id' => $id[0]->id
+            ]
+            );
+            dd(Brand::all());
         return redirect()->back();
     }
 }
