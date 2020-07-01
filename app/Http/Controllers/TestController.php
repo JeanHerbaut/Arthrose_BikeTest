@@ -49,12 +49,12 @@ class TestController extends Controller
             ->with(['product.brand' => function($q) {
                 return $q->select('id', 'name');
             }])
-            ->WhereDoesntHave('product.tests', function($query) {
+            ->WhereDoesntHave('tests', function($query) {
                 return $query->whereNull('endTime');
             })
             ->get();
 
-        $busyBikes = Bike::whereIn('product_id', $products)->with('product')->whereHas('product.tests', function($query) {
+        $busyBikes = Bike::whereIn('product_id', $products)->with('product')->whereHas('tests', function($query) {
             return $query->whereNull('endTime');
         })->get();
 
@@ -95,7 +95,7 @@ class TestController extends Controller
             'bike_id' => $request->bike_id
         ]);
 
-        return redirect("/gestionTest");
+        return redirect("/gestion-test");
     }
 
     public function end(Request $request){

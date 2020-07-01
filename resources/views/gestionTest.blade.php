@@ -60,7 +60,7 @@
             <div class="vignette vignette-start">
                 <img class="velo-img" src="{{ $bike->product->image }}" alt="">
                 {{$bike->product->shortDesc}}
-                <a href="#" class="popup begin" data-id="{{$bike->id}}">Commencer</a>
+                <a href="#" class="popup begin" data-id="{{$bike->id}}">Commencer {{$bike->id}}</a>
             </div>
             @endforeach
         </div>
