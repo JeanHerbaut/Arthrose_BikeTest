@@ -20,6 +20,9 @@
   left: 0;
 }
 
+.test{
+  width: 100%;
+}
 
 .content-vignette{
   position: relative;
