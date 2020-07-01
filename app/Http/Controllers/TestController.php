@@ -20,12 +20,13 @@ class TestController extends Controller
     public function index()
     {
         $this->authorize('view', Test::class);
-        $tests = Test::with('product', 'user')
-            ->get();
-        foreach ($tests as $test) {
-            $test->{'shortDesc'} = $test->product->shortDesc;
-            $test->{'username'} = $test->user->username;
-        }
+        $company = Auth::user()->company_id;
+        if($company) {
+            $tests = Test::with('product', 'user')->whereHas('product.brand', function ($q) use ($company) {
+                return $q->where('company_id', $company);
+            })->orderBy('endTime', 'asc')->get();
+        } else $tests = Test::with('product', 'user')->orderBy('endTime', 'asc')->get();
+        
         return view('gestionTestHistorique')->with('tests', $tests);
     }
 
