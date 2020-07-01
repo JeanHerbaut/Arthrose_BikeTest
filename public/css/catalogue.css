@@ -47,9 +47,12 @@
   cursor: pointer;
 }
 
+<<<<<<< Updated upstream
+=======
 ul{
   display: flex;
 }
+>>>>>>> Stashed changes
 
 ul li{
   margin: 1rem;

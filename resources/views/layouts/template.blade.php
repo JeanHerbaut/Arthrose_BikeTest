@@ -3,6 +3,7 @@
 
 <head>
   <title>Bike Test - Gryon</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
   <link defer rel="stylesheet" type="text/css" href="{{ asset('css/nav.css') }}">
   <!--   <link rel="stylesheet" type="text/css" href="{{ asset('css/billeterie.css') }}" > -->
   <link rel="stylesheet" type="text/css" href="{{ asset('css/admin.css') }}" >
@@ -98,43 +99,22 @@
         <a href="#"><img src="{{ asset('img/bicycle-03.png') }}" alt=""></a>
         <p>Mes vélos</p>
       </div>
-      <div class="profile-nav">
-
-
-        <ul class="dropdown-menu">
-          <li>
-            <a href="#">
-              Mon profil
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              Mon billet
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              Se connecter
-            </a>
-          </li>
-        </ul>
-
-      </div>
-      @if(Auth::check())
       
-      <div class="menu user-icon">
+      @if(Auth::check())
 
-        <a href="">
-        <img src="{{ asset('img/bicycle-02.png') }}" alt="/login"></a>
+      <div class="menu user-icon online">
+
+        <a href="#">
+        <img src="{{ asset('img/bicycle-02.png') }}" alt=""></a>
 
         <p>Mon compte</p>
 
       </div>
       @else
-      <div class="menu user-icon">
+      <div class="menu user-icon online">
 
         <a href="/login">
-        <img src="{{ asset('img/bicycle-02.png') }}" alt="/login"></a>
+        <img src="{{ asset('img/bicycle-02.png') }}" alt=""></a>
 
         <p>Mon compte</p>
 

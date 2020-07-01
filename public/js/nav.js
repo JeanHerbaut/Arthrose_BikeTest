@@ -1,6 +1,6 @@
 
-$('.user-icon.online').click(function() {
+$('.online').click(function() {
   $('.profile-nav').toggleClass('profile-nav--open', 500);
   $(this).toggleClass('open');
-
+  console.log('salut');
 })
