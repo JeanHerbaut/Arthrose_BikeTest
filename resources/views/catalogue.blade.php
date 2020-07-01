@@ -115,7 +115,7 @@
             <div class="svg-container">
                 <div class="content-vignette">
 
-                    <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="">
+                    <a href="{{url('/velo/'.$product->id)}}"><img class="velo-img" src="{{ asset('img/bike.png') }}" alt=""></a>
                     <p id="type">{{$product->category_name}}</p>
                     <p id="dollar">{{$product->price}}</p>
                     <div>

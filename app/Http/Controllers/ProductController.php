@@ -52,7 +52,12 @@ class ProductController extends Controller
 
     public function show($id)
     {
-        //
+        $product = Product::where('id', '=', $id)->with('brand')->withCount('tests')->get()
+        ->map(function ($p) {
+            $p['avgNote'] = $p->tests()->get()->pluck('rating')->avg();
+            return $p;
+        })->first();
+        return view('velo')->with(compact('product'));
     }
 
     public function postModelNumber(Request $request)
