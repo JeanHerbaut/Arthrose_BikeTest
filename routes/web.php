@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+
 /*mes velos*/
 Route::get('/mesvelos', function () {
     return view('mesVelos');
@@ -26,9 +27,15 @@ Route::get('/mesvelos/test', function () {
     return view('test1');
 });
 
+/*catalogue*/
 Route::get('/catalogue', function () {
     return view('catalogue');
 });
+
+Route::get('/velo', function () {
+    return view('velo');
+});
+
 
 
 Route::get('/home', 'HomeController@index')->name('home');
