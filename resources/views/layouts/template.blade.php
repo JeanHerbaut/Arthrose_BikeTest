@@ -21,7 +21,7 @@
       </div>
       <ul id="menu">
         <li><a href="#">Infos</a> </li>
-        <li><a href="#">Catalogue</a> </li>
+        <li><a href="/catalogue">Catalogue</a> </li>
         <li><a href="#">Mes vélos</a> </li>
         @guest
         <li><a href="/billeterie">Billeterie</a> </li>
