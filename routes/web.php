@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/vignette', function () {
     return view('vignette');
 });
 
@@ -28,9 +28,7 @@ Route::get('/mesvelos/test', function () {
 });
 
 /*catalogue*/
-Route::get('/catalogue', function () {
-    return view('catalogue');
-});
+Route::get('/catalogue', 'BikeController@index');
 
 Route::get('/velo', function () {
     return view('velo');
@@ -49,6 +47,7 @@ Route::post('/gestion-exposant/create', 'ExhibitorController@store');
 
 /* Billeterie - Enregistremet user */
 Route::get('/billeterie', 'BilleterieController@displayForm');
+Route::post('/createUserWithTicket', 'UserController@createWithTicket');
 /* User profile */
 Route::get('/profil', 'UserController@show');
 Route::post('/profil', 'UserController@updateProfile');
