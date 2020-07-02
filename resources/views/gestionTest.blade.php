@@ -6,7 +6,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <div class="container">
     <h1>Gestion des tests</h1>
-    <button><a href="/gestion-test-historique">Historique</a></button>
+    <a id="" href="/gestion-test-historique">Historique</a>
     <section>
 
         @foreach($availableBikes as $bike)
@@ -56,6 +56,9 @@
             <div class="header-test">
                 <p>Disponibles</p>
             </div>
+            <div class="wrapper-velos-test">
+
+
             @foreach($availableBikes as $bike)
             <div class="vignette vignette-start">
                 <img class="velo-img" src="{{ $bike->product->image }}" alt="">
@@ -63,13 +66,15 @@
                 <a href="#" class="popup begin" data-id="{{$bike->id}}">Commencer</a>
             </div>
             @endforeach
+            </div>
         </div>
 
 
-        <div class="container-test">
+        <div id="container-cours" class="container-test">
             <div class="header-test">
                 <p>En cours..</p>
             </div>
+            <div class="wrapper-velos">
             @foreach($currentTests as $test)
             <div class="vignette vignette-end">
                 <img class="velo-img" src="{{ $test->product->image }}" alt="">
@@ -80,6 +85,7 @@
                 <a href="#" class="popup end" data-id="{{$test->bike->id}}">Terminer</a>
             </div>
             @endforeach
+            </div>
         </div>
 
         <!-- confirm Modal -->
