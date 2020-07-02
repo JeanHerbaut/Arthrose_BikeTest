@@ -13,7 +13,6 @@ $("#Layer_1").click(function (e) {
         url: '/product/toggleFavorite',
         data: { productId: productId },
         success: function (data) {
-            console.log(data.isFavorite);
             if(data.isFavorite){
                 $(".cls-1").addClass('filled')
             } else {
