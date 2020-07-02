@@ -1,3 +1,10 @@
+.cls-1 {
+  fill: none;
+}
+.cls-1.filled {
+  fill: red;
+}
+
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */

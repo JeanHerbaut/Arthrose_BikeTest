@@ -4,18 +4,18 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Criteria extends Model
 {
     public $timestamps = false;
     protected $primaryKey = 'name';
     public $incrementing = false;
     protected $fillable = ['name'];
 
-    public function products() {
-        return $this->hasMany(Product::class);
+    public function tests() {
+        return $this->belongsToMany(Test::class)->withPivot('note');
     }
 
-    public function criterias() {
-        return $this->belongsToMany(Criteria::class);
+    public function categories() {
+        return $this->belongsToMany(Category::class);
     }
 }

@@ -30,9 +30,7 @@ Route::get('/mesvelos/test', function () {
 /*catalogue*/
 Route::get('/catalogue', 'ProductController@index');
 
-Route::get('/velo', function () {
-    return view('velo');
-});
+Route::get('/velo/{id}', 'ProductController@show');
 
 
 
@@ -78,3 +76,5 @@ Route::post('searchUser', 'UserController@search');
 Route::get('/register', function () {
     return view('auth/register');
 });
+
+Route::post('/product/toggleFavorite', 'ProductController@toggleFavorite');
