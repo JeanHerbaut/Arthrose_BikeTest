@@ -11,6 +11,12 @@ use App\Http\Requests\BikeRequest;
 
 class BikeController extends Controller
 {
+    public function index(){
+        $bikes = Bike::with('product')->get();
+        return view('catalogue')->with(compact('bikes'));
+        dd($bikes);
+    }
+
     public function createBike(BikeRequest $request){
         $product = Product::where('modelNumber', $request['modelNumber'])->first();
         if(!$product){
