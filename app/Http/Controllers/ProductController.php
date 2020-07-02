@@ -9,6 +9,8 @@ use App\Brand;
 use App\Product;
 use App\Bike;
 use App\Test;
+use App\Criteria_Test;
+use App\Product_User;
 use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
@@ -20,7 +22,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::with('brand')->withCount('tests')->get()
+        $products = Product::with('brand')->withCount('tests')
+        ->with(['isFavoriteOf' => function($q) {
+            return $q->where('user_id', '=', Auth::user()->id)->pluck('user_id')->toArray();
+        }])->get()
         ->map(function ($p) {
             $p['avgNote'] = $p->tests()->get()->pluck('rating')->avg();
             return $p;
@@ -52,7 +57,27 @@ class ProductController extends Controller
 
     public function show($id)
     {
-        //
+        $product = Product::where('id', '=', $id)->with('brand')->with('tests.criterias')->withCount('tests')
+        ->with(['isFavoriteOf' => function($q) {
+            return $q->where('user_id', '=', Auth::user()->id)->pluck('user_id')->toArray();
+        }])->get()
+        ->map(function ($p) {
+            $p['avgNote'] = $p->tests()->get()->pluck('rating')->avg();
+            return $p;
+        })->first();
+
+        $tests_ids = Test::where('product_id', '=', $id)->pluck('id')->toArray();
+
+        $criterias_list = Criteria_Test::distinct('criteria_name')->whereIn('test_id', $tests_ids)->pluck('criteria_name')->toArray();
+
+        $criterias = [];
+        foreach($criterias_list as $criteria){
+            $note = ceil(Criteria_Test::whereIn('test_id', $tests_ids)->where('criteria_name', '=', $criteria)->avg('note'));
+            $criterias[$criteria] = $note;
+        }
+
+        //dd($criterias);
+        return view('velo')->with(compact('product', 'criterias'));
     }
 
     public function postModelNumber(Request $request)
@@ -60,6 +85,17 @@ class ProductController extends Controller
         $product = Product::where('modelNumber', $request->modelnumber)->first();
         return (response()->json(['product'=>$product ]));
         
+    }
+
+    public function toggleFavorite(Request $request){
+        $isFavorite = Product_User::where('user_id', '=', Auth::user()->id)->where('product_id', '=', $request->productId)->first();
+        if($isFavorite){
+            $isFavorite->delete();
+        } else {
+            Auth::user()->favorites()->attach($request->productId);
+        }
+        $isFavorite = Product_User::where('user_id', '=', Auth::user()->id)->where('product_id', '=', $request->productId)->first();
+        return (response()->json(['isFavorite'=>$isFavorite ]));
     }
 
     /**

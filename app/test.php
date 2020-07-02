@@ -38,4 +38,7 @@ class Test extends Model
         return $this->belongsTo(Bike::class);
     }
 
+    public function criterias() {
+        return $this->belongsToMany(Criteria::class)->withPivot('note');
+    }
 }
