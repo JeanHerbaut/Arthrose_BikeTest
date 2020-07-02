@@ -21,12 +21,14 @@ class TestController extends Controller
     {
         $this->authorize('view', Test::class);
         $company = Auth::user()->company_id;
-        if($company) {
+        if ($company) {
             $tests = Test::with('product', 'user')->whereHas('product.brand', function ($q) use ($company) {
                 return $q->where('company_id', $company);
             })->orderBy('endTime', 'asc')->get();
-        } else $tests = Test::with('product', 'user')->orderBy('endTime', 'asc')->get();
-        
+        } else {
+            $tests = Test::with('product', 'user')->orderBy('endTime', 'asc')->get();
+        }
+
         return view('gestionTestHistorique')->with('tests', $tests);
     }
 
@@ -38,34 +40,34 @@ class TestController extends Controller
     public function create()
     {
         $this->authorize('manage', Test::class);
-        if(Auth::user()->roles->first()->name == "admin" ){
+        if (Auth::user()->roles->first()->name == "admin") {
             $products = Product::all()->pluck('id')->toArray();
-        }else {
+        } else {
             $brands_ids = Auth::user()->company->brands->pluck('id')->toArray();
             $products = Product::whereIn('brand_id', $brands_ids)->get()->pluck('id')->toArray();
         }
         $availableBikes = Bike::whereIn('product_id', $products)
             ->with('product')
-            ->with(['product.brand' => function($q) {
+            ->with(['product.brand' => function ($q) {
                 return $q->select('id', 'name');
             }])
-            ->WhereDoesntHave('product.tests', function($query) {
+            ->WhereDoesntHave('tests', function ($query) {
                 return $query->whereNull('endTime');
             })
             ->get();
 
-        $busyBikes = Bike::whereIn('product_id', $products)->with('product')->whereHas('product.tests', function($query) {
+        $busyBikes = Bike::whereIn('product_id', $products)->with('product')->whereHas('tests', function ($query) {
             return $query->whereNull('endTime');
         })->get();
 
         $currentTests = Test::whereIn('product_id', $products)->whereNull('endTime')
-            ->with(['product' => function($q) {
+            ->with(['product' => function ($q) {
                 return $q->select('id', 'shortDesc', 'image');
             }])
-            ->with(['user' => function($q) {
+            ->with(['user' => function ($q) {
                 return $q->select('id', 'username');
             }])
-            ->with(['bike' => function($q) {
+            ->with(['bike' => function ($q) {
                 return $q->select('id');
             }])->get();
 
@@ -95,15 +97,16 @@ class TestController extends Controller
             'bike_id' => $request->bike_id
         ]);
 
-        return redirect("/gestionTest");
+        return redirect("/gestion-test");
     }
 
-    public function end(Request $request){
+    public function end(Request $request)
+    {
         $test = Test::whereNull('endTime')->where('bike_id', '=', $request->bike_id)->first();
         $datetime = "2020-10-03 12:00:00"; //En vrai on ferait date("Y-m-d H:i:s");
         $test->endTime = $datetime;
         $test->save();
-        return redirect("/gestionTest");
+        return redirect("/gestion-test");
     }
 
     /**
@@ -114,7 +117,6 @@ class TestController extends Controller
      */
     public function show($id)
     {
-
     }
 
     /**
