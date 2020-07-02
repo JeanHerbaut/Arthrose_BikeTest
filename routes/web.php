@@ -78,8 +78,3 @@ Route::get('/register', function () {
 });
 
 Route::post('/product/toggleFavorite', 'ProductController@toggleFavorite');
-
-
-
-///// TEMP /////
-Route::get('/toggleFavorite/{pId}', 'ProductController@toggleFavoriteGet');

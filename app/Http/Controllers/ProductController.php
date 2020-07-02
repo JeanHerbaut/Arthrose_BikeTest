@@ -97,12 +97,6 @@ class ProductController extends Controller
         $isFavorite = Product_User::where('user_id', '=', Auth::user()->id)->where('product_id', '=', $request->productId)->first();
         return (response()->json(['isFavorite'=>$isFavorite ]));
     }
-    public function toggleFavoriteGet($productId){
-        $isFavorite = Product_User::where('user_id', '=', Auth::user()->id)->where('product_id', '=', $productId)->first();
-       
-        dd($isFavorite);
-        return (response()->json(['isFavorite'=>$isFavorite ]));
-    }
 
     /**
      * Show the form for editing the specified resource.
