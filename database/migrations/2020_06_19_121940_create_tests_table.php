@@ -19,7 +19,7 @@ class CreateTestsTable extends Migration
             $table->dateTime('endTime')->nullable();
             $table->tinyInteger('rating')->nullable();
             $table->integer('likes')->default(0);
-            $table->text('comments')->nullable();
+            $table->text('comment')->nullable();
             $table->bigInteger('test_schedule_id')->unsigned();
             $table->bigInteger('product_id')->unsigned();
             $table->bigInteger('user_id')->unsigned();

@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\RateRequest;
 use App\Test;
 use App\Bike;
 use App\Product;
 use App\TestSchedule;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\Criteria_Test;
 
 class TestController extends Controller
 {
@@ -104,6 +106,21 @@ class TestController extends Controller
         $test->endTime = $datetime;
         $test->save();
         return redirect("/gestion-test");
+    }
+
+    public function rate(RateRequest $request){
+        $test = Test::find($request->test_id);
+        $criterias_list = Criteria_Test::distinct('criteria_id')->where('test_id', '=', $request->test_id)->pluck('criteria_id')->toArray();
+        $test->rating = $request->critglobal;
+        if($request->comment) $test->comment = $request->comment;
+        $test->save();
+        foreach($criterias_list as $criteria){
+            $criteria_test = Criteria_Test::where('test_id', '=', $request->test_id)->where('criteria_id', '=', $criteria)->first();
+            $criteria_test->note = $request->{'crit'.$criteria};
+            $criteria_test->save();
+        }
+
+        return redirect()->route('mesvelos');
     }
 
     /**

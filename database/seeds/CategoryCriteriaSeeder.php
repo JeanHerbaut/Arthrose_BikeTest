@@ -14,37 +14,37 @@ class CategoryCriteriaSeeder extends Seeder
         DB::table('category_criteria')->delete();
         DB::table('category_criteria')->insert([
             'category_name' => 'VTT',
-            'criteria_name' => 'Qualité/prix'
+            'criteria_id' => '1'
         ]);
         DB::table('category_criteria')->insert([
             'category_name' => 'VTT',
-            'criteria_name' => 'Poids'
+            'criteria_id' => '2'
         ]);
         DB::table('category_criteria')->insert([
             'category_name' => 'VTT',
-            'criteria_name' => 'Confort'
+            'criteria_id' => '3'
         ]);
         DB::table('category_criteria')->insert([
             'category_name' => 'VTT',
-            'criteria_name' => 'Freins'
+            'criteria_id' => '6'
         ]);
 
 
         DB::table('category_criteria')->insert([
             'category_name' => 'eBike',
-            'criteria_name' => 'Qualité/prix'
+            'criteria_id' => '1'
         ]);
         DB::table('category_criteria')->insert([
             'category_name' => 'eBike',
-            'criteria_name' => 'Poids'
+            'criteria_id' => '2'
         ]);
         DB::table('category_criteria')->insert([
             'category_name' => 'eBike',
-            'criteria_name' => 'Confort'
+            'criteria_id' => '3'
         ]);
         DB::table('category_criteria')->insert([
             'category_name' => 'eBike',
-            'criteria_name' => 'Batterie'
+            'criteria_id' => '5'
         ]);
     }
 }
