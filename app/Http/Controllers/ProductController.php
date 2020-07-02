@@ -20,46 +20,13 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $this->authorize('manage', Product::class);
-        $company_id = Auth::user()->company->id;
-        $brand = Brand::findOrFail($company_id);
-        $brandName = $brand->name;
-        $tests = Test::all();
-        $products = $brand->products;
-        $bikes = Bike::aLL();
-        $productBikes = [];
-        foreach ($products as $product) {
-            $moyenne_rating = 0;
-            $nbr_votes = 0;
-            foreach ($tests as $test) {
-                if ($test->product_id == $product->id) {
-                    $moyenne_rating = $moyenne_rating + $test->rating;
-                    $nbr_votes = $nbr_votes + 1;
-                }
-            }
-            foreach ($bikes as $bike) {
-                if ($bike->product_id == $product->id) {
-                    array_push($productBikes, [
-                        'id' => $bike->id,
-                        'product_id' => $product->id,
-                        'shortDesc' => $product->shortDesc,
-                        'longDesc' => $product->longDesc,
-                        'image' => $product->image,
-                        'price' => $product->price,
-                        'category' => $product->category_name,
-                        'brand_id' => $product->brand_id, 
-                        'brand' => $brandName,
-                        'deleted_at' => $bike->deleted_at,
-                        'size' => $bike->size,
-                        'distinctive_sign' => $bike->distinctive_sign,
-                        'rating' => $moyenne_rating/2,
-                        'nbr_rating' => $nbr_votes
-                    ]);
-                }
-            }
-        }        
-        return view('exhibitor/gestionCatalogue')->with('bikes', $productBikes);
-    
+        $products = Product::with('brand')->withCount('tests')->get()
+        ->map(function ($p) {
+            $p['avgNote'] = $p->tests()->get()->pluck('rating')->avg();
+            return $p;
+         });
+        //dd($products);
+        return view('catalogue')->with(compact('products'));
     }
 
     /**
@@ -69,11 +36,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $this->authorize('manage', Product::class);
-        $categories = Category::all();
-        $company_id = Auth::user()->company->id;
-        $brand = Brand::findOrFail($company_id);
-        return view('exhibitor/addProduct', compact('categories', 'brand'));
+        //
     }
 
     /**
@@ -129,8 +92,7 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        $product = Bike::findOrFail($id)->delete();
-        return redirect()->back();
+        //
     }
 
     public function fullCatalogue() {

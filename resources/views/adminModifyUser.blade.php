@@ -38,13 +38,19 @@
     <label for="role">Role</label>
 
     <select name="role" id="role" autocomplete="off" disabled>
-        <option value="visitor" {{ ($user->roles[0] == 'visitor') ? "selected" : "" }}>Visiteur</option>
-        <option value="exhibitor" {{ ($user->roles[0] == 'exhibitor') ? "selected" : "" }}>Exposant</option>
-        <option value="admin" {{ ($user->roles[0] == 'admin') ? "selected" : "" }}>Administrateur</option>
-        <option value="receptionist" {{ ($user->roles[0] == 'receptionist') ? "selected" : "" }}>Réceptioniste</option>
+        @if(!isset($user->roles[0])) <option value="aucun" >Aucun</option> @endif
+        <option value="visitor" {{ (isset($user->roles[0])) ? ($user->roles[0] == 'visitor') ? "selected" : "" : ""}}>Visiteur</option>
+        <option value="exhibitor" {{ (isset($user->roles[0])) ? ($user->roles[0] == 'exhibitor') ? "selected" : "" : ""}}>Exposant</option>
+        <option value="admin" {{ (isset($user->roles[0])) ? ($user->roles[0] == 'admin') ? "selected" : "" : ""}}>Administrateur</option>
+        <option value="receptionist" {{ (isset($user->roles[0])) ? ($user->roles[0] == 'receptionist') ? "selected" : "" : ""}}>Réceptioniste</option>
     </select>
+    @error('role')
+    <span class="invalid-feedback" role="alert">
+        <strong>{{ $message }}</strong>
+    </span>
+    @enderror
 
-    <div id="companySection" class="{{ ($user->roles[0] == 'exhibitor') ? '' : 'hidden' }}" >
+    <div id="companySection" class="{{ (isset($user->roles[0])) ? ($user->roles[0] == 'exhibitor') ? '' : 'hidden' : 'hidden'}}" >
         <label for="company">Companie</label>
         <select name="company" id="company" autocomplete="off" disabled>
             @foreach($companies as $company)
@@ -57,7 +63,7 @@
         </select>
     </div>
 
-    <div id="testScheduleSection" class="{{ ($user->roles[0] == 'visitor') ? '' : 'hidden' }}" >
+    <div id="testScheduleSection" class="{{ (isset($user->roles[0])) ? ($user->roles[0] == 'visitor') ? '' : 'hidden' : 'hidden' }}" >
         <label for="testSchedule">Billet</label>
         <select name="testSchedule" id="testSchedule" autocomplete="off" disabled>
             @foreach($testSchedules as $schedule)

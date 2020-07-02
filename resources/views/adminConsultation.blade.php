@@ -29,12 +29,11 @@
             <th>Exposant</th>
         </tr>
         @foreach ($users as $user)
-        @if(sizeOf($user->roles) > 0)
 
             @if(sizeOf($user->testSchedules) > 0)
-                <tr data-role="{{$user->roles[0]->name}}" data-username="{{$user->username}}" data-schedule-id="{{$user->testSchedules[0]->id}}" class="row filterable">
+                <tr data-role="{{(sizeOf($user->roles)>0)?$user->roles[0]->name : ''}}" data-username="{{$user->username}}" data-schedule-id="{{$user->testSchedules[0]->id}}" class="row filterable">
             @else
-                <tr data-role="{{$user->roles[0]->name}}" data-username="{{$user->username}}" data-schedule-id="" class="row filterable">
+                <tr data-role="{{(sizeOf($user->roles)>0)?$user->roles[0]->name : ''}}" data-username="{{$user->username}}" data-schedule-id="" class="row filterable">
             @endif
             <td>{{$user->username}}</td>
             <td>{{$user->person->name}}</td>
@@ -54,7 +53,6 @@
             <td><button>Supprimer</button></td>
             </tr>
 
-        @endif
         @endforeach
     </table>
 </div>

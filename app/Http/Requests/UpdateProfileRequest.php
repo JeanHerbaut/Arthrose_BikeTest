@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
 
-class UpdateUserRequest extends FormRequest
+class UpdateProfileRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,12 +23,12 @@ class UpdateUserRequest extends FormRequest
      */
     public function rules()
     {
+        $userid = Auth::user()->id;
         return [
             'id' => ['required'],
             'name' => ['required', 'string', 'max:40'],
             'firstname' => ['required', 'string', 'max:40'],
-            'username' => ['required', 'regex:/^[a-z0-9]+$/', 'min: 3', 'max:16'],
-            'role' => 'in:visitor,exhibitor,receptionist,admin',
+            'username' => ['required', 'regex:/^[a-z0-9]+$/', 'min: 3', 'max:16', 'unique:users,username,'.$userid],
         ];
     }
 }
