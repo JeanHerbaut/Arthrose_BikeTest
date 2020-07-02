@@ -1,7 +1,7 @@
 @extends('layouts.template')
 
 @section('content')
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/adminConsultation.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/testHistorique.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
     <div>
         <h2>Historique des tests</h2>

@@ -1,4 +1,4 @@
-#list-test{
+.list-test{
     position: relative;
 }
 
@@ -12,6 +12,7 @@
 }
 
 .nbr-result{
+    margin-top: 2%;
     text-align: right;
     margin-right:15%;
     color: #595858;
