@@ -1,6 +1,8 @@
 @extends('layouts.template')
 
 @section('content')
+<link rel="stylesheet" type="text/css" href="{{ asset('css/adminModifyUser.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
 <link defer rel="stylesheet" type="text/css" href="{{ asset('css/modifyUser.css') }}">
 <form action="/admin/modify-user" method="post">
     @csrf

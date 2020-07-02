@@ -1,0 +1,200 @@
+.filtersearch {
+    width:80%;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    align-items: baseline;
+}
+
+.filter, .search{
+    display: flex;
+    align-items: baseline;
+}
+
+.round{
+    border-radius: 15px;
+    border: none ;
+    padding: 9px 9px;
+    font-size: 1.3em;
+    background-color: #f3f3f3;
+}
+
+.list-user{
+    position: relative;
+}
+
+.nbr-result{
+    text-align: right;
+    margin-right:15%;
+    color: #595858;
+    font-size: 1.3em;
+}
+
+.btn-list{
+    text-align: center;
+}
+
+.btn-list i {
+    color: #444346;
+}
+
+.content-table {
+    width:80%;
+    margin: auto;
+    margin-top: 0.4%;
+    border-collapse: collapse;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+    background-color: #444346;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+    padding: 12px 15px;
+}
+
+.content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #1b9837;
+}
+
+.content-table tbody tr.active-row {
+    font-weight: bold;
+    color: #1b9837;
+}
+
+h2{
+    margin-top: 2%;
+    text-align: left;
+}
+.title{
+    width: 80%;
+    margin: auto;
+}
+
+/*dropdown select*/
+.custom-select {
+    position: relative;
+
+}
+
+.custom-select select {
+    display: none; /*hide original SELECT element: */
+}
+
+.select-selected {
+    background-color: #f3f3f3;
+    font-size: 1.5em;
+    margin: 0px 0px 0px 15px;
+
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #444346 transparent transparent transparent;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+    border-color: transparent transparent #444346 transparent;
+    top: 7px;
+}
+
+/* style the items (options), including the selected item: */
+.select-items div,.select-selected {
+    color: #444346;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-size: 1.7em;
+    border-bottom-color: #1b9837;
+}
+
+.select-items div{
+    color: #444346;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-size: 1.7em;
+    border-bottom-color: transparent;
+
+}
+
+/* Style items (options): */
+.select-items {
+    position: absolute;
+    background-color: #f3f3f3;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    margin: 0px 0px 0px 15px;
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+    display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+input[type=button], input[type=submit] {
+    background-color: #1b9837;
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: bold;
+    -webkit-box-shadow: 0 10px 30px 0 rgba(33, 159, 39, 0.4);
+    box-shadow: 0 10px 30px 0 rgba(27, 142, 35, 0.4);
+    -webkit-border-radius: 24px;
+    border-radius: 24px;
+    margin: 0px 0px 0px 15px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    margin-top: 2rem;
+}
+
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
+    background-color: #1fc344;
+    cursor: pointer;
+}
+
+input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
+    -moz-transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -o-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
+}
