@@ -111,7 +111,7 @@ input[type=button]:active, input[type=submit]:active, #modify:active {
     transform: scale(0.95);
 }
 
-input[type=text] {
+input[type=text], input[type=password] {
     background-color: #f6f6f6;
     border: none;
     color: #0d0d0d;
@@ -131,12 +131,12 @@ input[type=text] {
     border-radius: 5px 5px 5px 5px;
 }
 
-input[type=text]:focus{
+input[type=text]:focus, input[type=password]:focus{
     background-color: #fff;
     border-bottom: 2px solid #1b9837;
 }
 
-input[type=text]:placeholder {
+input[type=text]::placeholder, input[type=password]::placeholder {
     color: #cccccc;
 }
 
@@ -193,80 +193,6 @@ input[type=text]:placeholder {
     color: #0d0d0d;
 }
 
-.underlineHover:hover:after{
+.underlineHover:hover:after {
     width: 100%;
 }
-
-/*dropdown select*/
-.custom-select {
-    position: relative;
-
-}
-
-.custom-select select {
-    display: none; /*hide original SELECT element: */
-}
-
-.select-selected {
-    background-color: #f3f3f3;
-    font-size: 1.5em;
-
-}
-
-/* Style the arrow inside the select element: */
-.select-selected:after {
-    position: absolute;
-    content: "";
-    top: 14px;
-    right: 10px;
-    width: 0;
-    height: 0;
-    border: 6px solid transparent;
-    border-color: #444346 transparent transparent transparent;
-}
-
-/* Point the arrow upwards when the select box is open (active): */
-.select-selected.select-arrow-active:after {
-    border-color: transparent transparent #444346 transparent;
-    top: 7px;
-}
-
-/* style the items (options), including the selected item: */
-.select-items div,.select-selected {
-    color: #444346;
-    padding: 8px 16px;
-    border: 1px solid transparent;
-    cursor: pointer;
-    font-size: 1.7em;
-    border-bottom-color: #1b9837;
-}
-
-.select-items div{
-    color: #444346;
-    padding: 8px 16px;
-    border: 1px solid transparent;
-    cursor: pointer;
-    font-size: 1.7em;
-    border-bottom-color: transparent;
-
-}
-
-/* Style items (options): */
-.select-items {
-    position: absolute;
-    background-color: #f3f3f3;
-    top: 100%;
-    left: 0;
-    right: 0;
-    z-index: 99;
-}
-
-/* Hide the items when the select box is closed: */
-.select-hide {
-    display: none;
-}
-
-.select-items div:hover, .same-as-selected {
-    background-color: rgba(0, 0, 0, 0.1);
-}
-
