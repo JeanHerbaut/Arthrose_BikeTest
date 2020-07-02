@@ -1,7 +1,7 @@
 //Open modal depending on the clicked data-id
-$('.container').on('click', '.popup.begin', evt => {
+$('.container-gestion').on('click', '.popup.begin', evt => {
   $(`.modal[data-id='${$(evt.currentTarget).data('id')}']`).removeClass('hidden');
-  
+
   let d = new Date();
   let h = d.getHours();
   let m = (d.getMinutes()<10?'0':'') + d.getMinutes();
@@ -11,16 +11,16 @@ $('.container').on('click', '.popup.begin', evt => {
 });
 
 //Close the modal
-$('.container').on('click', '.close', evt => {
+$('.container-gestion').on('click', '.close', evt => {
   $('.modal').addClass('hidden');
 })
 
 //Confirm modal
-$('.container').on('click', '.popup.end', evt => {
+$('.container-gestion').on('click', '.popup.end', evt => {
   $('.confirm-modal #bike_id').attr('value', $(evt.currentTarget).data('id'));
   $('.confirm-modal').removeClass('hidden');
 })
-$('.container').on('click', '.cancel', evt => {
+$('.container-gestion').on('click', '.cancel', evt => {
   $('.confirm-modal').addClass('hidden');
 })
 

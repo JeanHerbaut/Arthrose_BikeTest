@@ -106,11 +106,13 @@ a {
 }
 
 section{
-  min-height: 88vh;
+  max-height: 91vh;
+  overflow: hidden;
 }
 
 .profile-nav {
   position: absolute;
+  z-index: 10;
   top: 100%;
   right: 0;
   background: rgb(235, 235, 235);
@@ -122,6 +124,7 @@ section{
 
 .profile-nav--open {
   clip-path: circle(250% at bottom right);
+  z-index: 10;
 /*   display: block; */
 }
 
