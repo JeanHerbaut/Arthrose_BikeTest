@@ -20,12 +20,12 @@ Route::get('/vignette', function () {
 Auth::routes();
 
 /*mes velos*/
-Route::get('/mesvelos', function () {
-    return view('mesVelos');
-});
+Route::get('/mesvelos', 'ProductController@myBikes')->name('mesvelos');
 Route::get('/mesvelos/test', function () {
     return view('test1');
 });
+Route::get('/mesvelos/{id}', 'ProductController@ratingPage');
+Route::post('/rate', 'TestController@rate');
 
 /*catalogue*/
 Route::get('/catalogue', 'ProductController@index');
@@ -72,9 +72,5 @@ Route::post('/addTest', 'TestController@store');
 Route::post('/endTest', 'TestController@end');
 
 Route::post('searchUser', 'UserController@search');
-
-Route::get('/register', function () {
-    return view('auth/register');
-});
 
 Route::post('/product/toggleFavorite', 'ProductController@toggleFavorite');

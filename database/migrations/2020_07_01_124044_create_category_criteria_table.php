@@ -15,9 +15,9 @@ class CreateCategoryCriteriaTable extends Migration
     {
         Schema::create('category_criteria', function (Blueprint $table) {
             $table->id();
-            $table->string('criteria_name');
+            $table->bigInteger('criteria_id')->unsigned();
             $table->string('category_name');
-            $table->unique(['criteria_name', 'category_name']);
+            $table->unique(['criteria_id', 'category_name']);
         });
     }
 

@@ -26,7 +26,6 @@ class TestSeeder extends Seeder
             } else {
                 DB::table('tests')->insert([
                     'startTime' => '2020-10-02 15:00:00',
-                    'rating' => rand(1, 5),
                     'test_schedule_id' => 2,
                     'product_id' => $i,
                     'user_id' => 1,

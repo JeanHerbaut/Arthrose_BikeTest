@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\http\Requests\RegisterRequest;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use App\Person;
@@ -29,48 +30,28 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    //protected $redirectTo = RouteServiceProvider::HOME;
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function register(RegisterRequest $request)
     {
-        $this->middleware('guest');
-    }
-
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:40'],
-            'firstname' => ['required', 'string', 'max:40'],
-            'username' => ['required', 'regex:/^[a-z0-9]+$/', 'min: 3', 'max:16', 'unique:users'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-    }
-
-    protected function create(array $data)
-    {
-
+        //dd($request);
         $person = Person::create([
-            'name' => $data['name'],
-            'firstname' => $data['firstname'],
+            'name' => $request->name,
+            'firstname' => $request->firstname,
         ]);
 
-        return User::create([
+        $user = User::create([
             'id' => $person->id,
-            'username' => $data['username'],
-            'email' => $data['email'],
-            'password' => $data['password'],
+            'username' => $request->username,
+            'email' => $request->email,
+            'password' => $request->password,
         ]);
+
+        return view('/userAdded')->with(compact('person', 'user'));
+    }
+
+    public function showRegistrationForm(){
+        $this->authorize('manage', User::class);
+        return view('auth/register');
     }
 }

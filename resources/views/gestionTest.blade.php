@@ -10,7 +10,7 @@
 
 <div class="container-gestion">
     <h1>Gestion des tests</h1>
-    <a id="historique" href="/gestion-test-historique">Historique</a>
+    <a id="historique" href={{url('/gestion-test-historique')}}>Historique</a>
         @foreach($availableBikes as $bike)
         <!-- The Modal -->
         <div class="modal hidden" data-id="{{$bike->id}}">
@@ -78,6 +78,7 @@
                             <select class="resultsList" data-id="{{$bike->id}}" name="user_id" size="3" required></select>
                             <input type="hidden" name="bike_id" value="{{$bike->id}}">
                             <input type="hidden" name="product_id" value="{{$bike->product->id}}">
+                            <input type="hidden" name="category" value="{{$bike->product->category_name}}">
                         </form>
                     </div>
 
