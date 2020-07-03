@@ -69,7 +69,7 @@
             @else
                 <td> - </td>
             @endif
-            <td class="btn-list"><a href={{url('admin/modify-user?user_id=')}}{{$user->id}}"><i class="fas fa-pen-square"></i></a></td>
+            <td class="btn-list"><a href="{{url('admin/modify-user?user_id=')}}{{$user->id}}"><i class="fas fa-pen-square"></i></a></td>
             <td class="btn-list"><a><i class="fas fa-trash"></i></a></td>
             </tr>
 
