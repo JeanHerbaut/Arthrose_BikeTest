@@ -23,7 +23,7 @@
       <ul id="menu">
         <li><a href="#">Infos</a> </li>
         <li><a href="{{url('/catalogue')}}">Catalogue</a> </li>
-        <li><a href="#">Mes vélos</a> </li>
+        <li><a href="{{url('/mesvelos')}}">Mes vélos</a> </li>
         @guest
         <li><a href="{{url('/billeterie')}}">Billeterie</a> </li>
         @endguest

@@ -11,50 +11,26 @@
 <!-- Tab content -->
 <div id="favoris" class="tabcontent">
     <h3>Favoris</h3>
+    @foreach($favProducts as $product)
     <div class="vignette-test">
-        <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="" width="100px">
-        <p><strong>Velo testé</strong></p>
-        <p>SCOTT</p>
+        <img class="velo-img" src="{{ $product->image }}" alt="" width="100px">
+        <p><strong>{{$product->shortDesc}}</strong></p>
+        <p>{{$product->brand->name}}</p>
     </div>
-    <div class="vignette-test">
-        <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="" width="100px">
-        <p><strong>Velo testé</strong></p>
-        <p>SCOTT</p>
-    </div>
-    <div class="vignette-test">
-        <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="" width="100px">
-        <p><strong>Velo testé</strong></p>
-        <p>SCOTT</p>
-    </div>
-    <div class="vignette-test">
-        <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="" width="100px">
-        <p><strong>Velo testé</strong></p>
-        <p>SCOTT</p>
-    </div>
+    @endforeach
 </div>
 
 <div id="test" class="tabcontent">
     <h3>Test</h3>
-    <div class="vignette-test" onclick="location.href='/mesvelos/test';">
-        <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="" width="100px">
-        <p><strong>Titanium 370-X</strong></p>
-        <p>SCOTT</p>
-    </div>
-    <div class="vignette-test">
-        <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="" width="100px">
-        <p><strong>Titanium 370-X</strong></p>
-        <p>SCOTT</p>
-    </div>
-    <div class="vignette-test">
-        <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="" width="100px">
-        <p><strong>Titanium 370-X</strong></p>
-        <p>SCOTT</p>
-    </div>
-    <div class="vignette-test">
-        <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="" width="100px">
-        <p><strong>Titanium 370-X</strong></p>
-        <p>SCOTT</p>
-    </div>
+    @foreach($tests as $test)
+    <a href="{{url('/mesvelos/'.$test->product->id)}}">
+        <div class="vignette-test">
+            <img class="velo-img" src="{{ $test->product->image }}" alt="" width="100px">
+            <p><strong>{{$test->product->shortDesc}}</strong></p>
+            <p>{{$test->product->shortDesc}}</p>
+        </div>
+    </a>
+    @endforeach
 </div>
     <script>
         function openPage(pageName) {

@@ -45,7 +45,7 @@ class CreateForeignKeys extends Migration
         });
 
         Schema::table('criteria_test', function ($table) {
-            $table->foreign('criteria_name')->references('name')->on('criterias')
+            $table->foreign('criteria_id')->references('id')->on('criterias')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
             $table->foreign('test_id')->references('id')->on('tests')
@@ -54,7 +54,7 @@ class CreateForeignKeys extends Migration
         });
 
         Schema::table('category_criteria', function ($table) {
-            $table->foreign('criteria_name')->references('name')->on('criterias')
+            $table->foreign('criteria_id')->references('id')->on('criterias')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
             $table->foreign('category_name')->references('name')->on('categories')
@@ -180,11 +180,11 @@ class CreateForeignKeys extends Migration
             $table->dropForeign(['edition_id']);
         });
         Schema::table('criteria_test', function (Blueprint $table) {
-            $table->dropForeign(['criteria_name']);
+            $table->dropForeign(['criteria_id']);
             $table->dropForeign(['test_id']);
         });
         Schema::table('category_criteria', function (Blueprint $table) {
-            $table->dropForeign(['criteria_name']);
+            $table->dropForeign(['criteria_id']);
             $table->dropForeign(['category_name']);
         });
         
