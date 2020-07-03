@@ -1,3 +1,6 @@
+.hidden {
+    display: none;
+}
 
 section a {
     color: #1b9837;

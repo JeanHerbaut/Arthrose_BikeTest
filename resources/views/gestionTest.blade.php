@@ -10,7 +10,7 @@
 
 <div class="container-gestion">
     <h1>Gestion des tests</h1>
-    <a id="historique" href="/gestion-test-historique">Historique</a>
+    <a id="historique" href={{url('/gestion-test-historique')}}>Historique</a>
         @foreach($availableBikes as $bike)
         <!-- The Modal -->
         <div class="modal hidden" data-id="{{$bike->id}}">
