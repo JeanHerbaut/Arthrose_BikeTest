@@ -41,7 +41,7 @@ class User extends Authenticatable
         return $this->hasMany(Test::class);
     }
 
-    public function favourites() {
+    public function favorites() {
         return $this->belongsToMany(Product::class);
     }
 

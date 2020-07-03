@@ -1,5 +1,12 @@
 #Layer_1 {
+    cursor: pointer;
     width: 7%;
+}
+.cls-1 {
+    fill: none;
+}
+.cls-1.filled {
+    fill: red;
 }
 
 .wrapper{

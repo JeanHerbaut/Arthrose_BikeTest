@@ -9,6 +9,8 @@ use App\Brand;
 use App\Product;
 use App\Bike;
 use App\Test;
+use App\Criteria_Test;
+use App\Product_User;
 use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
@@ -20,46 +22,16 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $this->authorize('manage', Product::class);
-        $company_id = Auth::user()->company->id;
-        $brand = Brand::findOrFail($company_id);
-        $brandName = $brand->name;
-        $tests = Test::all();
-        $products = $brand->products;
-        $bikes = Bike::aLL();
-        $productBikes = [];
-        foreach ($products as $product) {
-            $moyenne_rating = 0;
-            $nbr_votes = 0;
-            foreach ($tests as $test) {
-                if ($test->product_id == $product->id) {
-                    $moyenne_rating = $moyenne_rating + $test->rating;
-                    $nbr_votes = $nbr_votes + 1;
-                }
-            }
-            foreach ($bikes as $bike) {
-                if ($bike->product_id == $product->id) {
-                    array_push($productBikes, [
-                        'id' => $bike->id,
-                        'product_id' => $product->id,
-                        'shortDesc' => $product->shortDesc,
-                        'longDesc' => $product->longDesc,
-                        'image' => $product->image,
-                        'price' => $product->price,
-                        'category' => $product->category_name,
-                        'brand_id' => $product->brand_id, 
-                        'brand' => $brandName,
-                        'deleted_at' => $bike->deleted_at,
-                        'size' => $bike->size,
-                        'distinctive_sign' => $bike->distinctive_sign,
-                        'rating' => $moyenne_rating/2,
-                        'nbr_rating' => $nbr_votes
-                    ]);
-                }
-            }
-        }        
-        return view('exhibitor/gestionCatalogue')->with('bikes', $productBikes);
-    
+        $products = Product::with('brand')->withCount('tests')
+        ->with(['isFavoriteOf' => function($q) {
+            return $q->where('user_id', '=', Auth::user()->id)->pluck('user_id')->toArray();
+        }])->get()
+        ->map(function ($p) {
+            $p['avgNote'] = $p->tests()->get()->pluck('rating')->avg();
+            return $p;
+         });
+        //dd($products);
+        return view('catalogue')->with(compact('products'));
     }
 
     /**
@@ -69,11 +41,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $this->authorize('manage', Product::class);
-        $categories = Category::all();
-        $company_id = Auth::user()->company->id;
-        $brand = Brand::findOrFail($company_id);
-        return view('exhibitor/addProduct', compact('categories', 'brand'));
+        //
     }
 
     /**
@@ -89,7 +57,27 @@ class ProductController extends Controller
 
     public function show($id)
     {
-        //
+        $product = Product::where('id', '=', $id)->with('brand')->with('tests.criterias')->withCount('tests')
+        ->with(['isFavoriteOf' => function($q) {
+            return $q->where('user_id', '=', Auth::user()->id)->pluck('user_id')->toArray();
+        }])->get()
+        ->map(function ($p) {
+            $p['avgNote'] = $p->tests()->get()->pluck('rating')->avg();
+            return $p;
+        })->first();
+
+        $tests_ids = Test::where('product_id', '=', $id)->pluck('id')->toArray();
+
+        $criterias_list = Criteria_Test::distinct('criteria_name')->whereIn('test_id', $tests_ids)->pluck('criteria_name')->toArray();
+
+        $criterias = [];
+        foreach($criterias_list as $criteria){
+            $note = ceil(Criteria_Test::whereIn('test_id', $tests_ids)->where('criteria_name', '=', $criteria)->avg('note'));
+            $criterias[$criteria] = $note;
+        }
+
+        //dd($criterias);
+        return view('velo')->with(compact('product', 'criterias'));
     }
 
     public function postModelNumber(Request $request)
@@ -97,6 +85,17 @@ class ProductController extends Controller
         $product = Product::where('modelNumber', $request->modelnumber)->first();
         return (response()->json(['product'=>$product ]));
         
+    }
+
+    public function toggleFavorite(Request $request){
+        $isFavorite = Product_User::where('user_id', '=', Auth::user()->id)->where('product_id', '=', $request->productId)->first();
+        if($isFavorite){
+            $isFavorite->delete();
+        } else {
+            Auth::user()->favorites()->attach($request->productId);
+        }
+        $isFavorite = Product_User::where('user_id', '=', Auth::user()->id)->where('product_id', '=', $request->productId)->first();
+        return (response()->json(['isFavorite'=>$isFavorite ]));
     }
 
     /**
@@ -129,8 +128,7 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        $product = Bike::findOrFail($id)->delete();
-        return redirect()->back();
+        //
     }
 
     public function fullCatalogue() {

@@ -27,6 +27,9 @@ class DatabaseSeeder extends Seeder
         $this->call(Functionality_Role_Seeder::class);
         $this->call(Role_User_Seeder::class);
         $this->call(TestSeeder::class);
+        $this->call(CriteriaSeeder::class);
+        $this->call(CategoryCriteriaSeeder::class);
+        $this->call(CriteriaTestSeeder::class);
 
     }
 }
