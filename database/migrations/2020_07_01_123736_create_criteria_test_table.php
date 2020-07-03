@@ -15,10 +15,10 @@ class CreateCriteriaTestTable extends Migration
     {
         Schema::create('criteria_test', function (Blueprint $table) {
             $table->id();
-            $table->string('criteria_name');
+            $table->bigInteger('criteria_id')->unsigned();
             $table->bigInteger('test_id')->unsigned();
-            $table->tinyInteger('note')->unsigned();
-            $table->unique(['criteria_name', 'test_id']);
+            $table->tinyInteger('note')->unsigned()->nullable();
+            $table->unique(['criteria_id', 'test_id']);
         });
     }
 

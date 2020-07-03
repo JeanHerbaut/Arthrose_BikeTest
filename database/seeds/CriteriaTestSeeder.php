@@ -14,44 +14,44 @@ class CriteriaTestSeeder extends Seeder
         for ($i=1; $i <= 10; $i++) {
             DB::table('criteria_test')->insert([
                 'test_id' => $i,
-                'criteria_name' => 'Qualité/prix',
+                'criteria_id' => '1',
                 'note' => rand(25, 80)
             ]);
             DB::table('criteria_test')->insert([
                 'test_id' => $i,
-                'criteria_name' => 'Poids',
+                'criteria_id' => '2',
                 'note' => rand(25, 80)
             ]);
             DB::table('criteria_test')->insert([
                 'test_id' => $i,
-                'criteria_name' => 'Confort',
+                'criteria_id' => '3',
                 'note' => rand(25, 80)
             ]);
             DB::table('criteria_test')->insert([
                 'test_id' => $i,
-                'criteria_name' => 'Freins',
+                'criteria_id' => '6',
                 'note' => rand(25, 80)
             ]);
         }
         for ($i=11; $i < 20; $i++) {
             DB::table('criteria_test')->insert([
                 'test_id' => $i,
-                'criteria_name' => 'Qualité/prix',
+                'criteria_id' => '1',
                 'note' => rand(25, 80)
             ]);
             DB::table('criteria_test')->insert([
                 'test_id' => $i,
-                'criteria_name' => 'Poids',
+                'criteria_id' => '2',
                 'note' => rand(25, 80)
             ]);
             DB::table('criteria_test')->insert([
                 'test_id' => $i,
-                'criteria_name' => 'Confort',
+                'criteria_id' => '3',
                 'note' => rand(25, 80)
             ]);
             DB::table('criteria_test')->insert([
                 'test_id' => $i,
-                'criteria_name' => 'Batterie',
+                'criteria_id' => '5',
                 'note' => rand(25, 80)
             ]);
         }
@@ -59,22 +59,22 @@ class CriteriaTestSeeder extends Seeder
 
         DB::table('criteria_test')->insert([
             'test_id' => 20,
-            'criteria_name' => 'Qualité/prix',
+            'criteria_id' => '1',
             'note' => rand(25, 80)
         ]);
         DB::table('criteria_test')->insert([
             'test_id' => 20,
-            'criteria_name' => 'Poids',
+            'criteria_id' => '2',
             'note' => rand(25, 80)
         ]);
         DB::table('criteria_test')->insert([
             'test_id' => 20,
-            'criteria_name' => 'Confort',
+            'criteria_id' => '3',
             'note' => rand(25, 80)
         ]);
         DB::table('criteria_test')->insert([
             'test_id' => 20,
-            'criteria_name' => 'Freins',
+            'criteria_id' => '6',
             'note' => rand(25, 80)
         ]);
     }
