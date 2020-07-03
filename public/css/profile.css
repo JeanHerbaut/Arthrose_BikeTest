@@ -1,3 +1,7 @@
+input:disabled{
+    background-color: #4b0005;
+}
+
 
 section a {
     color: #1b9837;
@@ -143,7 +147,7 @@ input[type=text]::placeholder, input[type=password]::placeholder {
     font-size: 13px;
     -webkit-border-radius: 24px;
     border-radius: 24px;
-    margin: 5px 20px 40px 20px;
+    margin: 5px 20px 10px 20px;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -ms-transition: all 0.3s ease-in-out;
