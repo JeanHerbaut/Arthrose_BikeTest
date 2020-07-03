@@ -62,9 +62,7 @@ class TestController extends Controller
         })->get();
 
         $currentTests = Test::whereIn('product_id', $products)->whereNull('endTime')
-            ->with(['product' => function($q) {
-                return $q->select('id', 'shortDesc', 'image');
-            }])
+            ->with('product.brand')
             ->with(['user' => function($q) {
                 return $q->select('id', 'username');
             }])
@@ -73,7 +71,6 @@ class TestController extends Controller
             }])->get();
 
 
-        //dd($availableBikes);
         return view('gestionTest')->with(compact('availableBikes', 'currentTests'));
     }
 

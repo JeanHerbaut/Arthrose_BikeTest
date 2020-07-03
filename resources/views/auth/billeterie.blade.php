@@ -2,11 +2,20 @@
 
 @section('content')
 <link defer rel="stylesheet" type="text/css" href="{{ asset('css/billeterie.css') }}">
-    <form method="post" action="{{url('/createUserWithTicket')}}" id="schedule">
+<div class="wrapper">
+
+
+    <form class="form-billeterie" method="post" action="{{url('/createUserWithTicket')}}" id="schedule">
         @csrf
         <div id="choix-plage" class="tab">
-            <h3>Plage horraire</h3>
-            <h4>Suivant: information</h4>
+            <div class="header-billeterie">
+              <img src="{{ asset('img/etape1.png') }}" alt="">
+              <div class="infos-billeterie">
+                <h3>Plage horraire</h3>
+                <p>Suivant: Information</p>
+              </div>
+            </div>
+
             <div class="description">
                 <p>Veuillez sélectionner une plage horaire pour l’édition 2020</p>
                 <p><b>Attention : vous ne pouvez sélectionner qu’une seule plage horaire.</b></p>
@@ -30,10 +39,20 @@
             @enderror
         </div>
         <div id="identity" class="tab">
+          <div class="header-billeterie">
+            <img src="{{ asset('img/etape2.png') }}" alt="">
+            <div class="infos-billeterie">
+              <h3>Information</h3>
+              <p>Suivant: Nom utilisateur</p>
+            </div>
+          </div>
             <div class="description">
                 <p>Veuillez remplir vos informations personnelles</p>
             </div>
-            <div class="full-input group">
+            <div class="wrapper-form-billeterie">
+
+
+            <div class="group">
                 <label for="name" class="form-control-label">Name</label>
                 <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}">
             </div>
@@ -70,8 +89,16 @@
             </span>
             @enderror
         </div>
+        </div>
 
         <div id="user-register" class="tab">
+          <div class="header-billeterie">
+            <img src="{{ asset('img/etape3.png') }}" alt="">
+            <div class="infos-billeterie">
+              <h3>Nom utilisateur</h3>
+              <p>Suivant: Paiement</p>
+            </div>
+          </div>
             <div class="description">
                 <p>Veuillez choisir un nom d’utilisateur ainsi qu’un mot de passe</p>
                 <p>Attention : vous aurez besoin de ces informations pendant l’événement </p>
@@ -99,7 +126,10 @@
                 <input type="password" name="password_confirmation" id="password-confirm" class="form-control">
             </div>
         </div>
-        <div class="sameLine">
+        <div class="footer-billeterie">
+
+
+        <div class="sameLine-2">
             <button type="button" id="prevBtn" onclick="nextPrev(-1)">précedent</button>
             <button type="button" id="nextBtn" onclick="nextPrev(1)">suivant</button>
         </div>
@@ -109,7 +139,9 @@
             <span class="step"></span>
             <span class="step"></span>
         </div>
+        </div>
     </form>
+    </div>
 <script>
     let currentTab = 0; // Current tab is set to be the first tab (0)
     showTab(currentTab); // Display the current tab

@@ -1,23 +1,86 @@
 /* Style the form */
 .wrapper {
-    display: flex;
-    justify-content: space-between;
-    width: 80%;
+    width: min(90%, 55rem);
+    height: 100%;
     margin: auto;
-    padding: 15px;
-    flex-wrap: wrap;
+    position: relative;
+    border-radius: 12px;
+
+}
+
+.form-billeterie{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.header-billeterie{
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-billeterie img{
+  width: 8rem;
+}
+
+.header-billeterie p{
+  font-size: 1.4rem;
+}
+
+.footer-billeterie{
+  width: 100%;
+  position: absolute;
+  bottom: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.description p:nth-child(1){
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.description p:nth-child(2){
+  font-size: 1.3rem;
+  margin-bottom: 3rem;
+}
+
+.opt-plage h3{
+  margin: 1rem 0;
+}
+
+.opt-plage{
+  margin-bottom: 3rem;
+}
+.wrapper-form-billeterie{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  width: 100%;
 }
 
 .group{
+    margin-top: 2.5rem;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5%;
+}
+
+.group input{
+  width: 100%;
 }
 
 .sameLine{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    width: 30rem;
+}
+
+.sameLine-2{
     display: flex;
     flex-direction: row;
     margin: auto;
@@ -117,7 +180,6 @@ input[type=text], input[type=password] {
     text-decoration: none;
     display: flex;
     font-size: 16px;
-    width: 60%;
     border: 2px solid #f6f6f6;
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
@@ -165,7 +227,7 @@ label[class="plage"] {
     cursor: pointer;
     background-color: transparent;
     color: #171717;
-    padding: 5px 10px;
+    padding: 1rem;
     border-radius: 6px;
     border-color: #171717;
     transition: color 0.1s ease-out,

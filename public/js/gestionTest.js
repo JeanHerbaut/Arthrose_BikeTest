@@ -30,7 +30,7 @@ $.ajaxSetup({
   }
 });
 
-$('.container').on('submit', '.recherche-form', evt => {
+$('.container-gestion').on('submit', '.recherche-form', evt => {
   evt.preventDefault();
   let dataId = $(evt.currentTarget).data('id');
   let username = $(`.recherche[data-id='${dataId}']`).val();
@@ -40,7 +40,6 @@ $('.container').on('submit', '.recherche-form', evt => {
     url: '/searchUser',
     data: { username: username },
     success: function (data) {
-      console.log(data.results)
       if(data.results.length > 0){
         $(`.resultsList[data-id='${dataId}']`).empty()
         data.results.forEach(user => {
