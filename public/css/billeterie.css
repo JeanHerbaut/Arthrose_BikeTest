@@ -1,71 +1,222 @@
-/* General */
-body {
-    max-width: 500px;
-    margin: auto;
-    width: 95%;
-}
-
-h3 {
-    margin-left: 10%;
-}
-
-/* buttons */
-.button {
-    display: inline;
-    margin: 20%;
-    padding: 6px;
-    border-radius: 30px;
-    border: 1px solid#E3E2E2;
-    background-color: darkgray;
-}
-
-.nav {
-    margin: auto;
-    padding: 20px;
+/* Style the form */
+.wrapper {
+    display: flex;
+    justify-content: space-between;
     width: 80%;
-}
-/* Schedule select */
-div.opt-plage {
     margin: auto;
-    width: 80%;
+    padding: 15px;
+    flex-wrap: wrap;
 }
 
-div.opt-plage>input {
-    visibility:hidden;
+.group{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
 }
 
-div.opt-plage>label {
-    cursor: pointer;
-    border: 1px solid#E3E2E2;
-    padding: 6px;
-    border-radius: 30px;
-}   
-
-input:checked + label {
-    background: #E3E2E2;
+.sameLine{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
 }
 
-/* identity */
-section#identity>input {
-    display: block;
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    align-content: center;
+    justify-content: space-between;
 }
-  input.form-control {
-    outline: none;
+
+.form-control-label{
+    font-size: 10px;
+}
+
+/* Style the input fields */
+/*previous btn*/
+#prevBtn {
+    background-color: transparent;
     border: none;
-    display:block;
-    line-height: 1.2em;
-    font-size: 14pt;
-    border-radius: 25px;
-  }
-  label.form-control-label {
-    display: block;
-    font-size: 12px;
-    padding-left: 10px;
-  }
+    color: #1b9837;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 13px;
+    -webkit-border-radius: 24px;
+    border-radius: 24px;
+    margin: 40px 10px 10px 10px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    margin-top: 2rem;
+}
+#prevBtn:hover  {
+    background-color: rgba(28, 185, 63, 0.27);
+    cursor: pointer;
+    -webkit-box-shadow: 0 10px 30px 0 rgba(33, 159, 39, 0.4);
+    box-shadow: 0 10px 30px 0 rgba(27, 142, 35, 0.4);
+}
 
-  .full-input {
-    padding: 3px;
-    border-radius: 25px;
-    border: 2px solid #E3E2E2;
-    margin-top: 10px;
-  }
+#prevBtn:active {
+    -moz-transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -o-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
+}
+
+input[type=button], input[type=submit], #nextBtn {
+    background-color: #1b9837;
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 13px;
+    -webkit-box-shadow: 0 10px 30px 0 rgba(33, 159, 39, 0.4);
+    box-shadow: 0 10px 30px 0 rgba(27, 142, 35, 0.4);
+    -webkit-border-radius: 24px;
+    border-radius: 24px;
+    margin: 40px 10px 10px 10px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    margin-top: 2rem;
+}
+
+input[type=button]:hover, input[type=submit]:hover, #nextBtn:hover  {
+    background-color: #1fc344;
+    cursor: pointer;
+}
+
+input[type=button]:active, input[type=submit]:active, #nextBtn:active {
+    -moz-transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -o-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
+}
+
+input[type=text], input[type=password] {
+    background-color: #f6f6f6;
+    border: none;
+    color: #0d0d0d;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    font-size: 16px;
+    width: 60%;
+    border: 2px solid #f6f6f6;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+input[type=text]:focus, input[type=password]:focus{
+    background-color: #fff;
+    border-bottom: 2px solid #1b9837;
+}
+
+input[type=text]::placeholder, input[type=password]::placeholder {
+    color: #cccccc;
+}
+
+/*radiobtn*/
+.InputGroup {
+    display: flex;
+    height: 80px;
+    width: 60%;
+}
+
+/**
+ * 1. Hides the input from view
+ * 2. Ensures the element does not consume any space
+ */
+
+input[type="radio"] {
+    visibility: hidden; /* 1 */
+    height: 0; /* 2 */
+    width: 0; /* 2 */
+}
+
+label[class="plage"] {
+    display: flex;
+    flex: auto;
+    vertical-align: middle;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    background-color: transparent;
+    color: #171717;
+    padding: 5px 10px;
+    border-radius: 6px;
+    border-color: #171717;
+    transition: color 0.1s ease-out,
+    background-color 0.1s ease-in;
+    user-select: none;
+    margin-right: 8px;
+}
+
+label:last-of-type {
+    margin-right: 0;
+}
+
+input[type="radio"]:checked + label {
+    background-color: #1b9837;
+    color: white;
+}
+
+input[type="radio"]:hover:not(:checked) + label {
+    background-color: #1b9837;
+    color: white;
+}
+
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+    background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+    display: none;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+}
+
+/* Mark the active step: */
+.step.active {
+    opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+    background-color: #4CAF50;
+}

@@ -52,9 +52,10 @@
                         <input type="number" name="id" id="id" value="{{$user->id}}" hidden>
                     </div>
                 </div>
-                <button id="cancel" hidden>Annuler</button>
+
                 <input id="submit" type="submit" value="Confirmer" hidden>
             </form>
+            <button id="cancel" hidden>Annuler</button>
             <button id="modify">Modifier mes infos</button>
         </div>
     </div>

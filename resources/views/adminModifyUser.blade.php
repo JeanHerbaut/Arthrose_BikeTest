@@ -108,13 +108,13 @@
         role_select.addEventListener(
             "change", evt => {
                 if(role_select.value == "exhibitor"){
-                    sect_company.classList.remove("hidden")
-                    sect_testSched.classList.add("hidden")
+                    sect_company.style.display = "none"
+                    sect_testSched.style.display = "flex"
                 } else if (role_select.value == "visitor"){
-                    sect_company.classList.add("hidden")
-                    sect_testSched.classList.remove("hidden")
+                    sect_company.style.display = "none"
+                    sect_testSched.style.display = "flex"
                 } else {
-                    sect_company.classList.add("hidden")
+                    sect_company.style.display = "none"
                     sect_testSched.classList.add("hidden")
                 }
             }
