@@ -43,6 +43,7 @@
                             <select class="resultsList" data-id="{{$bike->id}}" name="user_id" size="3" required></select>
                             <input type="hidden" name="bike_id" value="{{$bike->id}}">
                             <input type="hidden" name="product_id" value="{{$bike->product->id}}">
+                            <input type="hidden" name="category" value="{{$bike->product->category_name}}">
                         </form>
                     </div>
                     <button class="myBtn" type="submit" form="mainForm{{$bike->id}}">Commencer</button>

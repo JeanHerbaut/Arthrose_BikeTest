@@ -17,7 +17,7 @@ class CreateCriteriaTestTable extends Migration
             $table->id();
             $table->bigInteger('criteria_id')->unsigned();
             $table->bigInteger('test_id')->unsigned();
-            $table->tinyInteger('note')->unsigned();
+            $table->tinyInteger('note')->unsigned()->nullable();
             $table->unique(['criteria_id', 'test_id']);
         });
     }

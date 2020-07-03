@@ -11,6 +11,7 @@ use App\TestSchedule;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Criteria_Test;
+use App\Category_Criteria;
 
 class TestController extends Controller
 {
@@ -89,13 +90,17 @@ class TestController extends Controller
         $datetime = "2020-10-03 11:00:00";
         $test_schedule_id = TestSchedule::where('startTime', '<=', $datetime)->where('endtime', '>=', $datetime)->first()->id;
         //dd($test_schedule_id);
-        Test::create([
+        $criterias_list = Category_Criteria::where('category_name', '=', $request->category)->pluck('criteria_id')->toArray();
+        $test = Test::create([
             'startTime' => $datetime,
             'test_schedule_id' => $test_schedule_id,
             'product_id' => $request->product_id,
             'user_id' => $request->user_id,
             'bike_id' => $request->bike_id
         ]);
+        foreach($criterias_list as $criteria){
+            $test->criterias()->attach($criteria);
+        }
 
         return redirect("/gestion-test");
     }

@@ -42,17 +42,17 @@
     </div>
     <form method="post" action="{{url('/rate')}}">
     @csrf
-        @foreach($criterias_list as $criteria)
+        @foreach($test->criterias as $criteria)
         <div class="critere">
-            <div>{{$criteria->criteria->name}}</div>
-            <div class="my-rating" id="{{$criteria->criteria_id}}"></div>
-            <input type="hidden" name="crit{{$criteria->criteria_id}}">
+            <div>{{$criteria->name}}</div>
+            <div class="my-rating" id="{{$criteria->id}}" {{($test->rating)? "data-rating=".$criteria->pivot->note."" : '' }}></div>
+            <input type="hidden" name="crit{{$criteria->id}}" value="{{($test->rating)? $criteria->pivot->note : '' }}">
         </div>
         @endforeach
         
         <div class="critere">
             <div>Note globale</div>
-            <div class="my-rating global" id="global"></div>
+            <div class="my-rating global" id="global" {{($test->rating)? "data-rating=".$test->rating."" : '' }}></div>
             <input type="hidden" name="critglobal">
         </div>
         
@@ -61,11 +61,17 @@
         @endif
 
         <input type="hidden" name="test_id" value="{{$test->id}}">
-        <textarea id="comment" name="comment" rows="4" cols="50" maxlength="200" placeholder="Commentaire(max 200 caractères)"></textarea>
+        <textarea id="comment" name="comment" rows="4" cols="50" maxlength="200" placeholder="Commentaire(max 200 caractères)">{{$test->comment}}</textarea>
+        @if(!$test->rating)
         <button type="submit" id="submit">Envoyer</button>
+        @endif
     </form>
     <script>
+        if($('#global').data('rating')) rated = true
+        else rated = false
+
         $(".my-rating").starRating({
+            readOnly: rated,
             disableAfterRate: false,
             starSize: 20,
             useFullStars: true,
