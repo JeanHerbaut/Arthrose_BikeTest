@@ -98,6 +98,11 @@ input[type="submit"]{
 
 }
 
+input[type="submit"].disabled {
+  background-color: #9b9b9b;
+  box-shadow: none;
+}
+
 .content-vignette >p {
   margin-bottom: 3rem;
 }
@@ -105,12 +110,12 @@ input[type="submit"]{
 
 
 
-input[type="submit"]:hover ,#historique:hover{
+input[type="submit"]:not(.disabled):hover ,#historique:hover{
   background-color: #1fc344;
   cursor: pointer;
 }
 
-input[type="submit"]:active, #historique:active {
+input[type="submit"]:not(.disabled):active, #historique:active {
   -moz-transform: scale(0.95);
   -webkit-transform: scale(0.95);
   -o-transform: scale(0.95);

@@ -111,7 +111,18 @@ class UserController extends Controller
     }
 
     public function search(Request $request){
-        $results = User::where('username', 'like', $request->username.'%')->with('person')->get();
+        $results = User::where('username', 'like', $request->username.'%')->with('person')
+        ->with(['tests' => function($q) {
+            return $q->whereNull('endTime');
+        }])->get();
         return (response()->json(['results'=>$results ]));
+    }
+
+    public function searchGet($user){
+        $results = User::where('username', 'like', $user.'%')->with('person')
+        ->with(['tests' => function($q) {
+            return $q->whereNull('endTime');
+        }])->get();
+        return $results;
     }
 }

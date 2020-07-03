@@ -10,7 +10,7 @@
 
 <div class="container-gestion">
     <h1>Gestion des tests</h1>
-    <a id="historique" href={{url('/gestion-test-historique')}}>Historique</a>
+    <a id="historique" href="{{url('/gestion-test-historique')}}">Historique</a>
         @foreach($availableBikes as $bike)
         <!-- The Modal -->
         <div class="modal hidden" data-id="{{$bike->id}}">
@@ -83,6 +83,7 @@
                     </div>
 
                     <input class="myBtn" type="submit" name="submit" value="Commencer" form="mainForm{{$bike->id}}">
+                    <div class="error-busy hidden">L'utilisateur a déjà un test en cours</div>
                 </div>
             </div>
         </div>
