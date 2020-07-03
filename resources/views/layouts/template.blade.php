@@ -62,6 +62,13 @@
             </a>
           </li>
           @endcan
+          @can('manage', App\User::class)
+          <li>
+            <a href="{{url('/gestion-exposant')}}">
+              Gestion des exposants
+            </a>
+          </li>
+          @endcan
           @can('manage', App\Test::class)
           <li>
             <a href="{{url('/gestion-test')}}">
