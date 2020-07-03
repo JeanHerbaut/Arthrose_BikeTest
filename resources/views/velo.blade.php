@@ -23,7 +23,7 @@
             </div>
             <div class="desc-wrapper">
                 <p>{{$product->brand->name}}</p>
-                <p>{{$product->price}}</p>
+                <p>{{formatPrice($product->price)}}</p>
             </div>
             <div class="desc-wrapper longdesc">
                 <p>{{$product->longDesc}}</p>

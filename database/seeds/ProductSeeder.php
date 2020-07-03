@@ -18,7 +18,7 @@ class ProductSeeder extends Seeder
                 'shortDesc'=>'Un vélo' . $i,
                 'longDesc'=>'UNNNNNNNNNNNEE GRAAAAAAAAAAAAAAANDE DESCRRRRRRRRRRRRRRRIPTION',
                 'image'=>'/img/bike.png',
-                'price'=> rand(1, 3),
+                'price'=> rand(1500, 6000),
                 'brand_id' => '2',
                 'category_name' => 'VTT'
               ]);
@@ -30,7 +30,7 @@ class ProductSeeder extends Seeder
                 'shortDesc'=>'Un autre vélo' . $i,
                 'longDesc'=>'UNNNNNNNNNNNEE GRAAAAAAAAAAAAAAANDE DESCRRRRRRRRRRRRRRRIPTION',
                 'image'=>'/img/bike.png',
-                'price'=> rand(1, 3),
+                'price'=> rand(1500, 6000),
                 'brand_id' => '1',
                 'category_name' => 'eBike'
               ]);
