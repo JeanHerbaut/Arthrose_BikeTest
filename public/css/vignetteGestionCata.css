@@ -1,0 +1,167 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper-header{
+  display: flex;
+  justify-content: space-between;
+  height: 15vh;
+  padding: 2rem;
+}
+
+.form-header{
+  display: flex;
+  align-items:flex-end;
+}
+
+.wrapper-velos{
+  background: rgb(231, 231, 231);
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+input {
+  border-radius: 24px;
+  background-color: rgb(223, 223, 223);
+  border: none;
+  padding: 0.5rem;
+  padding-left: 1rem;
+}
+
+.form-header button {
+  background-color: #1b9837;
+  border: none;
+  color: white;
+  padding: 1rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 13px;
+  -webkit-box-shadow: 0 10px 30px 0 rgba(33, 159, 39, 0.4);
+  box-shadow: 0 10px 30px 0 rgba(27, 142, 35, 0.4);
+  -webkit-border-radius: 24px;
+  border-radius: 24px;
+  margin: 0rem;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  margin-top: 2rem;
+}
+
+button:hover {
+  background-color: #1fc344;
+  cursor: pointer;
+}
+
+button:active {
+  -moz-transform: scale(0.95);
+  -webkit-transform: scale(0.95);
+  -o-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95);
+}
+
+.svg-container{
+  position: relative;
+  width: min(14rem,40vw);
+  height: min(17rem);
+  margin: 1rem 2rem;
+}
+
+
+
+#layer_1{
+  filter: drop-shadow( 0 0 15px rgba(0, 0, 0, .2));
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.test{
+  width: 100%;
+  height: 100%;
+}
+
+.content-vignette{
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 5px 5px 10px;
+}
+
+
+#type{
+  font-size: 1.3rem;
+  padding-top: 1rem;
+}
+
+#dollar{
+  font-weight: bold;
+}
+#model{
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+#marque{
+  font-size: 1.3rem;
+}
+
+#emprunt{
+  font-size: 1.3rem;
+  font-weight: 200;
+}
+
+#start{
+  display: flex;
+  justify-content: center;
+}
+
+.velo-img{
+  position: absolute;
+  top: 10;
+  right: -25%;
+  width: 12rem;
+}
+
+
+
+#rating{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.star{
+  display: flex;
+  width: 40%;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+}
+.star p{
+  font-size: 1rem;
+}
+.star img{
+  width: 2rem;
+  margin-right: 5px;
+}
+
+
+.heart svg{
+  width: 2.8rem;
+}
+
+.
