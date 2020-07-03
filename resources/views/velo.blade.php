@@ -37,7 +37,7 @@
             @foreach($criterias as $criteria => $note)
             <div class="rating-sec">
                 <label for="{{$criteria}}">{{$criteria}}</label>
-                <progress id="{{$criteria}}" value="{{$note}}" max="100"></progress>
+                <progress id="{{$criteria}}" value="{{noteToPercent($note)}}" max="100"></progress>
             </div>
             @endforeach
         </div>

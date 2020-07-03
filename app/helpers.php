@@ -6,4 +6,8 @@
         else return "$$$";
     }
 
+    function noteToPercent($note){
+        return $note*20;
+    }
+
 ?>
