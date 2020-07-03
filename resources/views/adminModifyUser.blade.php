@@ -3,6 +3,9 @@
 @section('content')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/adminModifyUser.css') }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+<div class="wrapper">
+    <div class="formContent">
+
 <form action="/admin/modify-user" method="post">
     @csrf
     <div class="group">
@@ -50,11 +53,13 @@
     @enderror
     </div>
     <!-- <button id="reset">Réinitaliser mot de passe</button> -->
-
+<div class="group">
     <label for="role">Role</label>
 
 
-    <div class="custom-select" style="width: 250px;">
+    <div class="custom-select " style="width: 250px;">
+
+
 
 
     <select name="role" id="role" autocomplete="off" disabled>
@@ -64,13 +69,15 @@
         <option value="admin" {{ (isset($user->roles[0])) ? ($user->roles[0] == 'admin') ? "selected" : "" : ""}}>Administrateur</option>
         <option value="receptionist" {{ (isset($user->roles[0])) ? ($user->roles[0] == 'receptionist') ? "selected" : "" : ""}}>Réceptioniste</option>
     </select>
+
     @error('role')
     <span class="invalid-feedback" role="alert">
         <strong>{{ $message }}</strong>
     </span>
     @enderror
     </div>
-    <div id="companySection" class="{{ (isset($user->roles[0])) ? ($user->roles[0] == 'exhibitor') ? '' : 'hidden' : 'hidden'}}" >
+    </div>
+    <div id="companySection" class="{{ (isset($user->roles[0])) ? ($user->roles[0] == 'exhibitor') ? '' : 'hidden' : 'hidden'}} group" >
         <label for="company">Companie</label>
             <div class="custom-select" style="width: 250px;">
         <select name="company" id="company" autocomplete="off" disabled>
@@ -86,6 +93,9 @@
     </div>
 
     <div id="testScheduleSection" class="{{ (isset($user->roles[0])) ? ($user->roles[0] == 'visitor') ? '' : 'hidden' : 'hidden' }}" >
+      <div class="group">
+
+
         <label for="testSchedule">Billet</label>
             <div class="custom-select" style="width: 250px;">
         <select name="testSchedule" id="testSchedule" autocomplete="off" disabled>
@@ -98,6 +108,7 @@
             @endforeach
         </select>
       </div>
+      </div>
     </div>
 
     <input type="hidden" name="id" id="id" value="{{$user->id}}">
@@ -105,6 +116,9 @@
 </form>
 <button id="cancel" hidden>Annuler</button>
 <button id="modify">Modifier cet utilisateur</button>
+</div>
+</div>
+
 <script>
     const btn_modify = document.getElementById('modify')
     const btn_cancel = document.getElementById('cancel')
