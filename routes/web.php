@@ -73,8 +73,4 @@ Route::post('/endTest', 'TestController@end');
 
 Route::post('searchUser', 'UserController@search');
 
-Route::get('/register', function () {
-    return view('auth/register');
-});
-
 Route::post('/product/toggleFavorite', 'ProductController@toggleFavorite');
