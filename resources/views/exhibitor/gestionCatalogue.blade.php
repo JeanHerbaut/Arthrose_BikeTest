@@ -1,23 +1,25 @@
 @extends('layouts.template')
 @section('content')
-<link defer rel="stylesheet" type="text/css" href="{{ asset('css/vignette.css') }}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+<link defer rel="stylesheet" type="text/css" href="{{ asset('css/vignetteGestionCata.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 {{-- <link href="nouislider.css" rel="stylesheet">
 <script src="nouislider.js"></script> --}}
 
 <section>
+
+  <div class="wrapper-header">
+      <h1>Gestion catalogue</h1>
+      <div class="form-header">
+          <input type="text" id="input" placeholder="Recherche">
+          <button type="submit" id="search-bike"><i class="fa fa-search"></i></button>
+          <button id="reset">Effacer le filtre</button>
+          <form action="{{route('catalogue.create')}}">
+              <button type="submit">Ajouter un vélo</button>
+          </form>
+      </div>
+  </div>
     <div class="wrapper-catalogue">
-        <div class="wrapper-header">
-            <h1>Catalogue</h1>
-            <div class="form-header">
-                <input type="text" id="input">
-                <button id="search-bike">Chercher vélo</button>
-                <button id="reset">Effacer le filtre</button>
-                <form action="{{route('catalogue.create')}}">
-                    <button type="submit">Ajouter un vélo</button>
-                </form>
-            </div>
-        </div>
+
 
         <div class="wrapper-velos">
             @foreach ($bikes as $bike)
@@ -73,16 +75,15 @@ let elements = document.getElementsByClassName('svg-container')
     let input = document.getElementById('input').value.toUpperCase()
     if(input.length > 0) {
     for(var i=0; i<elements.length; i++) { if(elements[i].getAttribute('data-desc').toUpperCase() !=input) {
-        elements[i].style.display="none" } 
-        search
-        } 
-    } 
+        elements[i].style.display="none" }
+        }
+    }
     document.getElementById('input').value = ""
 })
 reset.addEventListener('click', evt => {
-    for(var i=0; i<elements.length; i++) { 
+    for(var i=0; i<elements.length; i++) {
         elements[i].style.display=null
-    } 
+    }
 })
 
 </script>

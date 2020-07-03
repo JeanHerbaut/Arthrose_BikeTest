@@ -6,11 +6,28 @@
 
 .svg-container{
   position: relative;
-  width: min(50%, 16rem);
-  height: min(41vw,19rem);
-  display: flex;
-  margin: 2rem 0;
+  min-width: 13rem;
+  min-height: 17rem;
+  margin: 1rem 2rem;
 }
+
+.svg-container-2{
+  position: relative;
+  min-width: 15rem;
+  min-height: 19rem;
+  max-height: 19rem;
+  margin: 0rem 2rem;
+}
+
+.svg-container-3{
+  position: relative;
+  max-width: 14rem;
+  min-height: 17rem;
+  max-height: 17rem;
+  margin: 0rem 2rem;
+}
+
+
 
 #layer_1{
   filter: drop-shadow( 0 0 15px rgba(0, 0, 0, .2));
@@ -22,6 +39,7 @@
 
 .test{
   width: 100%;
+  height: 100%;
 }
 
 .content-vignette{
@@ -31,13 +49,14 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 0 10px 10px 10px;
+  justify-content: center;
+  padding: 0 5px 5px 10px;
 }
 
 
 #type{
   font-size: 1.3rem;
+  padding-top: 1rem;
 }
 
 #dollar{
@@ -52,16 +71,78 @@
   font-size: 1.3rem;
 }
 
-.velo-img{
-  position: absolute;
-  right: -10%;
-  width: 12rem;
-
+#emprunt{
+  font-size: 1.3rem;
+  font-weight: 200;
 }
 
+#start{
+  display: flex;
+  justify-content: center;
+}
+
+.velo-img{
+  position: absolute;
+  top: 10;
+  right: -25%;
+  width: 12rem;
+}
 
 .container{
   padding: 10% 10%;
+}
+
+.begin{
+  z-index: 3;
+  position: absolute;
+  bottom: 0;
+  align-self: center;
+  background-color: #1b9837;
+  border: none;
+  color: white;
+  width: 100%;
+  padding: 1rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 10px;
+  -webkit-box-shadow: 0 5px 20px 0 rgba(33, 159, 39, 0.2);
+  box-shadow: 0 5px 20px 0 rgba(27, 142, 35, 0.2);
+  -webkit-border-radius: 0px 0px 12px 24px;
+  border-radius:  0px 0px 12px 12px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  margin-top: 1rem;
+}
+
+.end{
+  z-index: 3;
+  position: absolute;
+  bottom: 0;
+  background-color: #d54d48;
+  width: 100%;
+  border: none;
+  color: white;
+  padding: 1rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 10px;
+  -webkit-box-shadow: 0 5px 20px 0 rgba(33, 159, 39, 0.2);
+  box-shadow: 0 5px 20px 0 rgba(27, 142, 35, 0.2);
+  -webkit-border-radius: 24px;
+  border-radius:  0px 0px 12px 12px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  margin-top: 1rem;
 }
 #rating{
   display: flex;
