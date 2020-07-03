@@ -48,22 +48,18 @@ class ProductController extends Controller
         $favProducts = Product::whereHas('isFavoriteOf', function($q){
             return $q->where('user_id', '=', Auth::user()->id);
         })->with('brand')->get();//Auth::user()->favorites;
-        $tests = Test::where('user_id', '=', Auth::user()->id)->with('product')->get();
+        $tests_rated = Test::where('user_id', '=', Auth::user()->id)->whereNotNull('rating')->whereNotNull('endTime')->with('product')->get();
+        $tests_unrated = Test::where('user_id', '=', Auth::user()->id)->whereNull('rating')->whereNotNull('endTime')->with('product')->get();
 
         //dd($favProducts);
-        return view('mesVelos')->with(compact('favProducts', 'tests'));
+        return view('mesVelos')->with(compact('favProducts', 'tests_rated', 'tests_unrated'));
     }
 
     public function ratingPage($product_id) {
         if(!Auth::user()) return view('auth.login');
-        $test = Test::where('product_id', '=', $product_id)->where('user_id', '=', Auth::user()->id)->first();
-        $criterias_list = Criteria_Test::distinct('criteria_id')->where('test_id', '=', $test->id)->with('criteria')->get();
-        if(!$test->rating){
-            $test = Test::where('product_id', '=', $product_id)->where('user_id', '=', Auth::user()->id)->with('product.brand')->first();
-            return view('ratingPage')->with(compact('test', 'criterias_list'));
-        } else {
-            return "déjà évalué";
-        }
+        $test = Test::where('product_id', '=', $product_id)->where('user_id', '=', Auth::user()->id)->with('criterias', 'product.brand')->first();
+        
+        return view('ratingPage')->with(compact('test'));
     }
 
     /**
