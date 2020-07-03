@@ -3,9 +3,11 @@
 @section('content')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/adminModifyUser.css') }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
-<link defer rel="stylesheet" type="text/css" href="{{ asset('css/modifyUser.css') }}">
 <form action="/admin/modify-user" method="post">
     @csrf
+    <div class="group">
+
+
     <label for="username">Nom d'utlisateur</label>
     <input type="text" id="username" name="username" value="{{$user->username}}" disabled>
 
@@ -14,6 +16,8 @@
         <strong>{{ $message }}</strong>
     </span>
     @enderror
+  </div>
+    <div class="group">
     <label for="firstname">Prénom</label>
     <input type="text" id="firstname" name="firstname" value="{{$user->person->firstname}}" disabled>
     @error('firstname')
@@ -21,6 +25,11 @@
         <strong>{{ $message }}</strong>
     </span>
     @enderror
+
+
+
+
+
     <label for="name">Nom</label>
     <input type="text" id="name" name="name" value="{{$user->person->name}}" disabled>
     @error('name')
@@ -28,6 +37,10 @@
         <strong>{{ $message }}</strong>
     </span>
     @enderror
+    </div>
+    <div class="group">
+
+
     <label for="email">Adresse Email</label>
     <input type="text" id="email" name="email" value="{{$user->email}}" disabled>
     @error('email')
@@ -35,9 +48,14 @@
         <strong>{{ $message }}</strong>
     </span>
     @enderror
+    </div>
     <!-- <button id="reset">Réinitaliser mot de passe</button> -->
 
     <label for="role">Role</label>
+
+
+    <div class="custom-select" style="width: 250px;">
+
 
     <select name="role" id="role" autocomplete="off" disabled>
         @if(!isset($user->roles[0])) <option value="aucun" >Aucun</option> @endif
@@ -51,9 +69,10 @@
         <strong>{{ $message }}</strong>
     </span>
     @enderror
-
+    </div>
     <div id="companySection" class="{{ (isset($user->roles[0])) ? ($user->roles[0] == 'exhibitor') ? '' : 'hidden' : 'hidden'}}" >
         <label for="company">Companie</label>
+            <div class="custom-select" style="width: 250px;">
         <select name="company" id="company" autocomplete="off" disabled>
             @foreach($companies as $company)
                 @if(in_array('exhibitor', $user->roles))
@@ -63,10 +82,12 @@
                 @endif
             @endforeach
         </select>
+      </div>
     </div>
 
     <div id="testScheduleSection" class="{{ (isset($user->roles[0])) ? ($user->roles[0] == 'visitor') ? '' : 'hidden' : 'hidden' }}" >
         <label for="testSchedule">Billet</label>
+            <div class="custom-select" style="width: 250px;">
         <select name="testSchedule" id="testSchedule" autocomplete="off" disabled>
             @foreach($testSchedules as $schedule)
                 @if(in_array('visitor', $user->roles))
@@ -76,6 +97,7 @@
                 @endif
             @endforeach
         </select>
+      </div>
     </div>
 
     <input type="hidden" name="id" id="id" value="{{$user->id}}">
@@ -138,4 +160,5 @@
         }
     );
 </script>
+<script src="{{ asset('js/dropdown.js')}}" type="text/javascript" defer></script>
 @endsection

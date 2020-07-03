@@ -6,6 +6,7 @@
         <div class="formContent">
             <form action="{{url('/profil')}}" method="post">
                 @csrf
+                <div class="nameField">
                 <div class="group">
                     <label for="username">Nom d'utlisateur</label>
                     <input type="text" id="username" name="username" value="{{$user->username}}" disabled>
@@ -15,6 +16,7 @@
                     </span>
                     @enderror
                 </div>
+              </div>
                 <div class="nameField">
                     <div class="group">
                         <label for="firstname">Prénom</label>
@@ -46,7 +48,7 @@
                         @enderror
                     </div>
                     <div class="group">
-                        <label for="password-confirm">Mot de passe</label>
+                        <label for="password-confirm">Répeter mot de passe</label>
                         <input type="password" id="password-confirm" name="password_confirmation" value=""
                                autocomplete="new-password" disabled>
                         <input type="number" name="id" id="id" value="{{$user->id}}" hidden>
@@ -61,7 +63,7 @@
     </div>
 <script>
     const btn_modify = document.getElementById('modify')
-    const btn_cancel = document.getElementById('cancel')   
+    const btn_cancel = document.getElementById('cancel')
     const btn_submit = document.getElementById('submit')
     btn_modify.addEventListener(
         "click", evt => {
@@ -84,7 +86,7 @@
             btn_modify.removeAttribute('hidden')
             btn_cancel.setAttribute('hidden', true)
             btn_submit.setAttribute('hidden', true)
-        } 
+        }
     )
 </script>
 
