@@ -1,3 +1,6 @@
+.hidden {
+  display: none;
+}
 
 section a {
   color: #1b9837;
@@ -19,14 +22,13 @@ h2 {
 
 label{
   font-size: 10px;
+  
+margin: 2rem 0 0.5rem 0;
 }
 
-.title {
-  width: 45%;
-  margin: auto;
+.invalid-feedback {
+  font-size: 10px;
 }
-
-
 /* STRUCTURE */
 .wrapper {
   display: flex;
@@ -34,11 +36,10 @@ label{
   flex-direction: column;
   justify-content: center;
   width: 100%;
+  max-height: 80%;
   min-height: 100%;
   padding: 20px;
 }
-
-
 
 .group{
   display: flex;
@@ -46,10 +47,15 @@ label{
   align-items: flex-start;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 5%;
-  min-width: 500px;
+  margin-top: -5%;
 }
 
+
+.formContent form{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
 .nameField{
   display: flex;
   flex-direction: row;
@@ -68,31 +74,33 @@ label{
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
   background: #fff;
-  padding: 30px;
+  padding: 20px;
   width: 90%;
   max-width: 600px;
   position: relative;
-  padding: 0px;
   -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
   box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-button[type=submit]{
+button[type=submit] {
   background-color: #1b9837;
   border: none;
   color: white;
   padding: 15px 50px;
   text-align: center;
   text-decoration: none;
-  text-transform: uppercase;  
+  text-transform: uppercase;
   font-weight: bold;
   font-size: 13px;
   -webkit-box-shadow: 0 10px 30px 0 rgba(33, 159, 39, 0.4);
   box-shadow: 0 10px 30px 0 rgba(27, 142, 35, 0.4);
   -webkit-border-radius: 24px;
   border-radius: 24px;
-  margin: 5px 20px 40px 80px;
+  margin: 5px 20px 0px 20px;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
@@ -101,7 +109,7 @@ button[type=submit]{
   margin-top: 2rem;
 }
 
-button[type=submit]:hover {
+button[type=submit]:hover  {
   background-color: #1fc344;
   cursor: pointer;
 }
@@ -114,7 +122,7 @@ button[type=submit]:active {
   transform: scale(0.95);
 }
 
-input[type=text], input[type=password], input[type=email] {
+input[type=text], input[type=email], input[type=password] {
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;
@@ -123,7 +131,6 @@ input[type=text], input[type=password], input[type=email] {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  width: 85%;
   border: 2px solid #f6f6f6;
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
@@ -138,3 +145,20 @@ input[type=text]:focus{
   background-color: #fff;
   border-bottom: 2px solid #1b9837;
 }
+
+input[type=text]:placeholder {
+  color: #cccccc;
+}
+
+
+/* GRID */
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.grid-item {
+  padding: 10px;
+  font-size: 30px;
+  text-align: center;
+}
+

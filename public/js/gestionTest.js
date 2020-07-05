@@ -24,13 +24,25 @@ $('.container-gestion').on('click', '.cancel', evt => {
   $('.confirm-modal').addClass('hidden');
 })
 
+//Check if user already in test
+$('.container-gestion').on('click', 'option', evt => {
+  if($(evt.currentTarget).data('busy')) {
+    $('.error-busy').removeClass('hidden')
+    $("input[name='submit']").attr('disabled', true).addClass('disabled')
+  }
+  else {
+    $('.error-busy').addClass('hidden')
+    $("input[name='submit']").attr('disabled', false).removeClass('disabled')
+  }
+})
+
 $.ajaxSetup({
   headers: {
     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
   }
 });
 
-$('.container').on('submit', '.recherche-form', evt => {
+$('.container-gestion').on('submit', '.recherche-form', evt => {
   evt.preventDefault();
   let dataId = $(evt.currentTarget).data('id');
   let username = $(`.recherche[data-id='${dataId}']`).val();
@@ -40,11 +52,10 @@ $('.container').on('submit', '.recherche-form', evt => {
     url: '/searchUser',
     data: { username: username },
     success: function (data) {
-      console.log(data.results)
       if(data.results.length > 0){
         $(`.resultsList[data-id='${dataId}']`).empty()
         data.results.forEach(user => {
-          $(`.resultsList[data-id='${dataId}']`).append(`<option value='${user.id}'>${user.person.firstname} ${user.person.name} - ${user.username}</option>`);
+          $(`.resultsList[data-id='${dataId}']`).append(`<option value='${user.id}' data-busy="${user.tests.length > 0}">${user.person.firstname} ${user.person.name} - ${user.username}</option>`);
         })
       } else {
         $(`.resultsList[data-id='${dataId}']`).html(`<option value='0'>Aucun résultat</option>`);

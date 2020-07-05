@@ -23,7 +23,7 @@
 <div id="test" class="tabcontent">
     <h3>Test</h3>
     @foreach($tests_unrated as $test)
-    <a href="{{url('/mesvelos/'.$test->product->id)}}">
+    <a href="{{url('/mesvelos/'.$test->id)}}">
         <div class="vignette-test">
             <img class="velo-img" src="{{ $test->product->image }}" alt="" width="100px">
             <p><strong>{{$test->product->shortDesc}}</strong></p>
@@ -34,7 +34,7 @@
     @endforeach
 
     @foreach($tests_rated as $test)
-    <a href="{{url('/mesvelos/'.$test->product->id)}}">
+    <a href="{{url('/mesvelos/'.$test->id)}}">
         <div class="vignette-test">
             <img class="velo-img" src="{{ $test->product->image }}" alt="" width="100px">
             <p><strong>{{$test->product->shortDesc}}</strong></p>
