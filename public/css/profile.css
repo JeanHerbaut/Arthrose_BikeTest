@@ -135,7 +135,7 @@ input[type=text]::placeholder, input[type=password]::placeholder {
 }
 
 /*btn cancel*/
-#cancel {
+#cancel, #back{
     background-color: transparent;
     border: none;
     color: #1b9837;
@@ -156,14 +156,14 @@ input[type=text]::placeholder, input[type=password]::placeholder {
     margin-top: 2rem;
 }
 
-#cancel:hover  {
+#cancel:hover, #back:hover {
     background-color: rgba(28, 185, 63, 0.27);
     cursor: pointer;
     -webkit-box-shadow: 0 10px 30px 0 rgba(33, 159, 39, 0.4);
     box-shadow: 0 10px 30px 0 rgba(27, 142, 35, 0.4);
 }
 
-#cancel:active {
+#cancel:active, #back:active {
     -moz-transform: scale(0.95);
     -webkit-transform: scale(0.95);
     -o-transform: scale(0.95);

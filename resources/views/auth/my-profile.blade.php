@@ -58,6 +58,7 @@
         </form>
         <button id="cancel" hidden>Annuler</button>
         <button id="modify">Modifier mes infos</button>
+        <a href="{{url('/home')}}"><button id="back">Retour</button></a>
     </div>
 </div>
 <script>
