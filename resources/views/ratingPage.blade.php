@@ -32,7 +32,7 @@
         }
     </style>
 
-<a href="url('/mesvelos')" class="previous round">&laquo;</a>
+<a href="{{url('/mesvelos')}}" class="previous round">&laquo;</a>
     <p>Testé le <b>{{$test->startTime->format('d.m.Y')}}</b> à <b>{{$test->startTime->format('H:i')}}</b></p>
     <div class="vignette-test">
         <img class="velo-img" src="{{ url($test->product->image) }}" alt="" width="100px">
