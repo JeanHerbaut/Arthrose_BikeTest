@@ -117,16 +117,13 @@
             <a class="test" href="{{url('/velo/'.$product->id)}}">
                 <div class="svg-container">
                     <div class="content-vignette">
-                        <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="">
-                        <p id="type">{{$product->category_name}}</p>
-
-                        <p id="dollar">{{formatPrice($product->price)}}</p>
-
-                        <div>
-                            <p id="model">
-                                {{$product->shortDesc}}</p>
-                            <p id="marque">{{$product->brand->name}}</p>
-                        </div>
+                      <img class="velo-img" src="{{url($product->image)}}" alt="">
+                      <p id="type">{{$product->category_name}}</p>
+                      <p id="dollar">{{formatPrice($product->price)}}</p>
+                      <div>
+                          <p id="model">{{$product->shortDesc}}</p>
+                          <p id="marque">{{$product->brand->name}}</p>
+                      </div>
 
                         <div id="rating">
                             <div class="star">

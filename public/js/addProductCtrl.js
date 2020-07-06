@@ -11,12 +11,13 @@ $("#checkNmodel").click(function (e) {
     if(modelnumber == "") return
     $.ajax({
         type: 'POST',
-        url: '/product/postModelNumber',
+        url: env_url+'/product/postModelNumber',
         data: { modelnumber: modelnumber },
         success: function (data) {
             if(data.product){
                 //model exists
                 $('#image').prop('disabled', true);
+                $('#photo').prop('disabled', true);
                 $('#shortDesc').attr('value', data.product.shortDesc).prop('disabled', true);
                 $('#longDesc').val(data.product.longDesc).prop('disabled', true);
                 $('#price').attr('value', data.product.price).prop('disabled', true);
@@ -26,6 +27,7 @@ $("#checkNmodel").click(function (e) {
             } else {
                 //model doesn't exists
                 $('#image').prop('disabled', false);
+                $('#photo').prop('disabled', false);
                 $('#shortDesc').attr('value', "").prop('disabled', false);
                 $('#longDesc').val("").prop('disabled', false);
                 $('#price').attr('value', "").prop('disabled', false);

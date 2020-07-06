@@ -1,8 +1,8 @@
 <?php
 
     function formatPrice($price){
-        if($price <= 2500) return "$";
-        else if ($price <= 4000 ) return "$$";
+        if($price <= 3000) return "$";
+        else if ($price <= 4500 ) return "$$";
         else return "$$$";
     }
 

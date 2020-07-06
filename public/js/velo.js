@@ -10,7 +10,7 @@ $("#Layer_1").click(function (e) {
 
     $.ajax({
         type: 'POST',
-        url: '/product/toggleFavorite',
+        url: env_url+'/product/toggleFavorite',
         data: { productId: productId },
         success: function (data) {
             if(data.isFavorite){

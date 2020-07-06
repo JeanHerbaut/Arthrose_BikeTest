@@ -12,12 +12,51 @@ class BikeSeeder extends Seeder
     public function run()
     {
         DB::table('bikes')->delete();
-        for ($i = 1; $i < 200; $i++) {
-            DB::table('bikes')->insert([
-                'product_id' => $i % 20 + 1,
-                'size' => 'M',
-                'distinctive_sign' => 'signe' . $i
-            ]);
-        }
+        DB::table('bikes')->insert([
+            'product_id' => 1,
+            'size' => 'M',
+            'distinctive_sign' => 'cadre rouge'
+        ]);
+        DB::table('bikes')->insert([
+            'product_id' => 1,
+            'size' => 'M',
+            'distinctive_sign' => 'cadre bleu'
+        ]);
+
+        DB::table('bikes')->insert([
+            'product_id' => 2,
+            'size' => 'L',
+            'distinctive_sign' => 'scotch blanc sous la selle'
+        ]);
+
+        DB::table('bikes')->insert([
+            'product_id' => 3,
+            'size' => 'L',
+            'distinctive_sign' => 'scotch blanc sous la selle'
+        ]);
+
+        DB::table('bikes')->insert([
+            'product_id' => 3,
+            'size' => 'XL',
+            'distinctive_sign' => 'scotch rouge sous la selle'
+        ]);
+
+        DB::table('bikes')->insert([
+            'product_id' => 4,
+            'size' => 'L',
+            'distinctive_sign' => ''
+        ]);
+
+        DB::table('bikes')->insert([
+            'product_id' => 4,
+            'size' => 'M',
+            'distinctive_sign' => ''
+        ]);
+
+        DB::table('bikes')->insert([
+            'product_id' => 5,
+            'size' => 'M',
+            'distinctive_sign' => 'pneus à flancs blancs'
+        ]);
     }
 }

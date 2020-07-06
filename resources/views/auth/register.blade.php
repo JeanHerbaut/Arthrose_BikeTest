@@ -14,7 +14,7 @@
             <div class="grid-container">
                 <div class="grid-item">
                     <div class="group">
-                        <label for="username">{{ __('Username') }}</label>
+                        <label for="username">Nom d'utilisateur</label>
                         <input id="username" type="text" class="form-control @error('username') is-invalid @enderror"
                             name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
 
@@ -27,7 +27,7 @@
                 </div>
                 <div class="grid-item">
                     <div class="group">
-                        <label for="email">{{ __('E-Mail Address') }}</label>
+                        <label for="email">Email</label>
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
                             name="email" value="{{ old('email') }}" required autocomplete="email">
 
@@ -42,7 +42,7 @@
             <div class="grid-container">
                 <div class="grid-item">
                     <div class="group">
-                        <label for="name">{{ __('Name') }}</label>
+                        <label for="name">Nom</label>
 
                         <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
                             name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -56,7 +56,7 @@
                 </div>
                 <div class="grid-item">
                     <div class="group">
-                        <label for="firstname">{{ __('Firstname') }}</label>
+                        <label for="firstname">Prénom</label>
                         <input id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror"
                             name="firstname" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus>
 
@@ -71,7 +71,7 @@
             <div class="grid-container">
                 <div class="grid-item">
                     <div class="group">
-                        <label for="password">{{ __('Password') }}</label>
+                        <label for="password">Mot de passe</label>
                         <input id="password" type="password"
                             class="form-control @error('password') is-invalid @enderror" name="password" required
                             autocomplete="new-password">
@@ -84,7 +84,7 @@
                 </div>
                 <div class="grid-item">
                     <div class="group">
-                        <label for="password-confirm">{{ __('Confirm Password') }}</label>
+                        <label for="password-confirm">Confirmez mot de passe</label>
 
                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
                             required autocomplete="new-password">

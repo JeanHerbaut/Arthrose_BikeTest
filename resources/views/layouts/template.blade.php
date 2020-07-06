@@ -23,7 +23,12 @@
       <ul id="menu">
         <li><a href="#">Infos</a> </li>
         <li><a href="{{url('/catalogue')}}">Catalogue</a> </li>
+        @can('viewMyProducts', App\User::class)
         <li><a href="{{url('/mesvelos')}}">Mes vélos</a> </li>
+        @endcan
+        @can('manage', App\Test::class)
+        <li><a href="{{url('/gestion-test')}}">Tests</a> </li>
+        @endcan
         @guest
         <li><a href="{{url('/billeterie')}}">Billeterie</a> </li>
         @endguest
@@ -84,7 +89,7 @@
           </li>
           @endcan
           <li>
-            <form method="post" action="/logout">
+            <form method="post" action="{{url('/logout')}}">
               @csrf
               <input type="submit" value="Se déconnecter">
             </form>

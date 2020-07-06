@@ -122,7 +122,7 @@ input[type=button]:active, input[type=submit]:active, #modify:active {
 }
 
 input[type=text] {
-    background-color: #f6f6f6;
+    background-color: #ffffff;
     border: none;
     color: #0d0d0d;
     padding: 15px 32px;
@@ -147,6 +147,10 @@ input[type=text]:focus{
 
 input[type=text]:placeholder {
     color: #cccccc;
+}
+
+input[type=text]:disabled, select:disabled  {
+    background-color: #f6f6f6;
 }
 
 /*btn cancel*/
@@ -214,8 +218,8 @@ select {
     appearance: none;
     outline: 0;
     box-shadow: none;
-    border: 0 !important;
-    background: #f6f6f6;
+    border: 0;
+    background: #ffffff;
     background-image: none;
 }
 /* Remove IE arrow */
@@ -233,11 +237,13 @@ select::-ms-expand {
     overflow: hidden;
     border-radius: .25em;
 }
+
 select {
     flex: 1;
     padding: 0 .5em;
     color: #161616;
     cursor: pointer;
+    border: 2px solid #f6f6f6;
 }
 /* Arrow */
 .select::after {

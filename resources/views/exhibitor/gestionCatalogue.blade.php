@@ -10,12 +10,16 @@
   <div class="wrapper-header">
       <h1>Gestion catalogue</h1>
       <div class="form-header">
-          <input type="text" id="input" placeholder="Recherche">
-          <button type="submit" id="search-bike"><i class="fa fa-search"></i></button>
-          <button id="reset">Tous les vélos</button>
-          <form action="{{route('catalogue.create')}}">
-              <button type="submit">Ajouter un vélo</button>
-          </form>
+
+              <input type="text" id="input" placeholder="Recherche">
+              <button type="submit" id="search-bike"><i class="fa fa-search"></i></button>
+              <button id="reset">Tous les vélos</button>
+
+
+              <form action="{{route('catalogue.create')}}">
+                  <button type="submit">Ajouter un vélo</button>
+              </form>
+          
       </div>
   </div>
     <div class="wrapper-catalogue">
@@ -25,7 +29,7 @@
             @foreach ($bikes as $bike)
             <div class="svg-container" data-desc="{{$bike['shortDesc']}}">
                 <div class="content-vignette" >
-                    <img class="velo-img" src="{{$bike['image']}}" alt="">
+                    <img class="velo-img" src="{{url($bike['image'])}}" alt="">
                     <p id="type">{{$bike['category']}}</p>
                     @if ($bike['price'] < 1000) <p id="dollar">$
                         </p>
