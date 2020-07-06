@@ -13,7 +13,7 @@
 
 <body>
     <div class="wrapper">
-        <form method="post" action="{{url('/createBike')}}" enctype="multipart/form-data">
+        <form  method="post" action="{{url('/createBike')}}" enctype="multipart/form-data">
             @csrf
             <div class="sameLine">
                 <div class="group">
@@ -50,7 +50,7 @@
             </div>
             <div class="group">
                 <label for="longDesc">Description</label>
-                <textarea name="longDesc" id="longDesc" cols="30" rows="5" disabled value="{{ old('longDesc') }}"></textarea>
+                <textarea name="longDesc" id="longDesc" cols="60" rows="5" disabled value="{{ old('longDesc') }}"></textarea>
                 @error('longDesc')
                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                 @enderror
@@ -87,6 +87,9 @@
                     @enderror
                 </div>
             </div>
+            <div class="group">
+
+
             <label for="distinctive_sign">Signe distinctif</label>
             <input type="text" name="distinctive_sign" id="distinctive_sign" disabled value="{{ old('distinctive_sign') }}">
             @error('distinctive_sign')
@@ -94,6 +97,7 @@
             @enderror
 
             <input id="submit" type="submit" value="Ajouter">
+            </div>
         </form>
     </div>
     <script src="{{ asset('js/addProductCtrl.js')}}" type="text/javascript" defer></script>

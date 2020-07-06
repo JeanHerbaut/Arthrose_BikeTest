@@ -106,7 +106,7 @@
         <a href="#"><img src="{{ asset('img/bicycle-03.png') }}" alt=""></a>
         <p>Mes vélos</p>
       </div>
-      
+
       @if(Auth::check())
 
       <div class="menu user-icon online">
@@ -135,7 +135,7 @@
   <script src="{{ asset('js/nav.js')}}" type="text/javascript" defer></script>
 
 
-  <div class="wrapper">
+  <div class="wrapper-body">
     @yield('content')
   </div>
 </body>

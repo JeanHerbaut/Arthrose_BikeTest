@@ -23,6 +23,8 @@
   overflow-y: scroll;
   display: flex;
   flex-wrap: wrap;
+  padding: 1rem;
+  padding-top: 2rem;
 }
 
 input {
@@ -98,7 +100,7 @@ button:active {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   padding: 0 5px 5px 10px;
 }
 
