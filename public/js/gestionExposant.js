@@ -53,7 +53,7 @@ $('#company-select').on('change', evt => {
           product.bikes.forEach(element => {
             let html =
               '<div class="vignette-test">'
-              + '<img class="velo-img" src="' + product.image + '" alt="">'
+              + '<img class="velo-img" src="' + env_url + product.image + '" alt="">'
               + '<p><strong>' + product.shortDesc + '</strong></p>'
               + '<p>' + product.brand.name + '</p>';
             $('.wrapper-velos').append(html);
