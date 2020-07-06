@@ -1,4 +1,7 @@
-
+.container{
+  width: 100%;
+  height: 100%;
+}
 section a {
   color: #1b9837;
   display:inline-block;
@@ -34,7 +37,7 @@ h2 {
   border-radius: 10px 10px 10px 10px;
   background: #fff;
   padding: 30px;
-  width: 90%;
+  width: 100%;
   max-width: 450px;
   position: relative;
   padding: 0px;
@@ -56,7 +59,7 @@ input[type=button], input[type=submit] {
   background-color: #1b9837;
   border: none;
   color: white;
-  padding: 15px 80px;
+  padding: 15px 60px;
   text-align: center;
   text-decoration: none;
   display: inline-block;

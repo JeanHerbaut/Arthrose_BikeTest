@@ -108,7 +108,7 @@ input[type=button]:active, input[type=submit]:active, #modify:active {
 }
 
 input[type=text], input[type=password] {
-    background-color: #f6f6f6;
+    background-color: #ffffff;
     border: none;
     color: #0d0d0d;
     padding: 1rem 2rem;
@@ -131,7 +131,11 @@ input[type=text]:focus, input[type=password]:focus{
 }
 
 input[type=text]::placeholder, input[type=password]::placeholder {
-    color: #cccccc;
+    background-color: #f6f6f6;
+}
+
+input[type=text]:disabled, input[type=password]:disabled  {
+    background-color: #f6f6f6;
 }
 
 /*btn cancel*/
