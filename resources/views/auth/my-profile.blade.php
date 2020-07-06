@@ -57,7 +57,7 @@
             <input id="submit" type="submit" value="Confirmer" hidden>
         </form>
         <button id="cancel" hidden>Annuler</button>
-        <a href="{{url('/home')}}"><button id="back">Retour</button></a>
+        <a href="#" onclick="history.back()"><button id="back">Retour</button></a>
         <button id="modify">Modifier mes infos</button>
 
     </div>
