@@ -89,7 +89,7 @@
           </li>
           @endcan
           <li>
-            <form method="post" action="/logout">
+            <form method="post" action="url('/logout')">
               @csrf
               <input type="submit" value="Se déconnecter">
             </form>

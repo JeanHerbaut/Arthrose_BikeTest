@@ -6,7 +6,7 @@
 <div class="wrapper">
     <div class="formContent">
 
-        <form action="/admin/modify-user" method="post">
+        <form action="url('/admin/modify-user')" method="post">
             @csrf
             <div class="group">
 

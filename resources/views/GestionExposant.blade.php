@@ -10,7 +10,7 @@
     <div class="modal-content">
       <span class="close">&times;</span>
       <h1>Ajout exposant</h1>
-      <form class="add-form" action="/gestion-exposant/create" method="POST">
+      <form class="add-form" action="url('/gestion-exposant/create')" method="POST">
         @csrf
         <input type="text" placeholder="Ajouter exposant" name="name">
         <button type="submit">Ajouter</button>

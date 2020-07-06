@@ -73,7 +73,7 @@
                         <ul>
                             <li>Nom complet - Nom utilisateur</li>
                         </ul>
-                        <form id="mainForm{{$bike->id}}" method="post" action="/addTest" class="form-utilisateurs">
+                        <form id="mainForm{{$bike->id}}" method="post" action="url('/addTest')" class="form-utilisateurs">
                             {{ csrf_field() }}
                             <select class="resultsList" data-id="{{$bike->id}}" name="user_id" size="3" required></select>
                             <input type="hidden" name="bike_id" value="{{$bike->id}}">
@@ -183,7 +183,7 @@
             <!-- Modal content -->
             <div class="modal-content-2">
                 <p><strong>Souhaitez-vous vraiment terminer le test?</strong></p>
-                <form method="post" action="/endTest" id="endTest">
+                <form method="post" action="url('/endTest')" id="endTest">
                     {{ csrf_field() }}
                     <input type="hidden" name="bike_id" id="bike_id">
                 </form>
