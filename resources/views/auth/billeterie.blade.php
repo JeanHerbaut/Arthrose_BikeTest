@@ -72,7 +72,7 @@
                     @enderror
                     <div class="full-input group">
                         <label for="email" class="form-control-label">Email</label>
-                        <input type="text" name="email" id="email" class="form-control" value="{{ old('email') }}">
+                        <input type="text" name="email" id="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}">
                     </div>
                     @error('email')
                     <span class="invalid-feedback" role="alert">
