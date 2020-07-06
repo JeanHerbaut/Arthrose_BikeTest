@@ -16,7 +16,7 @@
             @endauth
         </div>
         <div class="wrapper-info">
-            <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="" width="300px">
+            <img class="velo-img" src="{{ $product->image }}" alt="" width="300px">
             <div class="desc-wrapper">
                 <p><strong>{{$product->shortDesc}}</strong></p>
                 <p>{{$product->category->name}}</p>

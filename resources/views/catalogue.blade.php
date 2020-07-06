@@ -117,7 +117,7 @@
       <a class="test" href="{{url('/velo/'.$product->id)}}">
         <div class="content-vignette">
 
-            <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="">
+            <img class="velo-img" src="{{ $product->image }}" alt="">
             <p id="type">{{$product->category_name}}</p>
             <p id="dollar">{{formatPrice($product->price)}}</p>
             <div>

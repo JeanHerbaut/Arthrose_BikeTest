@@ -31,19 +31,73 @@ class CategoryCriteriaSeeder extends Seeder
 
 
         DB::table('category_criteria')->insert([
-            'category_name' => 'eBike',
+            'category_name' => 'Route',
             'criteria_id' => '1'
         ]);
         DB::table('category_criteria')->insert([
-            'category_name' => 'eBike',
+            'category_name' => 'Route',
             'criteria_id' => '2'
         ]);
         DB::table('category_criteria')->insert([
-            'category_name' => 'eBike',
+            'category_name' => 'Route',
             'criteria_id' => '3'
         ]);
         DB::table('category_criteria')->insert([
-            'category_name' => 'eBike',
+            'category_name' => 'Route',
+            'criteria_id' => '6'
+        ]);
+
+
+        DB::table('category_criteria')->insert([
+            'category_name' => 'Gravel',
+            'criteria_id' => '1'
+        ]);
+        DB::table('category_criteria')->insert([
+            'category_name' => 'Gravel',
+            'criteria_id' => '2'
+        ]);
+        DB::table('category_criteria')->insert([
+            'category_name' => 'Gravel',
+            'criteria_id' => '3'
+        ]);
+        DB::table('category_criteria')->insert([
+            'category_name' => 'Gravel',
+            'criteria_id' => '6'
+        ]);
+
+
+        DB::table('category_criteria')->insert([
+            'category_name' => 'E-VTT',
+            'criteria_id' => '1'
+        ]);
+        DB::table('category_criteria')->insert([
+            'category_name' => 'E-VTT',
+            'criteria_id' => '2'
+        ]);
+        DB::table('category_criteria')->insert([
+            'category_name' => 'E-VTT',
+            'criteria_id' => '3'
+        ]);
+        DB::table('category_criteria')->insert([
+            'category_name' => 'E-VTT',
+            'criteria_id' => '5'
+        ]);
+
+        
+        DB::table('category_criteria')->insert([
+            'category_name' => 'E-route',
+            'criteria_id' => '1'
+        ]);
+        DB::table('category_criteria')->insert([
+            'category_name' => 'E-route',
+            'criteria_id' => '2'
+        ]);
+        DB::table('category_criteria')->insert([
+            'category_name' => 'E-route',
+            'criteria_id' => '3'
+        ]);
+        DB::table('category_criteria')->insert([
+            'category_name' => 'E-route',
             'criteria_id' => '5'
         ]);
     }
