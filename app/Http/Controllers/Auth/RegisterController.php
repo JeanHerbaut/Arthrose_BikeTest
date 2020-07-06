@@ -51,7 +51,6 @@ class RegisterController extends Controller
     }
 
     public function showRegistrationForm(){
-        $this->authorize('manage', User::class);
         return view('auth/register');
     }
 }
