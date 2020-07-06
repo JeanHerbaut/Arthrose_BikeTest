@@ -74,3 +74,8 @@ Route::post('/endTest', 'TestController@end');
 Route::post('searchUser', 'UserController@search');
 
 Route::post('/product/toggleFavorite', 'ProductController@toggleFavorite');
+
+
+
+//////TEMP
+Route::get('/searchUser/{search}', 'UserController@searchGet');

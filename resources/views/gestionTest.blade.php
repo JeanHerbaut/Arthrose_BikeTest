@@ -10,7 +10,7 @@
 
 <div class="container-gestion">
     <h1>Gestion des tests</h1>
-    <a id="historique" href={{url('/gestion-test-historique')}}>Historique</a>
+    <a id="historique" href="{{url('/gestion-test-historique')}}">Historique</a>
         @foreach($availableBikes as $bike)
         <!-- The Modal -->
         <div class="modal hidden" data-id="{{$bike->id}}">
@@ -34,7 +34,7 @@
                                 <div style="margin-bottom: 15px;">
                                     <p id="model">{{$bike->product->shortDesc}}</p>
                                     <p id="marque">{{$bike->product->brand->name}}</p>
-                                    <p>TON INFO ROBIN</p>
+                                    <p>{{$bike->distinctive_sign}}</p>
                                 </div>
 
 
@@ -83,6 +83,7 @@
                     </div>
 
                     <input class="myBtn" type="submit" name="submit" value="Commencer" form="mainForm{{$bike->id}}">
+                    <div class="error-busy hidden">L'utilisateur a déjà un test en cours</div>
                 </div>
             </div>
         </div>
@@ -144,12 +145,12 @@
                       <a href="#" class="popup end" data-id="{{$test->bike->id}}">Terminer</a>
                   </div>
                         <div class="content-vignette">
-                            <img style="right: -15%; top: 5;" class="velo-img" src="{{ $bike->product->image }}" alt="">
-                            <p id="type">{{$bike->product->category_name}}</p>
+                            <img style="right: -15%; top: 5;" class="velo-img" src="{{ $test->product->image }}" alt="">
+                            <p id="type">{{$test->product->category_name}}</p>
                             <p></p>
                             <div>
-                                <p id="model">{{$bike->product->shortDesc}}</p>
-                                <p id="marque">{{$bike->product->brand->name}}</p>
+                                <p id="model">{{$test->product->shortDesc}}</p>
+                                <p id="marque">{{$test->product->brand->name}}</p>
                                 <p id="emprunt">Emprunté
                                 par {{$test->user->username}}
                                 à {{$test->startTime->format('H:i')}}</p>

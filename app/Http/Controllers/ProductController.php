@@ -48,17 +48,30 @@ class ProductController extends Controller
         $favProducts = Product::whereHas('isFavoriteOf', function($q){
             return $q->where('user_id', '=', Auth::user()->id);
         })->with('brand')->get();//Auth::user()->favorites;
+        
+        
         $tests_rated = Test::where('user_id', '=', Auth::user()->id)->whereNotNull('rating')->whereNotNull('endTime')->with('product')->get();
         $tests_unrated = Test::where('user_id', '=', Auth::user()->id)->whereNull('rating')->whereNotNull('endTime')->with('product')->get();
 
-        //dd($favProducts);
+        //Faudrait sélectionner des produits au lieu de tests pour débugé le bug
+        /* $prod_unrated = Product::whereHas('tests', function ($q) {
+            $q->where('user_id', '=', Auth::user()->id)->whereNotNull('endTime');
+        })->whereDoesntHave('tests', function ($q) {
+            $q->where('user_id', '=', Auth::user()->id)->whereNotNull('rating');
+        })->get();
+        $prod_rated = Product::whereHas('tests', function ($q) {
+            $q->where('user_id', '=', Auth::user()->id)->whereNotNull('endTime')->whereNotNull('rating');
+        })->get(); */
+
+        //dd($tested_prod_rated);
         return view('mesVelos')->with(compact('favProducts', 'tests_rated', 'tests_unrated'));
     }
 
-    public function ratingPage($product_id) {
+    public function ratingPage($test_id) {
         if(!Auth::user()) return view('auth.login');
-        $test = Test::where('product_id', '=', $product_id)->where('user_id', '=', Auth::user()->id)->with('criterias', 'product.brand')->first();
-        
+        //$test = Test::where('product_id', '=', $product_id)->where('user_id', '=', Auth::user()->id)->with('criterias', 'product.brand')->first();
+        $test = Test::where('id', '=', $test_id)->with('criterias', 'product.brand')->first();
+
         return view('ratingPage')->with(compact('test'));
     }
 
@@ -104,12 +117,12 @@ class ProductController extends Controller
         $tests_ids = Test::where('product_id', '=', $id)->pluck('id')->toArray();
 
         //$criterias_list = array_unique(Criteria_Test::whereIn('test_id', $tests_ids)->with('criteria')->get()->pluck('criteria.name')->toArray());
-        $criterias_list = Criteria_Test::distinct('criteria_id')->whereIn('test_id', $tests_ids)->pluck('criteria_id')->toArray();
+        $criterias_list = Criteria_Test::distinct('criteria_id')->whereIn('test_id', $tests_ids)->with('criteria')->get()->pluck('criteria_id', 'criteria.name')->toArray();
 
         $criterias = [];
-        foreach ($criterias_list as $criteria) {
-            $note = ceil(Criteria_Test::whereIn('test_id', $tests_ids)->where('criteria_id', '=', $criteria)->avg('note'));
-            $criterias[$criteria] = $note;
+        foreach ($criterias_list as $criteria_name => $criteria_id) {
+            $note = Criteria_Test::whereIn('test_id', $tests_ids)->where('criteria_id', '=', $criteria_id)->avg('note');
+            $criterias[$criteria_name] = $note;
         }
 
         return view('velo')->with(compact('product', 'criterias'));

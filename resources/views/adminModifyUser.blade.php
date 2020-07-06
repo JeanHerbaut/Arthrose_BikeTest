@@ -55,14 +55,8 @@
             <!-- <button id="reset">Réinitaliser mot de passe</button> -->
             <div class="group">
                 <label for="role">Role</label>
-
-
-                <div class="custom-select " style="width: 250px;">
-
-
-
-
-                    <select name="role" id="role" autocomplete="off" disabled>
+                <div class="select" class="custom-select " style="width: 250px;">
+                    <select  name="role" id="role" autocomplete="off" disabled>
                         @if(!isset($user->roles[0])) <option value="aucun">Aucun</option> @endif
                         <option value="visitor" {{ (isset($user->roles[0])) ? ($user->roles[0] == 'visitor') ? "selected" : "" : ""}}>Visiteur</option>
                         <option value="exhibitor" {{ (isset($user->roles[0])) ? ($user->roles[0] == 'exhibitor') ? "selected" : "" : ""}}>Exposant</option>
@@ -94,7 +88,6 @@
 
             <div id="testScheduleSection" class="{{ (isset($user->roles[0])) ? ($user->roles[0] == 'visitor') ? '' : 'hidden' : 'hidden' }}">
                 <div class="group">
-
                     <label for="testSchedule">Billet</label>
                     <div class="custom-select" style="width: 250px;">
                         <select name="testSchedule" id="testSchedule" autocomplete="off" disabled>

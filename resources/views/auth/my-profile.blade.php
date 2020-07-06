@@ -57,13 +57,16 @@
             <input id="submit" type="submit" value="Confirmer" hidden>
         </form>
         <button id="cancel" hidden>Annuler</button>
+        <a href="{{url('/home')}}"><button id="back">Retour</button></a>
         <button id="modify">Modifier mes infos</button>
+
     </div>
 </div>
 <script>
     const btn_modify = document.getElementById('modify')
     const btn_cancel = document.getElementById('cancel')
     const btn_submit = document.getElementById('submit')
+    const btn_back = document.getElementById('back')
     btn_modify.addEventListener(
         "click", evt => {
             let inputs = document.getElementsByTagName("input")
@@ -72,6 +75,7 @@
             }
             btn_cancel.removeAttribute('hidden')
             btn_modify.setAttribute('hidden', true)
+            btn_back.setAttribute('hidden', true)
             btn_submit.removeAttribute('hidden')
         }
     )
@@ -83,6 +87,7 @@
                 inputs[index].setAttribute("disabled", true)
             }
             btn_modify.removeAttribute('hidden')
+            btn_back.removeAttribute('hidden')
             btn_cancel.setAttribute('hidden', true)
             btn_submit.setAttribute('hidden', true)
         }

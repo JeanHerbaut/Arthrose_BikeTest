@@ -119,7 +119,7 @@
 
             <img class="velo-img" src="{{ asset('img/bike.png') }}" alt="">
             <p id="type">{{$product->category_name}}</p>
-            <p id="dollar">{{$product->price}}</p>
+            <p id="dollar">{{formatPrice($product->price)}}</p>
             <div>
                 <p id="model">{{$product->shortDesc}}</p>
                 <p id="marque">{{$product->brand->name}}</p>
