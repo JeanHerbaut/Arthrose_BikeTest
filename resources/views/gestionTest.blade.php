@@ -28,7 +28,7 @@
                     <div class="svg-container-3">
 
                             <div class="content-vignette">
-                                <img style="top: 0;" class="velo-img" src="{{ $bike->product->image }}" alt="">
+                                <img style="top: 0;" class="velo-img" src="{{url($bike->product->image)}}" alt="">
                                 <p id="type">{{$bike->product->category_name}}</p>
 
                                 <div style="margin-bottom: 15px;">
@@ -106,7 +106,7 @@
                       <a href="#" class="popup begin" data-id="{{$bike->id}}">Commencer</a>
                   </div>
                         <div class="content-vignette">
-                            <img class="velo-img" src="{{ $bike->product->image }}" alt="">
+                            <img class="velo-img" src="{{url($bike->product->image)}}" alt="">
                             <p id="type">{{$bike->product->category_name}}</p>
                             <p></p>
                             <div style="margin-bottom: 15px;">
@@ -145,7 +145,7 @@
                       <a href="#" class="popup end" data-id="{{$test->bike->id}}">Terminer</a>
                   </div>
                         <div class="content-vignette">
-                            <img style="right: -15%; top: 5;" class="velo-img" src="{{ $test->product->image }}" alt="">
+                            <img style="right: -15%; top: 5;" class="velo-img" src="{{url($test->product->image)}}" alt="">
                             <p id="type">{{$test->product->category_name}}</p>
                             <p></p>
                             <div>
