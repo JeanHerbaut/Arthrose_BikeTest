@@ -13,7 +13,7 @@
     <h3>Favoris</h3>
     @foreach($favProducts as $product)
     <div class="vignette-test">
-        <img class="velo-img" src="{{ $product->image }}" alt="" width="100px">
+        <img class="velo-img" src="{{ url($product->image) }}" alt="" width="100px">
         <p><strong>{{$product->shortDesc}}</strong></p>
         <p>{{$product->brand->name}}</p>
     </div>
@@ -25,7 +25,7 @@
     @foreach($tests_unrated as $test)
     <a href="{{url('/mesvelos/'.$test->id)}}">
         <div class="vignette-test">
-            <img class="velo-img" src="{{ $test->product->image }}" alt="" width="100px">
+            <img class="velo-img" src="{{ url($test->product->image) }}" alt="" width="100px">
             <p><strong>{{$test->product->shortDesc}}</strong></p>
             <p>{{$test->product->shortDesc}}</p>
             <p>À évaluer</p>
@@ -36,7 +36,7 @@
     @foreach($tests_rated as $test)
     <a href="{{url('/mesvelos/'.$test->id)}}">
         <div class="vignette-test">
-            <img class="velo-img" src="{{ $test->product->image }}" alt="" width="100px">
+            <img class="velo-img" src="{{ url($test->product->image) }}" alt="" width="100px">
             <p><strong>{{$test->product->shortDesc}}</strong></p>
             <p>{{$test->product->shortDesc}}</p>
             <div class="star">
