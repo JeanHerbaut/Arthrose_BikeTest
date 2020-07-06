@@ -101,6 +101,9 @@
             </div>
         </form>
     </div>
+    <script>
+        let env_url = "{{url('')}}"
+    </script>
     <script src="{{ asset('js/addProductCtrl.js')}}" type="text/javascript" defer></script>
 </body>
 @endsection

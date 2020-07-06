@@ -40,7 +40,7 @@ $('#company-select').on('change', evt => {
 
   $.ajax({
     type: 'POST',
-    url: '/gestion-exposant',
+    url: env_url+'/gestion-exposant',
     data: { companyId: companyId },
     success: function (data) {
       $('.wrapper-velos').empty()

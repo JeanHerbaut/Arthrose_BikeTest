@@ -45,5 +45,8 @@
             <input type="submit" value="VOIR LES 36 COMMENTAIRES">
         </div>
     </div>
+    <script>
+        let env_url = "{{url('')}}"
+    </script>
     <script src="{{ asset('js/velo.js')}}" type="text/javascript" defer></script>
 @endsection

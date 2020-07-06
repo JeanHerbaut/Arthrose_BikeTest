@@ -64,5 +64,8 @@
     </div>
   </div>
 </section>
+<script>
+    let env_url = "{{url('')}}"
+</script>
 <script src="{{ asset('js/gestionExposant.js')}}" type="text/javascript" defer></script>
 @endsection

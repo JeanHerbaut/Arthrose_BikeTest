@@ -49,7 +49,7 @@ $('.container-gestion').on('submit', '.recherche-form', evt => {
 
   $.ajax({
     type: 'POST',
-    url: '/searchUser',
+    url: env_url+'/searchUser',
     data: { username: username },
     success: function (data) {
       if(data.results.length > 0){
