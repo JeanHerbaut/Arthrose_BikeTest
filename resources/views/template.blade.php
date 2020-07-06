@@ -50,7 +50,7 @@
             </a>
           </li>
           <li>
-            <form method="post" action="url('/logout')">
+            <form method="post" action="{{url('/logout')}}">
               @csrf
               <input type="submit" value="Se déconnecter">
             </form>
