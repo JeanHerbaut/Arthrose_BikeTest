@@ -6,10 +6,10 @@
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <link defer rel="stylesheet" type="text/css" href="{{ asset('css/nav.css') }}">
   <!--   <link rel="stylesheet" type="text/css" href="{{ asset('css/billeterie.css') }}" > -->
-  <link rel="stylesheet" type="text/css" href="{{ asset('css/admin.css') }}" >
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/admin.css') }}">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-  </head>
+</head>
 
 <body>
   @section('nav')
@@ -49,7 +49,7 @@
 
         <ul class="dropdown-menu">
           <li>
-          <a href="{{url('/profil')}}">
+            <a href="{{url('/profil')}}">
               Mon profil
             </a>
           </li>
@@ -104,20 +104,35 @@
         <p>Infos</p>
       </div>
       <div class="menu">
-        <a href="#"><img src="{{ asset('img/bicycle-04.png') }}" alt=""></a>
+        <a href="{{url('/catalogue')}}"><img src="{{ asset('img/bicycle-04.png') }}" alt=""></a>
         <p>Catalogue</p>
       </div>
+
+      @can('viewMyProducts', App\User::class)
       <div class="menu">
-        <a href="#"><img src="{{ asset('img/bicycle-03.png') }}" alt=""></a>
+        <a href="{{url('/mesvelos')}}"><img src="{{ asset('img/bicycle-03.png') }}" alt=""></a>
         <p>Mes vélos</p>
       </div>
+      @endcan
+      @can('manage', App\Test::class)
+      <div class="menu">
+        <a href="{{url('/gestion-test')}}"><img src="{{ asset('img/Seb.png') }}" alt=""></a>
+        <p>Tests</p>
+      </div>
+      @endcan
+      @guest
+      <div class="menu">
+        <a href="{{url('/billeterie')}}"><img src="{{ asset('img/Kevin.png') }}" alt=""></a>
+        <p>Billeterie</p>
+      </div>
+      @endguest
 
       @if(Auth::check())
 
       <div class="menu user-icon online">
 
         <a href="#">
-        <img src="{{ asset('img/bicycle-02.png') }}" alt=""></a>
+          <img src="{{ asset('img/bicycle-02.png') }}" alt=""></a>
 
         <p>Mon compte</p>
 
@@ -125,8 +140,8 @@
       @else
       <div class="menu user-icon online">
 
-        <a href="/login">
-        <img src="{{ asset('img/bicycle-02.png') }}" alt=""></a>
+        <a href="{{url('/login')}}">
+          <img src="{{ asset('img/bicycle-02.png') }}" alt=""></a>
 
         <p>Mon compte</p>
 
@@ -147,4 +162,5 @@
 @section('script')
 
 @endsection
+
 </html>
