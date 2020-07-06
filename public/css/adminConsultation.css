@@ -11,6 +11,10 @@
     align-items: baseline;
 }
 
+.search{
+    font-size: 1.3em;
+}
+
 .round{
     border-radius: 15px;
     border: none ;

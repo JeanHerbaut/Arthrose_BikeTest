@@ -55,7 +55,7 @@
             <!-- <button id="reset">Réinitaliser mot de passe</button> -->
             <div class="group">
                 <label for="role">Role</label>
-                <div class="select" class="custom-select " style="width: 250px;">
+                <div class="select" style="width: 250px;">
                     <select  name="role" id="role" autocomplete="off" disabled>
                         @if(!isset($user->roles[0])) <option value="aucun">Aucun</option> @endif
                         <option value="visitor" {{ (isset($user->roles[0])) ? ($user->roles[0] == 'visitor') ? "selected" : "" : ""}}>Visiteur</option>
@@ -71,25 +71,27 @@
                     @enderror
                 </div>
             </div>
-            <div id="companySection" class="{{ (isset($user->roles[0])) ? ($user->roles[0] == 'exhibitor') ? '' : 'hidden' : 'hidden'}} group">
-                <label for="company">Companie</label>
-                <div class="custom-select" style="width: 250px;">
-                    <select name="company" id="company" autocomplete="off" disabled>
-                        @foreach($companies as $company)
-                        @if(in_array('exhibitor', $user->roles))
-                        <option value="{{$company->id}}" {{ ($user->company->id == $company->id) ? "selected" : "" }}>{{$company->name}}</option>
-                        @else
-                        <option value="{{$company->id}}">{{$company->name}}</option>
-                        @endif
-                        @endforeach
-                    </select>
+            <div id="companySection" class="{{ (isset($user->roles[0])) ? ($user->roles[0] == 'exhibitor') ? '' : 'hidden' : 'hidden'}}">
+                <div class="group">
+                    <label for="company">Companie</label>
+                    <div class="select" style="width: 250px;">
+                        <select name="company" id="company" autocomplete="off" disabled>
+                            @foreach($companies as $company)
+                            @if(in_array('exhibitor', $user->roles))
+                            <option value="{{$company->id}}" {{ ($user->company->id == $company->id) ? "selected" : "" }}>{{$company->name}}</option>
+                            @else
+                            <option value="{{$company->id}}">{{$company->name}}</option>
+                            @endif
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
             </div>
 
             <div id="testScheduleSection" class="{{ (isset($user->roles[0])) ? ($user->roles[0] == 'visitor') ? '' : 'hidden' : 'hidden' }}">
                 <div class="group">
                     <label for="testSchedule">Billet</label>
-                    <div class="custom-select" style="width: 250px;">
+                    <div class="select" style="width: 250px;">
                         <select name="testSchedule" id="testSchedule" autocomplete="off" disabled>
                             @foreach($testSchedules as $schedule)
                             @if(in_array('visitor', $user->roles))
@@ -108,11 +110,12 @@
         </form>
         <button id="cancel" hidden>Annuler</button>
         <button id="modify">Modifier cet utilisateur</button>
+        <a href="{{url('/gestion-utilisateurs')}}"><button id="back">Retour</button></a>
     </div>
 </div>
-
 <script>
     const btn_modify = document.getElementById('modify')
+    const btn_back = document.getElementById('back')
     const btn_cancel = document.getElementById('cancel')
     const btn_submit = document.getElementById('submit')
     const sect_testSched = document.getElementById('testScheduleSection')
@@ -146,6 +149,7 @@
             }
             btn_cancel.removeAttribute('hidden')
             btn_modify.setAttribute('hidden', true)
+            btn_back.setAttribute('hidden', true)
             btn_submit.removeAttribute('hidden')
         }
     );
@@ -161,6 +165,7 @@
                 selects[index].setAttribute("disabled", true)
             }
             btn_modify.removeAttribute('hidden')
+            btn_back.removeAttribute('hidden')
             btn_cancel.setAttribute('hidden', true)
             btn_submit.setAttribute('hidden', true)
         }
