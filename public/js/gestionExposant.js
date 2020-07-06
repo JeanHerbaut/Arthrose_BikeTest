@@ -1,5 +1,3 @@
-
-
 // Get the modal
 let modal = document.getElementById("myModal");
 

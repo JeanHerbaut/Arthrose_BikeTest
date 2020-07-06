@@ -20,6 +20,7 @@
   </div>
   <div class="container">
     <div class="wrapper-left wrapper">
+      <a href="#" class="popup">Créer</a>
       <h1>Gestion Exposant</h1>
       <div class="container-list">
         <form action="" class="form-utilisateurs" method="POST">
@@ -34,26 +35,26 @@
 
     </div>
     <div class="wrapper-right wrapper">
-      <a href="#" class="popup">Créer</a>
+
       <div class="container-details">
         <h2>Details Exposant</h2>
         <div class="wrapper-marque">
           <div class="titre">
-            <p>Marque</p>
-            <h3 id="company"></h3>
+            <h3>Marque</h3>
+            <p id="company"></p>
           </div>
           <div class="titre-texte" id="company">
-            
+
           </div>
         </div>
         <div class="wrapper-company">
           <div class="titre">
-            <p>Collaborateurs</p>
+            <h3>Collaborateurs</h3>
           </div>
           <div class="titre-texte collaborateurs">
           </div>
         </div>
-        <h3>Vélos associés</h3>
+        <h3 id="velo-assoc">Vélos associés</h3>
         <div class="wrapper-velos">
 
         </div>

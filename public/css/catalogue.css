@@ -5,33 +5,6 @@
   fill: red;
 }
 
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 3; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-.modal-content {
-
-  background-color: white;
-  position: fixed; /* Stay in place */
-  z-index: 3; /* Sit on top */
-  left: 0;
-  top: 0;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 100%; /* Full width */
-  height: 100%;
-  overflow: hidden;
-}
 
 .header-filter{
   display: flex;
@@ -54,12 +27,9 @@
   cursor: pointer;
 }
 
-<<<<<<< Updated upstream
-=======
 ul{
   display: flex;
 }
->>>>>>> Stashed changes
 
 ul li{
   margin: 1rem;
@@ -104,6 +74,8 @@ input[type="checkbox"]:checked + label {
 }
 
 
+
+
 .wrapper-catalogue h1{
   font-size: 2rem;
 }
@@ -117,15 +89,4 @@ input[type="checkbox"]:checked + label {
   padding: 2rem;
   padding-top: 0rem;
   padding-bottom: 5rem;
-}
-
-.wrapper-header{
-  display: flex;
-  justify-content: space-between;
-}
-
-
-.wrapper-header img{
-  width: 3rem;
-  margin-left: 2rem;
 }
