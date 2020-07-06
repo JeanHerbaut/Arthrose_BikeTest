@@ -20,4 +20,8 @@ class UserPolicy
     public function manageExhibitor(User $user){
         return in_array('manageExhibitor', $user->roles->first()->functionalities->pluck('name')->toArray());
     }
+
+    public function viewMyProducts(User $user){
+        return in_array('viewMyProducts', $user->roles->first()->functionalities->pluck('name')->toArray());
+    }
 }

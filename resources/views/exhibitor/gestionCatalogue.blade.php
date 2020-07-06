@@ -29,7 +29,7 @@
             @foreach ($bikes as $bike)
             <div class="svg-container" data-desc="{{$bike['shortDesc']}}">
                 <div class="content-vignette" >
-                    <img class="velo-img" src="{{$bike['image']}}" alt="">
+                    <img class="velo-img" src="{{url($bike['image'])}}" alt="">
                     <p id="type">{{$bike['category']}}</p>
                     @if ($bike['price'] < 1000) <p id="dollar">$
                         </p>

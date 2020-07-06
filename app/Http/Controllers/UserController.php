@@ -58,9 +58,7 @@ class UserController extends Controller
         $person = Person::find($request['id']);
         $person->name = $request['name'];
         $person->firstname = $request['firstname'];
-        if(strlen($request['password'] >= 8)) {
-            $user->password = $request['password'];
-        }
+        $user->password = $request['password'];
         $user->username = $request['username'];
         $person->save();
         $user->save();

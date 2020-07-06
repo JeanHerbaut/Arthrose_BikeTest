@@ -39,7 +39,8 @@
             <div class="sameLine">
                 <div class="group">
                     <label for="brand">Marque</label>
-                    <input type="text" id="brand" name="brand" value="{{$brand->name}}" disabled>
+                    <input type="text" id="brand-display" name="brand-display" value="{{$brand->name}}" disabled>
+                    <input type="hidden" name="brand" value="{{$brand->name}}">
                     @error('brand')
                         <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                     @enderror
@@ -109,6 +110,9 @@
             <input id="submit" type="submit" value="Ajouter">
         </form>
     </div>
+    <script>
+        let env_url = "{{url('')}}"
+    </script>
     <script src="{{ asset('js/addProductCtrl.js')}}" type="text/javascript" defer></script>
     <script src="{{ asset('js/dropdown.js')}}" type="text/javascript" defer></script>
     <script>

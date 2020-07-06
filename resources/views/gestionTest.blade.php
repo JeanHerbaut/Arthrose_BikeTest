@@ -28,7 +28,7 @@
                     <div class="svg-container-3">
 
                             <div class="content-vignette">
-                                <img style="top: 0;" class="velo-img" src="{{ $bike->product->image }}" alt="">
+                                <img style="top: 0;" class="velo-img" src="{{url($bike->product->image)}}" alt="">
                                 <p id="type">{{$bike->product->category_name}}</p>
 
                                 <div style="margin-bottom: 15px;">
@@ -73,7 +73,7 @@
                         <ul>
                             <li>Nom complet - Nom utilisateur</li>
                         </ul>
-                        <form id="mainForm{{$bike->id}}" method="post" action="/addTest" class="form-utilisateurs">
+                        <form id="mainForm{{$bike->id}}" method="post" action="{{url('/addTest')}}" class="form-utilisateurs">
                             {{ csrf_field() }}
                             <select class="resultsList" data-id="{{$bike->id}}" name="user_id" size="3" required></select>
                             <input type="hidden" name="bike_id" value="{{$bike->id}}">
@@ -106,7 +106,7 @@
                       <a href="#" class="popup begin" data-id="{{$bike->id}}">Commencer</a>
                   </div>
                         <div class="content-vignette">
-                            <img class="velo-img" src="{{ $bike->product->image }}" alt="">
+                            <img class="velo-img" src="{{url($bike->product->image)}}" alt="">
                             <p id="type">{{$bike->product->category_name}}</p>
                             <p></p>
                             <div style="margin-bottom: 15px;">
@@ -145,7 +145,7 @@
                       <a href="#" class="popup end" data-id="{{$test->bike->id}}">Terminer</a>
                   </div>
                         <div class="content-vignette">
-                            <img style="right: -15%; top: 5;" class="velo-img" src="{{ $test->product->image }}" alt="">
+                            <img style="right: -15%; top: 5;" class="velo-img" src="{{url($test->product->image)}}" alt="">
                             <p id="type">{{$test->product->category_name}}</p>
                             <p></p>
                             <div>
@@ -183,7 +183,7 @@
             <!-- Modal content -->
             <div class="modal-content-2">
                 <p><strong>Souhaitez-vous vraiment terminer le test?</strong></p>
-                <form method="post" action="/endTest" id="endTest">
+                <form method="post" action="{{url('/endTest')}}" id="endTest">
                     {{ csrf_field() }}
                     <input type="hidden" name="bike_id" id="bike_id">
                 </form>
@@ -196,5 +196,8 @@
 
 </div>
 </section>
+<script>
+    let env_url = "{{url('')}}"
+</script>
 <script src="{{ asset('js/gestionTest.js')}}" type="text/javascript" defer></script>
 @endsection

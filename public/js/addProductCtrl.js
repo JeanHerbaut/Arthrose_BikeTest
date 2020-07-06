@@ -11,7 +11,7 @@ $("#checkNmodel").click(function (e) {
     if(modelnumber == "") return
     $.ajax({
         type: 'POST',
-        url: '/product/postModelNumber',
+        url: env_url+'/product/postModelNumber',
         data: { modelnumber: modelnumber },
         success: function (data) {
             if(data.product){

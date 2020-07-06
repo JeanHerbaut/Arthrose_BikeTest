@@ -76,7 +76,7 @@ class BikeController extends Controller
                 'shortDesc'=> $request['shortDesc'],
                 'longDesc'=>$request['longDesc'],
                 'price'=>$request['price'],
-                'brand_id' => Brand::where('name', $request['brand'])->first()['id'],
+                'brand_id' => Brand::where('name', '=', $request['brand'])->first()['id'],
                 'category_name' => $request['categories'],
                 'image' => '/storage/img/'.'img'.$request['modelNumber']. '.'. $extension
             ];

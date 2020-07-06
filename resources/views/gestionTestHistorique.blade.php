@@ -27,7 +27,7 @@
                     <td>{{date('d.m.Y', strtotime($test->startTime))}}</td>
                     <td>{{date('H:i', strtotime($test->startTime))}}</td>
                     <td>{{($test->endTime) ? $test->endTime->format('H:i') : "en cours"}}</td>
-                    <td>{{$test->rating}}★</td>
+                    <td>{{$test->rating}} @if($test->rating) ★ @endif</td>
                     <td>{{$test->product->shortDesc}}</td>
                     <td>{{$test->user->username}}</td>
                 </tr>

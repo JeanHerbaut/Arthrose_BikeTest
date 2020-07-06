@@ -53,17 +53,6 @@ class ProductController extends Controller
         $tests_rated = Test::where('user_id', '=', Auth::user()->id)->whereNotNull('rating')->whereNotNull('endTime')->with('product')->get();
         $tests_unrated = Test::where('user_id', '=', Auth::user()->id)->whereNull('rating')->whereNotNull('endTime')->with('product')->get();
 
-        //Faudrait sélectionner des produits au lieu de tests pour débugé le bug
-        /* $prod_unrated = Product::whereHas('tests', function ($q) {
-            $q->where('user_id', '=', Auth::user()->id)->whereNotNull('endTime');
-        })->whereDoesntHave('tests', function ($q) {
-            $q->where('user_id', '=', Auth::user()->id)->whereNotNull('rating');
-        })->get();
-        $prod_rated = Product::whereHas('tests', function ($q) {
-            $q->where('user_id', '=', Auth::user()->id)->whereNotNull('endTime')->whereNotNull('rating');
-        })->get(); */
-
-        //dd($tested_prod_rated);
         return view('mesVelos')->with(compact('favProducts', 'tests_rated', 'tests_unrated'));
     }
 

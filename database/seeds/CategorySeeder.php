@@ -15,6 +15,12 @@ class CategorySeeder extends Seeder
         DB::table('categories')->insert([
             'name' => 'VTT']);
         DB::table('categories')->insert([
-            'name' => 'eBike']);    
+            'name' => 'E-VTT']);
+        DB::table('categories')->insert([
+            'name' => 'Route']);
+        DB::table('categories')->insert([
+            'name' => 'E-route']);
+        DB::table('categories')->insert([
+            'name' => 'Gravel']);
     }
 }
