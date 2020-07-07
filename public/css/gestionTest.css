@@ -374,3 +374,9 @@ div.vignette-end a{
 input[type="submit"].cancel:hover{
   background-color: transparent;
 }
+
+.error-busy {
+  margin-top: 1rem;
+  color: red;
+  font-size: 1.3rem;
+}

@@ -282,3 +282,8 @@ input.invalid {
 .step.finish {
     background-color: #4CAF50;
 }
+
+strong {
+    color: red;
+    font-size: 1.2rem;
+}

@@ -11,6 +11,7 @@
 
 .wrapper{
     padding: 6px;
+    padding-bottom: 7rem;
 }
 .header{
     display: flex;
@@ -97,4 +98,19 @@ hr{
 
 progress {
     width: 50%;
+}
+
+.comment-title {
+    margin-top: 3rem;
+}
+
+.comment-head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    font-size: 1.2rem;
+}
+
+.comment-text p{
+    font-size: 1.5rem;
 }
