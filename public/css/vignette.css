@@ -6,25 +6,30 @@
 
 .svg-container{
   position: relative;
-  min-width: 13rem;
-  min-height: 17rem;
-  margin: 1rem 2rem;
+  width: min(13rem,40vw);
+  height: min(17rem);
+  margin: 0rem 2.8rem 1rem 1rem;
 }
 
 .svg-container-2{
   position: relative;
-  min-width: 15rem;
-  min-height: 19rem;
-  max-height: 19rem;
-  margin: 0rem 2rem;
+  min-width: min(15rem);
+  max-width: min(15rem);
+  height: min(19rem);
+  margin: 1rem 2rem 1rem 1rem;
 }
 
 .svg-container-3{
   position: relative;
-  max-width: 14rem;
-  min-height: 17rem;
-  max-height: 17rem;
-  margin: 0rem 2rem;
+  width: min(15rem,40vw);
+  height: min(19rem);
+  margin: 1rem 2rem 1rem 1rem;
+}
+
+#signe-dist{
+  font-size: 1.3rem;
+  font-style: italic;
+  margin-top: 5px;
 }
 
 #layer_1{
@@ -48,9 +53,19 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 0 5px 5px 10px;
+  padding: 0 5px 20px 10px;
 }
 
+.content-vignette-2{
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 5px 34px 10px;
+}
 
 #type{
   font-size: 1.3rem;
@@ -61,7 +76,7 @@
   font-weight: bold;
 }
 #model{
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 500;
 }
 
@@ -70,7 +85,7 @@
 }
 
 #emprunt{
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 200;
 }
 

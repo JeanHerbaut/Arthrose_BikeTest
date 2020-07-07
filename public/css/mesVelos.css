@@ -1,258 +1,119 @@
-.container-test{
-    height: 40vh;
-    width: 58%;
-    margin: 3rem auto;
-    border-radius: 20px;
-    background: rgb(244, 244, 244);
-    overflow: scroll;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    position: relative;
-    font-weight: bold;
-    box-shadow: inset 0 0 15px rgba(144, 144, 144, 0.63);
-
-}
-
-.wrapper{
-    width: 100%;
-}
-
-.vignette{
-    max-width: min(25%,15rem);
-    background: white;
-    height: 12rem;
-    margin: 1rem 2rem;
-    flex: 1 1 15rem;
-    display: flex;
-    justify-content: flex-end;
-    align-items:center;
-    flex-direction: column;
-    border-radius: 12px;
-    filter: drop-shadow( 0 0 15px rgba(0, 0, 0, .1));
-}
-
-.vignette a{
-    padding: 0.5rem 1rem;
-    background: rgb(128, 195, 130);
-    color: white;
-    font-size: 1rem;
-    margin: 1rem;
-    border-radius: 12px;
-}
-
-div.vignette-end a{
-    background: rgb(255, 135, 135);
-}
-
-.header-test{
-    padding: 1rem 1.5rem;
-    position: sticky;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: gray;
-    color: white;
-    z-index: 1;
-}
-
-/* POPUP */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 3; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-.modal-content {
-    background-color: #f4f4f4;
-    margin: 5% auto; /* 15% from the top and centered */
-    padding: 20px;
-    width: 70rem; /* Could be more or less, depending on screen size */
-    height: 75%;
-    border-radius: 25px;
-    display: flex;
-    position: relative;
-}
-
-.wrapper-left{
-    flex: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-
-    padding: 6rem 2rem 5rem 1rem;
-}
-
-.wrapper-left img{
-    width: 10rem;
-}
-
-.wrapper-left > p{
-    font-size: 2rem;
-    font-weight: bold;
-}
-
-.wrapper-left p:nth-of-type(2){
-    font-size: 1.2rem;
-}
-.wrapper-left p:nth-of-type(3){
-    font-size: 1.2rem;
-}
-
-.wrapper-left p span{
-    font-size: 3rem;
-}
-
-.wrapper-right{
-    flex: 3;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.recherche{
-    border-radius: 8px;
-}
-
-a.mybtn{
-    align-self: flex-start;
-}
-
-.container-list{
-    height: 50%;
-    width: 90%;
-    margin-right: auto;
-    margin-top: 2rem;
-    background: rgb(255, 255, 255);
-    overflow: scroll;
-    border-radius: 12px;
-    position: relative;
-    box-shadow: inset 0 0 15px rgba(144, 144, 144, 0.63);
-    z-index: 2;
-}
-
-.container-list ul:first-child li{
-    font-weight: bold;
-    color: white;
-    font-size: 1.5rem;
-    padding: 0.5rem;
-    padding-left: 1rem;
-}
-.container-list ul:first-child{
-    position: sticky;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgb(154, 154, 154);
-    padding: 0.5rem 0;
-}
-
-.form-utilisateurs select option{
-    padding: 1rem;
-    font-size: 1.3rem;
-}
-.form-utilisateurs select option:hover, .form-utilisateurs select option:focus{
-    background: rgba(93, 217, 109, 1);
-}
-
-.form-utilisateurs select{
-    width: 100%;
-    height: 100%;
-    border: none;
-    background-color: transparent;
-}
-
-.recherche-form{
-    align-self: flex-start;
-}
-
-.recherche-form input{
-    text-decoration: none;
-    border: none;
-    padding: 0.5rem 1rem;
-    margin-bottom: 1rem;
-    border-radius: 25px;
-}
-
-.recherche-form button{
-    padding: 0.8rem;
-    border-radius: 50%;
-    background: white;
-    border: none;
-    cursor: pointer;
-}
-
-.mybtn{
-    padding: 1rem 2rem;
-    background: rgba(93, 217, 109, 1);
-    color: white;
-    margin-top: 3rem;
-    border-radius: 25px;
+.wrapper-velos{
+  background: rgb(231, 231, 231);
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+  padding-top: 2rem;
+  align-content: flex-start;
 }
 
 
-.section {
-    border-top: 1rem solid transparent;
+
+
+.svg-container{
+  position: relative;
+  width: min(14rem,40vw);
+  height: min(17rem);
+  margin: 0rem 2.7rem 0rem 1rem;
 }
 
-.close {
-    color: #aaa;
-    font-size: 4rem;
-    font-weight: bold;
-    position: absolute;
-    top: 0;
-    right: 0;
+.test{
+  height: min(17rem);
+  margin-bottom: 2rem;
 }
 
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.modal-content span, .modal-content > p{
-    margin-left: 2.8rem;
-    margin-top: 1rem;
-    font-weight: bold;
-}
-.modal-content span{
-    margin-right: 4rem;
-    margin-top: 4rem;
+#layer_1{
+  filter: drop-shadow( 0 0 15px rgba(0, 0, 0, .2));
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 
-.vignette-test{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    background: white;
-    max-height: 15rem;
-    margin: 1rem 2rem;
-    flex: 1 1 15rem;
-    border-radius: 12px;
-    filter: drop-shadow( 0 0 15px rgba(0, 0, 0, .2));
-    padding: 1rem;
+
+.content-vignette{
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 5px 5px 10px;
 }
 
-.vignette-test img{
-    align-self: center;
+
+#type{
+  font-size: 1.3rem;
+  padding-top: 1rem;
 }
 
-.vignette-test p{
-    font-size: 1.3rem;
-    text-align: left;
+#dollar{
+  font-weight: bold;
 }
+#model{
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+#marque{
+  font-size: 1.3rem;
+}
+
+#emprunt{
+  font-size: 1.3rem;
+  font-weight: 200;
+}
+
+#start{
+  display: flex;
+  justify-content: center;
+}
+
+.velo-img{
+  position: absolute;
+  top: 10;
+  right: -25%;
+  width: 12rem;
+}
+
+
+
+#rating{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.star{
+  display: flex;
+  width: 40%;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+}
+.star p{
+  font-size: 1rem;
+}
+.star img{
+  width: 2rem;
+  margin-right: 5px;
+}
+
+
+.heart svg{
+  width: 2.8rem;
+}
+
+h3{
+  font-size: 3rem;
+  padding: 7rem 0rem 2rem 2rem;
+}
+
+
 /*tab*/
 .tablink {
     background-color: #555;
@@ -272,6 +133,5 @@ a.mybtn{
 
 .tabcontent {
     display: none;
-    padding: 60px 20px;
     height: 100%;
 }
