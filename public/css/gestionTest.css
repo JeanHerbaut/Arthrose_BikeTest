@@ -1,7 +1,9 @@
 body{
   overflow: hidden;
 }
-
+h2{
+  padding: 1rem;
+}
 .container-test{
   height: 50vh;
   width: 100%;
@@ -22,23 +24,19 @@ body{
   background: rgb(231, 231, 231);
   width: 100%;
   overflow-x: scroll;
-  padding: 2rem;
-  padding-top: 5rem;
+  padding: 1rem;
+  padding-top: 3rem;
 }
 
 .wrapper-velos-test{
   display: flex;
   height: 100%;
   flex-wrap: wrap;
-
-
-
   background: rgb(231, 231, 231);
   width: 100%;
   overflow: scroll;
   flex-wrap: wrap;
   padding: 1rem;
-  padding-top: 5rem;
 }
 
 .container-gestion{
@@ -53,8 +51,8 @@ body{
 #historique{
   z-index: 6;
   position: absolute;
-  right: 5%;
-  top: 4%;
+  right: 2%;
+  top: 1.5%;
   background-color: #1b9837;
   border: none;
   color: white;
@@ -68,13 +66,11 @@ body{
   box-shadow: 0 5px 20px 0 rgba(27, 142, 35, 0.2);
   -webkit-border-radius: 24px;
   border-radius: 24px;
-  margin: 5px 20px 40px 20px;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  margin-top: 2rem;
 }
 
 input[type="submit"]{
@@ -108,7 +104,6 @@ input[type="submit"].disabled {
 .content-vignette >p {
   margin-bottom: 3rem;
 }
-
 
 
 

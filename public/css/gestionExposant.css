@@ -16,9 +16,6 @@ height: 100%;
   overflow: auto;
 }
 
-.wrapper-velos div:last-child{
-
-}
 .wrapper-right{
   background: rgb(235, 235, 235);
   flex: 2;
@@ -39,6 +36,8 @@ h3{
   width: 15rem;
   max-width: 15rem;
   text-align: center;
+
+  height: 14rem;
 }
 
 .vignette-test p{

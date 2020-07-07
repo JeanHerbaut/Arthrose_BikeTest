@@ -16,8 +16,7 @@
   <nav>
     <div class="desktop">
 
-
-      <div id="logo-container">
+      <div class="tkt" id="logo-container">
         <a href="{{url('/')}}"><img src="{{ asset('img/logoBikeTest.png') }}" alt=""></a>
       </div>
       <ul id="menu">
@@ -34,8 +33,9 @@
         @endguest
       </ul>
       @if(Auth::check())
-      Connected as {{Auth::user()->username}}
-      <div class="user-icon online">
+
+      <div class="tkt user-icon online">
+        <p>Connected as {{Auth::user()->username}}</p>
         <a href="#"><img src="{{ asset('img/user-icon.svg') }}" alt=""></a>
       </div>
       @else
@@ -89,7 +89,7 @@
           </li>
           @endcan
           <li>
-            <form method="post" action="{{url('/logout')}}">
+            <form id="form-nav" method="post" action="{{url('/logout')}}">
               @csrf
               <input type="submit" value="Se déconnecter">
             </form>
@@ -99,6 +99,59 @@
       </div>
     </div>
     <div class="mobile">
+      <div class="profile-nav">
+
+
+        <ul class="dropdown-menu">
+          <li>
+            <a href="{{url('/profil')}}">
+              Mon profil
+            </a>
+          </li>
+          @can('viewMyTicket', App\User::class)
+          <li>
+            <a href="#">
+              Mon billet
+            </a>
+          </li>
+          @endcan
+          @can('manage', App\User::class)
+          <li>
+            <a href="{{url('/gestion-utilisateurs')}}">
+              Gestion des utilisateurs
+            </a>
+          </li>
+          @endcan
+          @can('manage', App\User::class)
+          <li>
+            <a href="{{url('/gestion-exposant')}}">
+              Gestion des exposants
+            </a>
+          </li>
+          @endcan
+          @can('manage', App\Test::class)
+          <li>
+            <a href="{{url('/gestion-test')}}">
+              Gestion des tests
+            </a>
+          </li>
+          @endcan
+          @can('manage', App\Product::class)
+          <li>
+            <a href="{{url('/exposant/catalogue')}}">
+              Gestion du catalogue
+            </a>
+          </li>
+          @endcan
+          <li>
+            <form id="form-nav" method="post" action="{{url('/logout')}}">
+              @csrf
+              <input type="submit" value="Se déconnecter">
+            </form>
+          </li>
+        </ul>
+
+      </div>
       <div class="menu">
         <a href="#"><img src="{{ asset('img/bicycle-01.png') }}" alt=""></a>
         <p>Infos</p>

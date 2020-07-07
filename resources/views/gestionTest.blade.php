@@ -9,7 +9,7 @@
 <section>
 
 <div class="container-gestion">
-    <h1>Gestion des tests</h1>
+    <h2>Gestion des tests</h2>
     <a id="historique" href="{{url('/gestion-test-historique')}}">Historique</a>
         @foreach($availableBikes as $bike)
         <!-- The Modal -->
@@ -20,10 +20,6 @@
                 <div class="wrapper-left">
 
                     <h2>Création Test</h2>
-
-
-
-
 
                     <div class="svg-container-3">
 
@@ -91,9 +87,6 @@
 
 
         <div class="container-test">
-            <div class="header-test">
-                <p>Disponibles</p>
-            </div>
 
 
 
@@ -138,9 +131,6 @@
 
 
         <div id="container-cours" class="container-test">
-            <div class="header-test">
-                <p>En cours..</p>
-            </div>
             <div class="wrapper-velos">
                 @foreach($currentTests as $test)
 
