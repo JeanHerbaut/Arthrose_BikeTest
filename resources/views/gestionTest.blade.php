@@ -28,13 +28,13 @@
                     <div class="svg-container-3">
 
                             <div class="content-vignette">
-                                <img style="top: 0;" class="velo-img" src="{{url($bike->product->image)}}" alt="">
+                                <img style="top: 10;  width:12rem;" class="velo-img" src="{{url($bike->product->image)}}" alt="">
                                 <p id="type">{{$bike->product->category_name}}</p>
 
                                 <div style="margin-bottom: 15px;">
                                     <p id="model">{{$bike->product->shortDesc}}</p>
                                     <p id="marque">{{$bike->product->brand->name}}</p>
-                                    <p>{{$bike->distinctive_sign}}</p>
+                                    <p id="signe-dist">{{$bike->distinctive_sign}}</p>
                                 </div>
 
 
@@ -94,6 +94,9 @@
             <div class="header-test">
                 <p>Disponibles</p>
             </div>
+
+
+
             <div class="wrapper-velos-test">
 
 
@@ -130,6 +133,7 @@
                 </div>
                 @endforeach
             </div>
+
         </div>
 
 
@@ -144,7 +148,7 @@
                   <div id="start">
                       <a href="#" class="popup end" data-id="{{$test->bike->id}}">Terminer</a>
                   </div>
-                        <div class="content-vignette">
+                        <div class="content-vignette-2">
                             <img style="right: -15%; top: 5;" class="velo-img" src="{{url($test->product->image)}}" alt="">
                             <p id="type">{{$test->product->category_name}}</p>
                             <p></p>

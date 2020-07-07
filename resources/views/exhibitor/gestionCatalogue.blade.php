@@ -10,16 +10,18 @@
   <div class="wrapper-header">
       <h1>Gestion catalogue</h1>
       <div class="form-header">
+        <div class="left-side">
+
 
               <input type="text" id="input" placeholder="Recherche">
               <button type="submit" id="search-bike"><i class="fa fa-search"></i></button>
               <button id="reset">Tous les vélos</button>
 
-
-              <form action="{{route('catalogue.create')}}">
+</div>
+              <form id="ajoutVelos" action="{{route('catalogue.create')}}">
                   <button type="submit">Ajouter un vélo</button>
               </form>
-          
+
       </div>
   </div>
     <div class="wrapper-catalogue">

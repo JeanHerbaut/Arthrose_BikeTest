@@ -15,7 +15,7 @@
     <div class="wrapper">
         <form  method="post" action="{{url('/createBike')}}" enctype="multipart/form-data">
             @csrf
-            <div class="sameLine">
+            <div class="sameLine adroite">
                 <div class="group">
                     <label for="modelNumber">N° de modèle</label>
                     <input type="text" id="modelNumber" name="modelNumber" value="{{ old('modelNumber') }}">
@@ -55,7 +55,7 @@
             </div>
             <div class="group">
                 <label for="longDesc">Description</label>
-                <textarea name="longDesc" id="longDesc" cols="60" rows="5" disabled value="{{ old('longDesc') }}"></textarea>
+                <textarea name="longDesc" id="longDesc" cols="48" rows="5" disabled value="{{ old('longDesc') }}"></textarea>
                 @error('longDesc')
                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                 @enderror
