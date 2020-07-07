@@ -2,6 +2,8 @@
 @section('content')
 <link defer rel="stylesheet" type="text/css" href="{{ asset('css/catalogueNew.css') }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+<meta name="csrf-token" content="{{ csrf_token() }}" />
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <link href="nouislider.css" rel="stylesheet">
 <script src="nouislider.js"></script>
 
@@ -127,11 +129,13 @@
 
                         <div id="rating">
                             <div class="star">
+                            @if($product->avgNote)
                                 <img src="{{ asset('img/star.svg') }}" alt="">
                                 <p><b>{{roundAvg($product->avgNote)}}</b>({{$product->tests_count}})</p>
+                            @endif
                             </div>
                             @auth
-                            <div class="heart">
+                            <div class="heart" data-id="{{$product->id}}">
                                 <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60.47 54.19">
                                     <defs>
                                         <style>
@@ -174,7 +178,10 @@
 
 </section>
 
-<script src="{{ asset('js/gestionExposant.js')}}" type="text/javascript" defer></script>
+<script>
+        let env_url = "{{url('')}}"
+    </script>
+<script src="{{ asset('js/heartFav.js')}}" type="text/javascript" defer></script>
 <script src="{{ asset('js/noUISlider.js')}}" type="text/javascript" defer></script>
 
 @endsection

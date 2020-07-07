@@ -55,12 +55,16 @@ class ProductController extends Controller
         if(!Auth::user()) return view('auth.login');
         $favProducts = Product::whereHas('isFavoriteOf', function($q){
             return $q->where('user_id', '=', Auth::user()->id);
-        })->with('brand')->get();//Auth::user()->favorites;
-        
+        })->with('brand')->withCount('tests')->get()
+        ->map(function ($p) {
+            $p['avgNote'] = $p->tests()->get()->pluck('rating')->avg();
+            return $p;
+        });
         
         $tests_rated = Test::where('user_id', '=', Auth::user()->id)->whereNotNull('rating')->whereNotNull('endTime')->with('product')->get();
         $tests_unrated = Test::where('user_id', '=', Auth::user()->id)->whereNull('rating')->whereNotNull('endTime')->with('product')->get();
 
+        //dd($tests_unrated);
         return view('mesVelos')->with(compact('favProducts', 'tests_rated', 'tests_unrated'));
     }
     
