@@ -32,17 +32,36 @@
         <hr>
         <div class="wrapper-rating">
             <div class="rating-prin">
-                <p><strong>★</strong>{{$product->avgNote}} ({{$product->tests_count}} avis)</p>
+                <p><strong>★</strong>{{roundAvg($product->avgNote)}} ({{$product->tests_count}} avis)</p>
             </div>
             @foreach($criterias as $criteria => $note)
             <div class="rating-sec">
                 <label for="{{$criteria}}">{{$criteria}}</label>
-                <progress id="{{$criteria}}" value="{{noteToPercent($note)}}" max="100"></progress>
+                <progress class="progress" id="{{$criteria}}" value="{{noteToPercent($note)}}" max="100"></progress>
             </div>
             @endforeach
         </div>
+
+
+        <div class="comment-title">
+            <p>Commentaires ({{count($product->tests)}})</p>
+        </div>
+
+        @foreach($product->tests as $test)
+        @if($test->comment)
+        <hr>
+        <div class="comment-head">
+            <div>{{$test->user->username}} {{$test->rating}}★</div>
+            <div>{{$test->startTime->format('d.m.Y')}}</div>
+        </div>
+        <div class="comment-text">
+            <p>{{$test->comment}}</p>
+        </div>
+        @endif
+        @endforeach
+
         <div class="wrapper-button">
-            <input type="submit" value="VOIR LES 36 COMMENTAIRES">
+            <input type="submit" value="VOIR LES {{count($product->tests)}} COMMENTAIRES">
         </div>
     </div>
     <script>

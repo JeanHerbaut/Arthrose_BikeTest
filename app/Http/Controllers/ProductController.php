@@ -87,7 +87,7 @@ class ProductController extends Controller
     public function show($id)
     {
         if(Auth::user()) {
-            $product = Product::where('id', '=', $id)->with('brand')->with('tests.criterias')->withCount('tests')
+            $product = Product::where('id', '=', $id)->with('brand')->with('tests.criterias')->with('tests.user')->withCount('tests')
             ->with(['isFavoriteOf' => function ($q) {
                 return $q->where('user_id', '=', Auth::user()->id)->pluck('user_id')->toArray();
             }])->get()
@@ -96,7 +96,7 @@ class ProductController extends Controller
                 return $p;
             })->first();
         } else {
-            $product = Product::where('id', '=', $id)->with('brand')->with('tests.criterias')->withCount('tests')->get()
+            $product = Product::where('id', '=', $id)->with('brand')->with('tests.criterias')->with('tests.user')->withCount('tests')->get()
             ->map(function ($p) {
                 $p['avgNote'] = $p->tests()->get()->pluck('rating')->avg();
                 return $p;

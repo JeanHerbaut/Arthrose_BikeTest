@@ -105,7 +105,9 @@ class UserController extends Controller
         $user->roles()->attach('visitor');
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
+            return view('/home');
         }
+        return redirect('/home');
     }
 
     public function search(Request $request){
