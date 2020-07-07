@@ -151,6 +151,7 @@ class UserController extends Controller
         if (Auth::attempt($credentials)) {
             return view('/home');
         }
+        return redirect('/home');
     }
     
     /**
