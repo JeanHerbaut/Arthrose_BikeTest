@@ -2,12 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 use App\TestSchedule;
-use stdClass;
+//use stdClass;
 
 class BilleterieController extends Controller
 {
+        
+    /**
+     * displayForm
+     * 
+     * Affiche le formulaire d'inscription
+     *
+     * @return \Illuminate\View\View billeterie
+     */
     public function displayForm() {
         $testSchedules = TestSchedule::all();
         $days_array = [];

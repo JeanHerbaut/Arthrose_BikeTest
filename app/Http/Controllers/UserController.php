@@ -7,15 +7,22 @@ use App\Http\Requests\UserWithTicketRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\UpdateProfileRequest;
 use Illuminate\Support\Facades\Auth;
-use App\Policies\UserPolicy;
+//use App\Policies\UserPolicy;
 use App\User;
-use App\Brand;
+//use App\Brand;
 use App\Person;
 use App\Company;
 use App\TestSchedule;
 
 class UserController extends Controller
-{
+{    
+    /**
+     * index
+     * 
+     * Liste les users
+     *
+     * @return \Illuminate\View\View adminConsultation
+     */
     public function index()
     {
         $this->authorize('manage', User::class);
@@ -26,7 +33,14 @@ class UserController extends Controller
         
         return view('adminConsultation', compact('users', 'testSchedules'));
     }
-
+    
+    /**
+     * edit
+     * 
+     * Crée le formulaire de modification d'un User
+     *
+     * @return \Illuminate\View\View adminModifyUser
+     */
     public function edit()
     {
         $id = htmlspecialchars($_GET["user_id"]);
@@ -34,11 +48,17 @@ class UserController extends Controller
         $user->roles = $user->roles->pluck('name')->toArray();
         $companies = Company::all();
         $testSchedules = TestSchedule::all();
-        //dd($user->roles);
         
         return view('adminModifyUser', compact('user', 'companies', 'testSchedules'));
     }
-
+    
+    /**
+     * show
+     * 
+     * Affiche de l'utilisateur connecté
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function show() {
         if(Auth::user()){
             $id = Auth::user()->id;
@@ -52,7 +72,15 @@ class UserController extends Controller
         }
         
     }
-
+    
+    /**
+     * updateProfile
+     * 
+     * Modification de son profil
+     *
+     * @param  App\Http\Requests\UpdateProfileRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function updateProfile(UpdateProfileRequest $request) {
         $user = User::find($request['id']);
         $person = Person::find($request['id']);
@@ -64,7 +92,15 @@ class UserController extends Controller
         $user->save();
         return redirect('/profil');
     }
-
+    
+    /**
+     * updateUser
+     * 
+     * Modification d'un User par un administrateur
+     *
+     * @param  App\Http\Requests\UpdateUserRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function updateUser(UpdateUserRequest $request) {
         $user = User::find($request['id']);
         $person = Person::find($request['id']);
@@ -87,7 +123,15 @@ class UserController extends Controller
         $user->save();
         return redirect('/gestion-utilisateurs');
     }
-
+    
+    /**
+     * createWithTicket
+     * 
+     * Crée un User avec sa Persone lié et un TestSchedule lié
+     *
+     * @param  App\Http\Requests\UserWithTicketRequest $request
+     * @return \Illuminate\View\View home
+     */
     public function createWithTicket(UserWithTicketRequest $request) {
         $person = Person::create([
             'name' => $request['name'],
@@ -108,20 +152,20 @@ class UserController extends Controller
             return view('/home');
         }
     }
-
+    
+    /**
+     * search
+     * 
+     * Recherche d'un User
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response $results
+     */
     public function search(Request $request){
         $results = User::where('username', 'like', $request->username.'%')->with('person')
         ->with(['tests' => function($q) {
             return $q->whereNull('endTime');
         }])->get();
         return (response()->json(['results'=>$results ]));
-    }
-
-    public function searchGet($user){
-        $results = User::where('username', 'like', $user.'%')->with('person')
-        ->with(['tests' => function($q) {
-            return $q->whereNull('endTime');
-        }])->get();
-        return $results;
     }
 }
