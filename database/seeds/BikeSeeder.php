@@ -58,5 +58,131 @@ class BikeSeeder extends Seeder
             'size' => 'M',
             'distinctive_sign' => 'pneus à flancs blancs'
         ]);
+
+        DB::table('bikes')->insert([
+            'product_id' => 5,
+            'size' => 'M',
+            'distinctive_sign' => 'pneus à flancs blancs'
+        ]);
+
+        DB::table('bikes')->insert([
+            'product_id' => 6,
+            'size' => 'XL',
+            'distinctive_sign' => ''
+        ]);
+
+        DB::table('bikes')->insert([
+            'product_id' => 6,
+            'size' => 'S',
+            'distinctive_sign' => ''
+        ]);
+
+        DB::table('bikes')->insert([
+            'product_id' => 6,
+            'size' => 'L',
+            'distinctive_sign' => ''
+        ]);
+
+        DB::table('bikes')->insert([
+            'product_id' => 6,
+            'size' => 'M',
+            'distinctive_sign' => ''
+        ]);
+
+        DB::table('bikes')->insert([
+            'product_id' => 7,
+            'size' => 'M',
+            'distinctive_sign' => 'num:34'
+        ]);
+
+        DB::table('bikes')->insert([
+            'product_id' => 7,
+            'size' => 'M',
+            'distinctive_sign' => 'num:35'
+        ]);
+
+        DB::table('bikes')->insert([
+            'product_id' => 7,
+            'size' => 'L',
+            'distinctive_sign' => 'num:36'
+        ]);
+
+        DB::table('bikes')->insert([
+            'product_id' => 8,
+            'size' => 'M',
+            'distinctive_sign' => ''
+        ]);
+
+        DB::table('bikes')->insert([
+            'product_id' => 8,
+            'size' => 'M',
+            'distinctive_sign' => ''
+        ]);
+
+        DB::table('bikes')->insert([
+            'product_id' => 8,
+            'size' => 'S',
+            'distinctive_sign' => ''
+        ]);
+
+        DB::table('bikes')->insert([
+            'product_id' => 8,
+            'size' => 'S',
+            'distinctive_sign' => ''
+        ]);
+
+        DB::table('bikes')->insert([
+            'product_id' => 9,
+            'size' => 'S',
+            'distinctive_sign' => ''
+        ]);
+
+        DB::table('bikes')->insert([
+            'product_id' => 9,
+            'size' => 'M',
+            'distinctive_sign' => ''
+        ]);
+
+        DB::table('bikes')->insert([
+            'product_id' => 9,
+            'size' => 'M',
+            'distinctive_sign' => ''
+        ]);
+
+        DB::table('bikes')->insert([
+            'product_id' => 9,
+            'size' => 'L',
+            'distinctive_sign' => ''
+        ]);
+
+        DB::table('bikes')->insert([
+            'product_id' => 10,
+            'size' => 'S',
+            'distinctive_sign' => ''
+        ]);
+
+        DB::table('bikes')->insert([
+            'product_id' => 10,
+            'size' => 'M',
+            'distinctive_sign' => ''
+        ]);
+
+        DB::table('bikes')->insert([
+            'product_id' => 10,
+            'size' => 'M',
+            'distinctive_sign' => ''
+        ]);
+
+        DB::table('bikes')->insert([
+            'product_id' => 10,
+            'size' => 'L',
+            'distinctive_sign' => ''
+        ]);
+
+        DB::table('bikes')->insert([
+            'product_id' => 10,
+            'size' => 'L',
+            'distinctive_sign' => ''
+        ]);
     }
 }
