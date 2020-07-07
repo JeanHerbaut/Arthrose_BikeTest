@@ -27,14 +27,7 @@
   cursor: pointer;
 }
 
-ul{
-  display: flex;
-}
 
-
-ul li{
-  margin: 1rem;
-}
 
 input[type="checkbox"]:not(:checked),
 input[type="checkbox"]:checked {
