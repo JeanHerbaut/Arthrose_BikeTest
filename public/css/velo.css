@@ -10,7 +10,8 @@
 }
 
 .wrapper{
-    padding: 6px;
+    padding: 14px;
+    padding-bottom: 7rem;
 }
 .header{
     display: flex;
@@ -115,5 +116,21 @@ hr{
 .progress::-webkit-progress-bar {
     background: #f7f2f4;
     border-radius: 12px;
+}
+
+
+.comment-title {
+    margin-top: 3rem;
+}
+
+.comment-head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    font-size: 1.2rem;
+}
+
+.comment-text p{
+    font-size: 1.5rem;
 }
 

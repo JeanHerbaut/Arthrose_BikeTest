@@ -128,7 +128,7 @@
                         <div id="rating">
                             <div class="star">
                                 <img src="{{ asset('img/star.svg') }}" alt="">
-                                <p><b>{{$product->avgNote}}</b>({{$product->tests_count}})</p>
+                                <p><b>{{roundAvg($product->avgNote)}}</b>({{$product->tests_count}})</p>
                             </div>
                             @auth
                             <div class="heart">

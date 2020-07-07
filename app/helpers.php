@@ -10,4 +10,8 @@
         return $note*20;
     }
 
+    function roundAvg($n) {
+        return round($n, 1);
+    }
+
 ?>

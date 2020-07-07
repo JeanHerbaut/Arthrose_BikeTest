@@ -17,6 +17,9 @@
                 </div>
 
                 <div class="description">
+                    @if(!$errors->isEmpty())
+                    <strong>Les valeurs entrées dans le formulaire contiennent des erreurs</strong>
+                    @endif
                     <p>Veuillez sélectionner une plage horaire pour l’édition 2020</p>
                     <p><b>Attention : vous ne pouvez sélectionner qu’une seule plage horaire.</b></p>
                 </div>
@@ -54,7 +57,7 @@
 
                     <div class="group">
                         <label for="name" class="form-control-label">Nom</label>
-                        <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}">
+                        <input type="text" name="name" id="name" class="form-control required" value="{{ old('name') }}">
                     </div>
                     @error('name')
                     <span class="invalid-feedback" role="alert">
@@ -63,7 +66,7 @@
                     @enderror
                     <div class="full-input group">
                         <label for="firstname" class="form-control-label">Prénom</label>
-                        <input type="text" name="firstname" id="firstname" class="form-control" value="{{ old('firstname') }}">
+                        <input type="text" name="firstname" id="firstname" class="form-control required" value="{{ old('firstname') }}">
                     </div>
                     @error('firstname')
                     <span class="invalid-feedback" role="alert">
@@ -72,7 +75,7 @@
                     @enderror
                     <div class="full-input group">
                         <label for="email" class="form-control-label">Email</label>
-                        <input type="text" name="email" id="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}">
+                        <input type="text" name="email" id="email" class="form-control required @error('email') is-invalid @enderror" value="{{ old('email') }}">
                     </div>
                     @error('email')
                     <span class="invalid-feedback" role="alert">
@@ -105,7 +108,7 @@
                 </div>
                 <div class="full-input group">
                     <label for="username" class="form-control-label">Nom d'utilisateur</label>
-                    <input type="text" name="username" id="username" class="form-control" value="{{ old('username') }}">
+                    <input type="text" name="username" id="username" class="form-control required" value="{{ old('username') }}">
                 </div>
                 @error('username')
                 <span class="invalid-feedback" role="alert">
@@ -113,7 +116,7 @@
             </span>
                 @enderror
                 <div class="full-input group">
-                    <label for="password" class="form-control-label">Mot de passe</label>
+                    <label for="password" class="form-control-label required">Mot de passe</label>
                     <input type="password" name="password" id="password" class="form-control">
                 </div>
                 @error('password')
@@ -122,7 +125,7 @@
             </span>
                 @enderror
                 <div class="full-input group">
-                    <label for="password-confirm" class="form-control-label">Confirmez le mot de passe</label>
+                    <label for="password-confirm" class="form-control-label required">Confirmez le mot de passe</label>
                     <input type="password" name="password_confirmation" id="password-confirm" class="form-control">
                 </div>
             </div>
@@ -186,7 +189,7 @@
             // This function deals with validation of the form fields
             let x, y, i, valid = true;
             x = document.getElementsByClassName("tab");
-            y = x[currentTab].getElementsByTagName("input");
+            y = x[currentTab].getElementsByClassName("required");
             // A loop that checks every input field in the current tab:
             for (i = 0; i < y.length; i++) {
                 // If a field is empty...

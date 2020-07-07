@@ -9,13 +9,22 @@
   justify-content: space-between;
   height: 15vh;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-header{
   display: flex;
   align-items:flex-end;
+  width: 100%;
+  justify-content: space-between;
 }
 
+
+.left-side {
+
+
+}
 .wrapper-velos{
   background: rgb(231, 231, 231);
   width: 100%;
@@ -25,6 +34,7 @@
   flex-wrap: wrap;
   padding: 1rem;
   padding-top: 2rem;
+  align-content: flex-start;
 }
 
 input {
