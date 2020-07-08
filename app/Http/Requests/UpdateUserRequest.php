@@ -28,7 +28,7 @@ class UpdateUserRequest extends FormRequest
             'id' => ['required'],
             'name' => ['required', 'string', 'max:40'],
             'firstname' => ['required', 'string', 'max:40'],
-            'username' => ['required', 'regex:/^[a-z0-9]+$/', 'min: 3', 'max:16'],
+            'username' => ['required', 'regex:/^[A-Za-z0-9-]+$/', 'min: 3', 'max:16'],
             'role' => 'in:visitor,exhibitor,receptionist,admin',
         ];
     }
