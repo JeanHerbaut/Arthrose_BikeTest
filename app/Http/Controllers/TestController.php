@@ -9,16 +9,18 @@ use App\Bike;
 use App\Product;
 use App\TestSchedule;
 use Illuminate\Support\Facades\Auth;
-use App\User;
+//use App\User;
 use App\Criteria_Test;
 use App\Category_Criteria;
 
 class TestController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * index
+     * 
+     * Affiche les tests d'un exposant s'il est connecté, ou tous les tests si un admin est connecté
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View gestionTestHistorique
      */
     public function index()
     {
@@ -32,11 +34,14 @@ class TestController extends Controller
         
         return view('gestionTestHistorique')->with('tests', $tests);
     }
-
+    
     /**
-     * Show the form for creating a new resource.
+     * create
+     * 
+     * Génère le formulaire de gestion des tests
+     * Si un exposant est connecté, seuls ses vélos sont affichés. Tous les vélos sont affichés pour un admin
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View gestionTest
      */
     public function create()
     {
@@ -73,20 +78,22 @@ class TestController extends Controller
 
         return view('gestionTest')->with(compact('availableBikes', 'currentTests'));
     }
-
+    
     /**
-     * Store a newly created resource in storage.
+     * store
+     * 
+     * Crée un test
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function store(Request $request)
     {
         $this->authorize('manage', Test::class);
-        //$datetime = date("Y-m-d H:i:s"); We can't use that for the tests because it will not correspond to a test schedule
+        
         $datetime = "2020-10-03 11:00:00";
         $test_schedule_id = TestSchedule::where('startTime', '<=', $datetime)->where('endtime', '>=', $datetime)->first()->id;
-        //dd($test_schedule_id);
+        
         $criterias_list = Category_Criteria::where('category_name', '=', $request->category)->pluck('criteria_id')->toArray();
         $test = Test::create([
             'startTime' => $datetime,
@@ -101,7 +108,15 @@ class TestController extends Controller
 
         return redirect("/gestion-test");
     }
-
+    
+    /**
+     * end
+     * 
+     * Termine un test
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function end(Request $request){
         $test = Test::whereNull('endTime')->where('bike_id', '=', $request->bike_id)->first();
         $datetime = "2020-10-03 12:00:00"; //En vrai on ferait date("Y-m-d H:i:s");
@@ -109,7 +124,15 @@ class TestController extends Controller
         $test->save();
         return redirect("/gestion-test");
     }
-
+    
+    /**
+     * rate
+     * 
+     * Ajoute la note globale^, le commentaire et les notes pour chaque critère d'un test
+     *
+     * @param  mApp\Http\Requests\RateRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function rate(RateRequest $request){
         $test = Test::find($request->test_id);
         $criterias_list = Criteria_Test::distinct('criteria_id')->where('test_id', '=', $request->test_id)->pluck('criteria_id')->toArray();
@@ -123,50 +146,5 @@ class TestController extends Controller
         }
 
         return redirect()->route('mesvelos');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

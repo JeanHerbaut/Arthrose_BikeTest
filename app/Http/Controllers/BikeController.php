@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 use App\Bike;
 use App\Product;
 use App\Category;
@@ -12,7 +12,14 @@ use App\Http\Requests\BikeRequest;
 use Illuminate\Support\Facades\Auth;
 
 class BikeController extends Controller
-{
+{    
+    /**
+     * index
+     * 
+     * Liste les vélos d'un exposant
+     *
+     * @return \Illuminate\View\View gestionCatalogue
+     */
     public function index()
     {
         $this->authorize('manage', Product::class);
@@ -57,6 +64,14 @@ class BikeController extends Controller
     
     }
 
+        
+    /**
+     * create
+     * 
+     * Crée le formulaire d'ajout d'un vélo
+     *
+     * @return \Illuminate\View\View addProduct
+     */
     public function create()
     {
         $this->authorize('manage', Product::class);
@@ -65,7 +80,15 @@ class BikeController extends Controller
         $brand = Brand::findOrFail($company_id);
         return view('exhibitor/addProduct', compact('categories', 'brand'));
     }
-
+    
+    /**
+     * createBike
+     * 
+     * Crée un vélo et son produit lié s'il n'existe pas déjà
+     *
+     * @param  App\Http\Requests\BikeRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function createBike(BikeRequest $request){
         $product = Product::where('modelNumber', $request['modelNumber'])->first();
         if(!$product){
@@ -92,6 +115,15 @@ class BikeController extends Controller
         return redirect('exposant/catalogue');
     }
 
+        
+    /**
+     * destroy
+     * 
+     * Supprime un vélo
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function destroy($id) {
         $product = Bike::findOrFail($id)->delete();
         return redirect()->back();
