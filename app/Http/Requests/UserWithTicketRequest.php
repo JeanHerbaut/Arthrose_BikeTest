@@ -30,6 +30,7 @@ class UserWithTicketRequest extends FormRequest
             'username' => ['required', 'regex:/^[A-Za-z0-9-]+$/', 'min: 3', 'max:16', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'phone' => ['integer'],
         ];
     }
 }
