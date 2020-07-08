@@ -131,7 +131,7 @@
                             <div class="star">
                             @if($product->avgNote)
                                 <img src="{{ asset('img/star.svg') }}" alt="">
-                                <p><b>{{roundAvg($product->avgNote)}}</b>({{$product->tests_count}})</p>
+                                <p><b>{{roundAvg($product->avgNote)}}</b> ({{$product->tests_count}})</p>
                             @endif
                             </div>
                             @auth

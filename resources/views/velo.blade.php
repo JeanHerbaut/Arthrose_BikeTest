@@ -61,7 +61,7 @@
         @endforeach
 
         <div class="wrapper-button">
-            <input type="submit" value="VOIR LES {{count($product->tests)}} COMMENTAIRES">
+            <input type="submit" value="VOIR TOUS LES COMMENTAIRES">
         </div>
     </div>
     <script>

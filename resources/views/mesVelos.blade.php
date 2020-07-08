@@ -14,6 +14,9 @@
 <div id="favoris" class="tabcontent">
     <h3>Favoris</h3>
     <div class="wrapper-velos">
+    @if(!count($favProducts))
+    <p class="list-empty">Vous n'avez aucun vélo favori pour l'instant.</p>
+    @endif
     @foreach($favProducts as $product)
     <a class="test" href="{{url('/velo/'.$product->id)}}">
         <div class="svg-container">
@@ -30,7 +33,7 @@
                     <div class="star">
                     @if($product->avgNote)
                         <img src="{{ asset('img/star.svg') }}" alt="">
-                        <p><b>{{$product->avgNote}}</b>({{$product->tests_count}})</p>
+                        <p><b>{{$product->avgNote}}</b> ({{$product->tests_count}})</p>
                     @endif
                     </div>
                     @auth
@@ -75,6 +78,10 @@
 <div id="test" class="tabcontent">
     <h3>Test</h3>
     <div class="wrapper-velos">
+
+    @if(!count($tests_rated) && !count($tests_unrated))
+    <p class="list-empty">Vous n'avez terminé aucun test pour l'instant.</p>
+    @endif
     @foreach($tests_unrated as $test)
     <a class="test" href="{{url('/mesvelos/'.$test->id)}}">
       <div class="svg-container">
