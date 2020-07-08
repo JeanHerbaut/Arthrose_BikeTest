@@ -6,13 +6,12 @@
 
 <div class="tab">
 
-    <button class="tablink" onclick="openPage('test')" id="defaultOpen">Test</button>
-    <button class="tablink" onclick="openPage('favoris')">Favoris</button>
+    <button class="tablink tests" onclick="openPage('tests')" id="defaultOpen">Test</button>
+    <button class="tablink favoris" onclick="openPage('favoris')">Favoris</button>
 </div>
 
 <!-- Tab content -->
 <div id="favoris" class="tabcontent">
-    <h3>Favoris</h3>
     <div class="wrapper-velos">
     @if(!count($favProducts))
     <p class="list-empty">Vous n'avez aucun vélo favori pour l'instant.</p>
@@ -75,8 +74,7 @@
   </div>
 </div>
 
-<div id="test" class="tabcontent">
-    <h3>Test</h3>
+<div id="tests" class="tabcontent">
     <div class="wrapper-velos">
 
     @if(!count($tests_rated) && !count($tests_unrated))
@@ -195,7 +193,13 @@
 <script src="{{ asset('js/heartFav.js')}}" type="text/javascript" defer></script>
 <script>
     function openPage(pageName) {
-        let i, tabcontent;
+        let i, tabcontent, tabs, actualTab;
+        tabs = document.getElementsByClassName('tablink')
+        for(let i = 0; i < tabs.length; i++){
+            tabs[i].classList.remove('active');
+        }
+        actualTab = document.querySelector('.'+pageName)
+        actualTab.classList.add("active")
         tabcontent = document.getElementsByClassName("tabcontent");
         for (i = 0; i < tabcontent.length; i++) {
             tabcontent[i].style.display = "none";
