@@ -46,6 +46,10 @@ $('#company-select').on('change', evt => {
       $('.nothing').empty()
       $('.collaborateurs').empty()
       $('#company').append('<p>' + data.company[0].name + '</p>')
+      data.users.forEach(user => {
+        let html = '<p>' + user.person.firstname + ' ' + user.person.name + '</p>'
+        $('.collaborateurs').append(html)
+      });
       if (data.bikes.length > 0) {
         data.bikes.forEach(product => {
           product.bikes.forEach(element => {
@@ -56,10 +60,6 @@ $('#company-select').on('change', evt => {
               + '<p>' + product.brand.name + '</p>';
             $('.wrapper-velos').append(html);
           });
-        });
-        data.users.forEach(user => {
-          let html = '<p>' + user.person.firstname + ' ' + user.person.name + '</p>'
-          $('.collaborateurs').append(html)
         });
       } else {
         let html = "<p>Cet exposant n'a pas de produits à afficher</p>"
