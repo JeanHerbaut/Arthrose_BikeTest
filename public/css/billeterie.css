@@ -223,7 +223,7 @@ label[class="plage"] {
     justify-content: center;
     text-align: center;
     cursor: pointer;
-    background-color: transparent;
+    background-color: #f6f6f6;
     color: #171717;
     padding: 1rem;
     border-radius: 6px;
