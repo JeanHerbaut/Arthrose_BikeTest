@@ -35,12 +35,12 @@ class ExhibitorController extends Controller
     public function exhibitorDatas(Request $request) {
         $id = (int)$request->companyId;
         $users = User::where('company_id', '=', $id)->with('person')->get();
-        $bikes = Product::where('brand_id', '=', $id)
-        ->with('bikes')
-        ->with('brand')
-        ->get();
-        $company = Company::where('id', '=', $id)
-        ->get();
+        //$bikes = Product::where('brand_id', '=', $id)
+        $bikes = Product::whereHas('brand', function ($q) use ($id) {
+            return $q->where('company_id', $id);
+        })->with('bikes')->with('brand')->get();
+        
+        $company = Company::where('id', '=', $id)->get();
 
         return (response()->json(['bikes'=>$bikes, 'users' => $users, 'company' =>$company]));
     }
