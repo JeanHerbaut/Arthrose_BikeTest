@@ -120,7 +120,7 @@
                       }
                   </style>
               </defs>
-              <path class="cls-2 {{($product->isFavoriteOf->isNotEmpty()) ? 'filled' : ''}}" d="M920,845H566a40,40,0,0,1-40-40V340.5a45,45,0,0,1,60.51-42.17L924,386.71a55.08,55.08,0,0,1,36,51.67V805A40,40,0,0,1,920,845Z"
+              <path class="cls-2 {{($test->product->isFavoriteOf->isNotEmpty()) ? 'filled' : ''}}" d="M920,845H566a40,40,0,0,1-40-40V340.5a45,45,0,0,1,60.51-42.17L924,386.71a55.08,55.08,0,0,1,36,51.67V805A40,40,0,0,1,920,845Z"
                 transform="translate(-526 -295.51)" />
           </svg>
       </div>
@@ -174,7 +174,7 @@
                       }
                   </style>
               </defs>
-              <path class="cls-2 {{($product->isFavoriteOf->isNotEmpty()) ? 'filled' : ''}}" d="M920,845H566a40,40,0,0,1-40-40V340.5a45,45,0,0,1,60.51-42.17L924,386.71a55.08,55.08,0,0,1,36,51.67V805A40,40,0,0,1,920,845Z"
+              <path class="cls-2 {{($test->product->isFavoriteOf->isNotEmpty()) ? 'filled' : ''}}" d="M920,845H566a40,40,0,0,1-40-40V340.5a45,45,0,0,1,60.51-42.17L924,386.71a55.08,55.08,0,0,1,36,51.67V805A40,40,0,0,1,920,845Z"
                 transform="translate(-526 -295.51)" />
           </svg>
       </div>
