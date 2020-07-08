@@ -92,7 +92,7 @@
                       À évaluer
                   </div>
                   @auth
-                  <div class="heart" data-id="{{$product->id}}">
+                  <div class="heart" data-id="{{$test->product->id}}">
                       <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60.47 54.19">
                           <defs>
                               <style>
@@ -146,7 +146,7 @@
                       <p><b>{{$test->rating}}</b></p>
                   </div>
                   @auth
-                  <div class="heart" data-id="{{$product->id}}">
+                  <div class="heart" data-id="{{$test->product->id}}">
                       <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60.47 54.19">
                           <defs>
                               <style>
