@@ -21,7 +21,6 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
     
-    //protected $email = $this->person()->email;
     public function username() {
         return 'email';
     }

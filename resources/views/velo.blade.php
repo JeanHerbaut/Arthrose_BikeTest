@@ -6,7 +6,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <div class="wrapper">
         <div class="header">
-            <a href="#" class="previous round" onclick="history.back()">&laquo;</a>
+            <a href="{{url()->previous()}}" class="previous round">&laquo;</a>
             @auth
             <svg id="Layer_1" data-name="Layer 1" data-id="{{$product->id}}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60.47 54.19">
                 <defs>
@@ -61,7 +61,7 @@
         @endforeach
 
         <div class="wrapper-button">
-            <input type="submit" value="VOIR LES {{count($product->tests)}} COMMENTAIRES">
+            <input type="submit" value="VOIR TOUS LES COMMENTAIRES">
         </div>
     </div>
     <script>

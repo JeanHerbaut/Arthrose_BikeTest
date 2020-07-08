@@ -23,7 +23,6 @@
         "fzaninotto/faker": "^1.9.1",
         "mockery/mockery": "^1.3.1",
         "nunomaduro/collision": "^4.1",
-        "phpdocumentor/phpdocumentor": "dev-master",
         "phpunit/phpunit": "^8.5"
     },
     "config": {

@@ -11,9 +11,11 @@ use App\Product;
 class ExhibitorController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * index
+     * 
+     * Récupère la liste des exposants
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View gestionExposant
      */
     public function index()
     {
@@ -21,7 +23,15 @@ class ExhibitorController extends Controller
         $companies = Company::all();
         return view('gestionExposant', compact('companies'));
     }
-
+    
+    /**
+     * exhibitorDatas
+     *
+     * Récupère les données d'un exposant
+     * 
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
     public function exhibitorDatas(Request $request) {
         $id = (int)$request->companyId;
         $users = User::where('company_id', '=', $id)->with('person')->get();
@@ -34,11 +44,15 @@ class ExhibitorController extends Controller
 
         return (response()->json(['bikes'=>$bikes, 'users' => $users, 'company' =>$company]));
     }
+
+        
     /**
-     * Store a newly created resource in storage.
+     * store
+     * 
+     * Crée un exposant
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function store(Request $request)
     {

@@ -94,6 +94,10 @@
   align-items: center;
   justify-content: flex-start;
   flex: 1;
+  
+}
+.star.unrated{
+  font-size: 1.5rem;
 }
 .star p{
   font-size: 1rem;
@@ -134,4 +138,8 @@ h3{
 .tabcontent {
     display: none;
     height: 100%;
+}
+
+.cls-1.filled {
+  fill: red;
 }

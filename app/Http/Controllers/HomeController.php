@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -16,10 +16,13 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
+        
     /**
-     * Show the application dashboard.
+     * index
+     * 
+     * Affiche la page d'accueil
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return void
      */
     public function index()
     {
