@@ -1,0 +1,38 @@
+
+
+.wrapper-body{
+  z-index: -1;
+  height: 100vh;
+}
+
+#myVideo{
+  display: block;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+
+#myVideoMobile{
+  display: none;
+}
+
+@media screen and (max-width: 700px){
+  #myVideoMobile{
+    display: block;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+  }
+
+  #myVideo{
+    display: none;
+  }
+
+
+}
