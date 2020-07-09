@@ -7,6 +7,7 @@ $.ajaxSetup({
 $("#Layer_1").click(function (e) {
     e.preventDefault();
     let productId = $("#Layer_1").data('id');
+    $('#Layer_1 path').toggleClass('filled');
 
     $.ajax({
         type: 'POST',

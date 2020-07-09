@@ -4,7 +4,7 @@ $.ajaxSetup({
     }
 });
 
-$(".heart").click(function (e) {
+$(".wrapper-velos").on('click', '.heart', function (e) {
     e.preventDefault();
     let productId = $(e.currentTarget).data('id');
     $(e.currentTarget).find('svg > path').toggleClass('filled')

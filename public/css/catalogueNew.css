@@ -255,3 +255,7 @@ button:active {
 .heart svg{
   width: 2.8rem;
 }
+
+.cls-1.filled {
+  fill:red;
+}
