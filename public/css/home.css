@@ -20,6 +20,10 @@
   display: none;
 }
 
+.menu img{
+  padding-bottom: 3px;
+}
+
 .wrapper-body{
   overflow: hidden;
 }
