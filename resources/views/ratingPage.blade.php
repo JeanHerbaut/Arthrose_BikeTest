@@ -112,7 +112,7 @@
           display: inline-block;
           text-transform: uppercase;
           font-size: 13px;
-      
+          p
           -webkit-border-radius: 24px;
           border-radius: 24px;
           -webkit-transition: all 0.3s ease-in-out;
@@ -143,6 +143,10 @@
             border-radius: 5px 5px 5px 5px;
             font-family: "Montserrat";
             height: 150px;
+        }
+        #final{
+          display: flex;
+          justify-content: center;
         }
     </style>
 <div class="wrapper-rating">
@@ -204,7 +208,11 @@
         <input type="hidden" name="test_id" value="{{$test->id}}">
         <textarea id="comment" name="comment" rows="4" cols="50" maxlength="200" placeholder="Commentaire(max 200 caractères)">{{$test->comment}}</textarea>
         @if(!$test->rating)
+        <div id="final">
+
+
         <button type="submit" id="submit">Envoyer</button>
+        </div>
         @endif
 
         </div>
