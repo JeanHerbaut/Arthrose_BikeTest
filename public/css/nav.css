@@ -91,7 +91,13 @@ nav{
 }
 .tkt{
   min-width: 15%;
+}
 
+#menu a:hover{
+  border-bottom: 3px solid green;
+}
+#menu a:active{
+  border-bottom: 3px solid green;
 }
 
 .tkt:nth-of-type(2){
