@@ -83,6 +83,7 @@
           height: 85vh;
           margin-top: 2rem;
           margin-bottom: 10rem;
+          overflow: scroll;
         }
 
         .wrapper-bike{
@@ -111,8 +112,7 @@
           display: inline-block;
           text-transform: uppercase;
           font-size: 13px;
-          -webkit-box-shadow: 0 10px 30px 0 rgba(33, 159, 39, 0.4);
-          box-shadow: 0 10px 30px 0 rgba(27, 142, 35, 0.4);
+      
           -webkit-border-radius: 24px;
           border-radius: 24px;
           -webkit-transition: all 0.3s ease-in-out;
