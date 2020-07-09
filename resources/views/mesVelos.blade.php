@@ -6,13 +6,12 @@
 
 <div class="tab">
 
-    <button class="tablink" onclick="openPage('test')" id="defaultOpen">Test</button>
-    <button class="tablink" onclick="openPage('favoris')">Favoris</button>
+    <button class="tablink tests" onclick="openPage('tests')" id="defaultOpen">Test</button>
+    <button class="tablink favoris" onclick="openPage('favoris')">Favoris</button>
 </div>
 
 <!-- Tab content -->
 <div id="favoris" class="tabcontent">
-    <h3>Favoris</h3>
     <div class="wrapper-velos">
     @if(!count($favProducts))
     <p class="list-empty">Vous n'avez aucun vélo favori pour l'instant.</p>
@@ -75,8 +74,7 @@
   </div>
 </div>
 
-<div id="test" class="tabcontent">
-    <h3>Test</h3>
+<div id="tests" class="tabcontent">
     <div class="wrapper-velos">
 
     @if(!count($tests_rated) && !count($tests_unrated))
@@ -98,25 +96,6 @@
                   <div class="star unrated">
                       À évaluer
                   </div>
-                  @auth
-                  <div class="heart" data-id="{{$test->product->id}}">
-                      <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60.47 54.19">
-                          <defs>
-                              <style>
-                                  .cls-1 {
-                                      stroke: red;
-                                      stroke-miterlimit: 10;
-                                      stroke-width: 3px;
-                                      fill: #fff;
-                                  }
-                              </style>
-                          </defs>
-                          <path class="cls-1 {{($test->product->isFavoriteOf->isNotEmpty()) ? 'filled' : ''}}"
-                            d="M720.5,843.26v2.58a2.57,2.57,0,0,0-.08.38,20.24,20.24,0,0,1-3.39,9.34,39.87,39.87,0,0,1-7,8c-5.27,4.71-10.63,9.33-16,14a3.34,3.34,0,0,1-4.76-.12q-6.13-5.26-12.24-10.56a63.1,63.1,0,0,1-9.54-9.79,21,21,0,0,1-4.23-9.36c-.84-5.52.23-10.6,3.91-14.91a15,15,0,0,1,14.06-5.3,14.67,14.67,0,0,1,9,4.94c.52.56,1,1.16,1.51,1.78l.71-.92c.25-.3.51-.6.78-.88,4.45-4.69,9.82-6.26,16-4.32,5.77,1.83,9.15,6,10.66,11.81C720.2,841,720.31,842.14,720.5,843.26Z"
-                            transform="translate(-661.53 -825.79)" />
-                      </svg>
-                  </div>
-                  @endauth
               </div>
           </div>
           <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 434 549.49">
@@ -152,25 +131,6 @@
                       <img src="{{ asset('img/star.svg') }}" alt="">
                       <p><b>{{$test->rating}}</b></p>
                   </div>
-                  @auth
-                  <div class="heart" data-id="{{$test->product->id}}">
-                      <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60.47 54.19">
-                          <defs>
-                              <style>
-                                  .cls-1 {
-                                      stroke: red;
-                                      stroke-miterlimit: 10;
-                                      stroke-width: 3px;
-                                      fill: #fff;
-                                  }
-                              </style>
-                          </defs>
-                          <path class="cls-1 {{($test->product->isFavoriteOf->isNotEmpty()) ? 'filled' : ''}}"
-                            d="M720.5,843.26v2.58a2.57,2.57,0,0,0-.08.38,20.24,20.24,0,0,1-3.39,9.34,39.87,39.87,0,0,1-7,8c-5.27,4.71-10.63,9.33-16,14a3.34,3.34,0,0,1-4.76-.12q-6.13-5.26-12.24-10.56a63.1,63.1,0,0,1-9.54-9.79,21,21,0,0,1-4.23-9.36c-.84-5.52.23-10.6,3.91-14.91a15,15,0,0,1,14.06-5.3,14.67,14.67,0,0,1,9,4.94c.52.56,1,1.16,1.51,1.78l.71-.92c.25-.3.51-.6.78-.88,4.45-4.69,9.82-6.26,16-4.32,5.77,1.83,9.15,6,10.66,11.81C720.2,841,720.31,842.14,720.5,843.26Z"
-                            transform="translate(-661.53 -825.79)" />
-                      </svg>
-                  </div>
-                  @endauth
               </div>
           </div>
           <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 434 549.49">
@@ -195,7 +155,13 @@
 <script src="{{ asset('js/heartFav.js')}}" type="text/javascript" defer></script>
 <script>
     function openPage(pageName) {
-        let i, tabcontent;
+        let i, tabcontent, tabs, actualTab;
+        tabs = document.getElementsByClassName('tablink')
+        for(let i = 0; i < tabs.length; i++){
+            tabs[i].classList.remove('active');
+        }
+        actualTab = document.querySelector('.'+pageName)
+        actualTab.classList.add("active")
         tabcontent = document.getElementsByClassName("tabcontent");
         for (i = 0; i < tabcontent.length; i++) {
             tabcontent[i].style.display = "none";

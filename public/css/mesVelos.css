@@ -6,7 +6,7 @@
   display: flex;
   flex-wrap: wrap;
   padding: 1rem;
-  padding-top: 2rem;
+  padding-top: 4rem;
   align-content: flex-start;
 }
 
@@ -129,10 +129,17 @@ h3{
     padding: 14px 16px;
     font-size: 17px;
     width: 50%;
+    border-bottom: 3px solid #555;
 }
 
 .tablink:hover {
     background-color: #777;
+    border-bottom: 3px solid #777;
+}
+
+.tablink.active {
+  background-color: #777;
+  border-bottom: 3px solid #1fc344;
 }
 
 .tabcontent {

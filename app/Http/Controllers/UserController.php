@@ -163,7 +163,9 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response $results
      */
     public function search(Request $request){
-        $results = User::where('username', 'like', $request->username.'%')->with('person')
+        $results = User::where('username', 'like', $request->username.'%')->whereHas('roles', function($q) {
+            return $q->where('name', '=', 'visitor');
+        })->with('person')
         ->with(['tests' => function($q) {
             return $q->whereNull('endTime');
         }])->get();

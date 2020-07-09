@@ -84,7 +84,7 @@
                     @enderror
                     <div class="full-input group">
                         <label for="phone" class="form-control-label">Numéro de téléphone</label>
-                        <input type="text" name="phone" id="phone" class="form-control" value="{{ old('phone') }}">
+                        <input type="tel" name="phone" id="phone" class="form-control" value="{{ old('phone') }}">
                     </div>
                     @error('phone')
                     <span class="invalid-feedback" role="alert">
