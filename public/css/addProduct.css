@@ -279,3 +279,7 @@ select {
   justify-content:space-between;
   margin-right: 0rem !important;
 }
+
+strong {
+    color: red;
+}
