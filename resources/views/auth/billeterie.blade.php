@@ -26,7 +26,7 @@
 
                 @foreach($days as $day)
                     <div class="opt-plage">
-                        <h3>{{date('m.d.y', strtotime($day[0]['day']))}}</h3>
+                        <h3>{{$day[0]['day']}}</h3>
                         <div class="sameLine">
                             @foreach($day as $plage)
                                 <input type="radio" name="plage" id="ve{{$plage['id']}}" value="{{$plage['id']}}">
