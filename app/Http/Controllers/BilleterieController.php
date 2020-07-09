@@ -18,7 +18,7 @@ class BilleterieController extends Controller
         $testSchedules = TestSchedule::all();
         $days_array = [];
         $formatedSchedules = [];
-        setlocale(LC_ALL, 'fr');
+        setlocale(LC_ALL, 'fr_CH.utf8');
         foreach($testSchedules as $schedule){
             $startTime = strtotime($schedule['startTime']);
             $endTime = strtotime($schedule['endTime']);
