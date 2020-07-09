@@ -35,7 +35,7 @@
       @if(Auth::check())
 
       <div class="tkt user-icon online" id="tkt2">
-        <p>Connected as {{Auth::user()->username}}</p>
+        <p>{{Auth::user()->username}}</p>
         <a href="#"><img src="{{ asset('img/user-icon.svg') }}" alt=""></a>
       </div>
       @else
