@@ -57,6 +57,24 @@ class CriteriaTestSeeder extends Seeder
         ]);
 
 
+        DB::table('criteria_test')->insert([
+            'test_id' => 3,
+            'criteria_id' => '1',
+        ]);
+        DB::table('criteria_test')->insert([
+            'test_id' => 3,
+            'criteria_id' => '2',
+        ]);
+        DB::table('criteria_test')->insert([
+            'test_id' => 3,
+            'criteria_id' => '3',
+        ]);
+        DB::table('criteria_test')->insert([
+            'test_id' => 3,
+            'criteria_id' => '6',
+        ]);
+
+
 
         DB::table('criteria_test')->insert([
             'test_id' => 4,
