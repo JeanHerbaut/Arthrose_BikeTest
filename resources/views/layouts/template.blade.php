@@ -20,7 +20,7 @@
         <a href="{{url('/')}}"><img src="{{ asset('img/logoBikeTest.png') }}" alt=""></a>
       </div>
       <ul id="menu">
-        <li><a href="#">Infos</a> </li>
+        <li><a href="{{url('/')}}">Infos</a> </li>
         <li><a href="{{url('/catalogue')}}">Catalogue</a> </li>
         @can('viewMyProducts', App\User::class)
         <li><a href="{{url('/mesvelos')}}">Mes vélos</a> </li>
@@ -34,12 +34,12 @@
       </ul>
       @if(Auth::check())
 
-      <div class="tkt user-icon online">
+      <div class="tkt user-icon online" id="tkt2">
         <p>Connected as {{Auth::user()->username}}</p>
         <a href="#"><img src="{{ asset('img/user-icon.svg') }}" alt=""></a>
       </div>
       @else
-      <div class="user-icon">
+      <div class="user-icon tkt">
         <a href="{{url('/login')}}"><img src="{{ asset('img/user-icon.svg') }}" alt=""></a>
       </div>
       @endif
@@ -153,7 +153,7 @@
 
       </div>
       <div class="menu">
-        <a href="#"><img src="{{ asset('img/bicycle-01.png') }}" alt=""></a>
+        <a href="{{url('/')}}"><img src="{{ asset('img/bicycle-01.png') }}" alt=""></a>
         <p>Infos</p>
       </div>
       <div class="menu">
@@ -169,13 +169,13 @@
       @endcan
       @can('manage', App\Test::class)
       <div class="menu">
-        <a href="{{url('/gestion-test')}}"><img src="{{ asset('img/Seb.png') }}" alt=""></a>
+        <a href="{{url('/gestion-test')}}"><img src="{{ asset('img/write.png') }}" alt=""></a>
         <p>Tests</p>
       </div>
       @endcan
       @guest
       <div class="menu">
-        <a href="{{url('/billeterie')}}"><img src="{{ asset('img/Kevin.png') }}" alt=""></a>
+        <a href="{{url('/billeterie')}}"><img src="{{ asset('img/coupon.png') }}" alt=""></a>
         <p>Billeterie</p>
       </div>
       @endguest
