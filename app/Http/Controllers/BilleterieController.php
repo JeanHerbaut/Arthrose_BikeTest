@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-//use Illuminate\Http\Request;
 use App\TestSchedule;
-//use stdClass;
 
 class BilleterieController extends Controller
 {
@@ -25,7 +23,6 @@ class BilleterieController extends Controller
             $startTime = strtotime($schedule['startTime']);
             $endTime = strtotime($schedule['endTime']);
             $day = strftime('%A %d %B', $startTime);
-            //array_push($days, (object)[$day=>[]]);
             $days_array[$day] = [];
             $schedule['day'] = $day;
             $schedule['startTime'] = date('H:i', $startTime);
